@@ -111,7 +111,7 @@ fun QuroAboutScreen(onBack: () -> Unit = {}) {
                 verticalArrangement = Arrangement.spacedBy(6.dp),
             ) {
                 Text(
-                    "Zorv AI",
+                    "温糯",
                     style = MaterialTheme.typography.headlineMedium.copy(
                         fontFamily = FontFamily.Serif,
                         fontWeight = FontWeight.SemiBold,
@@ -220,7 +220,7 @@ fun QuroAboutScreen(onBack: () -> Unit = {}) {
                 SetRowClickable(
                     icon = Icons.Filled.Code,
                     name = stringResource(R.string.qk_00517),
-                    sub = "Zorv AI",
+                    sub = "温糯",
                     onClick = { },
                 )
             }
