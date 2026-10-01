@@ -22,20 +22,6 @@ android {
     compileSdk = 36
     ndkVersion = "27.0.12077973" // 与独立编译 libquroplugin.so 的 NDK 一致（r27）
 
-    signingConfigs {
-        // 使用 keystore.properties 中配置的签名证书
-        create("release") {
-            storeFile = file(keystoreProperties["storeFile"] as String)
-            storePassword = keystoreProperties["storePassword"] as String
-            keyAlias = keystoreProperties["keyAlias"] as String
-            keyPassword = keystoreProperties["keyPassword"] as String
-            // 启用 V1+V2 签名：V1 签名兼容旧安装器，V2 签名提供更好的安全性
-            // version-control-info 已被禁用，不会污染 V1 签名链
-            enableV1Signing = true
-            enableV2Signing = true
-            enableV3Signing = true
-        }
-    }
 
     defaultConfig {
         applicationId = "com.ai.assistance.quro"
