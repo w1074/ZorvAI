@@ -20,7 +20,7 @@ jobs:
       - name: Create dummy keystore.properties
         run: |
           cat > keystore.properties << 'KEY'
-          storeFile=/tmp/dummy.jks
+          storeFile=
           storePassword=dummy
           keyAlias=dummy
           keyPassword=dummy

@@ -26,7 +26,6 @@ android {
             isMinifyEnabled = false
             isShrinkResources = false
             // 使用系统默认 debug 签名，第三方开发者无需持有主应用私钥
-            signingConfig = signingConfigs.getByName("debug")
         }
     }
 

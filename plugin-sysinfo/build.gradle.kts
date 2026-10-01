@@ -54,10 +54,8 @@ android {
     buildTypes {
         release {
             isMinifyEnabled = false
-            if (keystorePath.isNotEmpty()) signingConfig = signingConfigs.getByName("release")
         }
         debug {
-            if (keystorePath.isNotEmpty()) signingConfig = signingConfigs.getByName("release")
         }
     }
 

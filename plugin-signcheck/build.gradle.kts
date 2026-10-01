@@ -64,12 +64,10 @@ android {
         release {
             isMinifyEnabled = false
             if (keystorePath.isNotEmpty() && !wantUnsigned) {
-                signingConfig = signingConfigs.getByName("release")
             }
         }
         debug {
             if (keystorePath.isNotEmpty() && !wantUnsigned) {
-                signingConfig = signingConfigs.getByName("release")
             }
         }
     }
