@@ -1,9 +1,6 @@
 pluginManagement {
     repositories {
         // 阿里云镜像优先：本机直连 Maven Central / Google 不通，先走镜像避免超时重试导致的解析失败
-        maven { url = uri("https://maven.aliyun.com/repository/gradle-plugin") }
-        maven { url = uri("https://maven.aliyun.com/repository/public") }
-        maven { url = uri("https://maven.aliyun.com/repository/google") }
         google()
         gradlePluginPortal()
         mavenCentral()
@@ -13,9 +10,6 @@ dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
         // 阿里云镜像优先：本机直连 Maven Central / Google 不通，先走镜像避免超时
-        maven { url = uri("https://maven.aliyun.com/repository/public") }
-        maven { url = uri("https://maven.aliyun.com/repository/google") }
-        maven { url = uri("https://maven.aliyun.com/repository/gradle-plugin") }
         google()
         mavenCentral()
         maven { url = uri("https://jitpack.io") }
