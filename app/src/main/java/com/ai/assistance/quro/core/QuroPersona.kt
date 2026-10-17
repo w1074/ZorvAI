@@ -177,7 +177,7 @@ class QuroPersonaRepository(val context: Context) {
 
         return listOf(
             QuroPersona(
-                id = ZORV_AI_ID,
+                id = ECHO_AI_ID,
                 name = "温糯",
                 avatarEmoji = "✦",
                 avatarType = "image",
