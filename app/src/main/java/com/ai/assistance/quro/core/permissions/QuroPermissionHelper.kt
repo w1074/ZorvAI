@@ -185,7 +185,7 @@ object QuroPermissionHelper {
                 putExtra(":settings:fragment_args_key", cn.flattenToString())
                 putExtra("EXTRA_FRAGMENT_ARG_KEY", cn.flattenToString())
             },
-            note = if (enabled) "" else "在系统「无障碍」列表中找到「ZorvAI 无障碍」并开启",
+            note = if (enabled) "" else "在系统「无障碍」列表中找到「Echo AI 无障碍」并开启",
         )
     }
 
@@ -214,7 +214,7 @@ object QuroPermissionHelper {
             note = when {
                 !installed -> "未安装 Shizuku，请先在应用商店安装"
                 authorized -> "已授权，可正常调用"
-                else -> "请在 Shizuku 中授权 Zorv AI 并确保其正在运行"
+                else -> "请在 Shizuku 中授权 Echo AI 并确保其正在运行"
             },
         )
     }
@@ -235,7 +235,7 @@ object QuroPermissionHelper {
             desc = "锁定屏幕、禁用/恢复摄像头（仅此两项）",
             granted = active,
             guideIntent = intent,
-            note = if (active) "" else "在系统「设备管理员」中激活 Zorv AI",
+            note = if (active) "" else "在系统「设备管理员」中激活 Echo AI",
         )
     }
 
@@ -257,7 +257,7 @@ object QuroPermissionHelper {
         val verified: Boolean? = QuroRootGateway.cachedRootAvailable()
         val note = when {
             verified == true -> "已实测：su 授权可用"
-            verified == false && suBinaryPresent -> "检测到 su 二进制，但本应用未获授权（请在 Magisk/KernelSU 中允许 Zorv AI）"
+            verified == false && suBinaryPresent -> "检测到 su 二进制，但本应用未获授权（请在 Magisk/KernelSU 中允许 Echo AI）"
             verified == false -> "未检测到可用的 su"
             suBinaryPresent -> "检测到 su 二进制，但尚未验证授权 —— 打开「系统权限 → L4 Root」可实测"
             else -> "需设备已 root 并授权本应用；无法在应用内直接获取"

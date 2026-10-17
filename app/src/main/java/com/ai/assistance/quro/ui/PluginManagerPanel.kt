@@ -864,7 +864,7 @@ private fun extLabel(type: String): String = when (type) {
  * 「导入 APK → 先签名 → 再安装」的开关卡片。
  *
  * 插件由宿主进程加载、权限等同宿主，所以只有与宿主**同签名**的插件才允许安装。
- * 补签固定使用内置宿主密钥（zorvai_release.p12/bks），没有自定义密钥库选项。
+ * 补签固定使用内置宿主密钥（echoai_release.p12/bks），没有自定义密钥库选项。
  */
 @Composable
 private fun SigningCard(

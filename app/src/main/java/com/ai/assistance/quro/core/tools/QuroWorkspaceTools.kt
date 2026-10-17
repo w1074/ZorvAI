@@ -6,7 +6,7 @@ import android.content.Context
 import java.io.File
 
 /**
- * 工作区 AI 工具（原创）：让 ZorvAI 的 AI 直接读写 ZorvAI 自己的 QuroWorkspace 沙箱
+ * 工作区 AI 工具（原创）：让 Echo AI 的 AI 直接读写 Echo AI 自己的 QuroWorkspace 沙箱
  * （<外部files>/QuroWorkspace，也就是「工具箱-工作区」里展示的那个目录）。
  *
  * 协作模型（与构建台 ACI 打通）：

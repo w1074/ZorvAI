@@ -76,7 +76,7 @@ class MediaPermissionHelper(private val activity: AppCompatActivity) {
      *
      * @param fileName  文件名（含扩展名）
      * @param mimeType  MIME 类型，如 "text/html"
-     * @param subDir    Download 下的子目录，默认 "ZorvAI"
+     * @param subDir    Download 下的子目录，默认 "Echo AI"
      * @param data      文件字节
      * @return 写入后的 Uri；失败返回 null
      */
@@ -84,7 +84,7 @@ class MediaPermissionHelper(private val activity: AppCompatActivity) {
         context: Context,
         fileName: String,
         mimeType: String,
-        subDir: String = "ZorvAI",
+        subDir: String = "Echo AI",
         data: ByteArray
     ): Uri? {
         val resolver = context.contentResolver

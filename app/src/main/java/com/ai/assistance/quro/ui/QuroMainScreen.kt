@@ -33,7 +33,7 @@ fun QuroApp(
     val personaVm = remember { QuroPersonaViewModel(ctx) }
 
     // 注：原先这里挂着「GenUI 对话框」全屏分支（genuiType == "genui" → QuroGenUiApp）
-    // 以及 ZorvAI ↔ GenUI 的双向调用桥 GenUiBridge。整套旧 GenUI（画布 + 自研 Web 应用引擎 +
+    // 以及 Echo AI ↔ GenUI 的双向调用桥 GenUiBridge。整套旧 GenUI（画布 + 自研 Web 应用引擎 +
     // Web 应用）已按要求**全部删除**，改为内置完整的 GenUI-Agent 作为**独立应用**
     // （com.ai.assistance.quro.genui.aiapp，工具 genui_agent_open 拉起）。
     // 因此主壳不再需要按会话类型切换渲染面，恒为普通对话框。

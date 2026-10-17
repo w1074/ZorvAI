@@ -93,7 +93,7 @@ class QuroBotBootstrapService : Service() {
         val nm = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val chan = NotificationChannel(
-                CHANNEL_ID, "Zorv 机器人", NotificationManager.IMPORTANCE_LOW,
+                CHANNEL_ID, "Echo 机器人", NotificationManager.IMPORTANCE_LOW,
             ).apply { description = qstr(R.string.qk_03660) }
             nm.createNotificationChannel(chan)
         }
@@ -103,7 +103,7 @@ class QuroBotBootstrapService : Service() {
             PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT,
         )
         return NotificationCompat.Builder(this, CHANNEL_ID)
-            .setContentTitle("Zorv AI 机器人运行中")
+            .setContentTitle("Echo AI 机器人运行中")
             .setContentText("飞书 / QQ / 微信 机器人已在后台连接")
             .setSmallIcon(android.R.drawable.ic_dialog_info)
             .setContentIntent(pi)

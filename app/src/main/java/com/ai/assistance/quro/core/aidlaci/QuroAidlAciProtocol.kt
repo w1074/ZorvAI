@@ -3,7 +3,7 @@ package com.ai.assistance.quro.core.aidlaci
 /**
  * ACI 2.0 协议版本化（P0 协议内核种子，依托 aci-core 框架集成）。
  *
- * 协议版本独立于 ZorvAI 主程序版本，遵循 SemVer 语义：
+ * 协议版本独立于 Echo AI 主程序版本，遵循 SemVer 语义：
  * - Minor（如 1.1）：向后兼容，仅新增可选字段/能力；
  * - Major（如 2.0）：不兼容变更，必须提供兼容适配器；
  * - 协商：两端比对支持的最高兼容版本。

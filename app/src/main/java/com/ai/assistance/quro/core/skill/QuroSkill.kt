@@ -36,7 +36,7 @@ data class QuroSkill(
     /** 是否常驻系统提示词（true=默认进系统提示词；false=仅在触发词命中时按需注入，避免与常驻重复）。 */
     val alwaysOn: Boolean = true,
     /**
-     * 套件分组 id（空串 = 未分组/通用）。内置 Zorv 技能按 `manifest.json` 里的 `suite` 字段播种；
+     * 套件分组 id（空串 = 未分组/通用）。内置 Echo 技能按 `manifest.json` 里的 `suite` 字段播种；
      * 一组逻辑相关的技能归入同一套件（如 cloudflare / douyin-tiktok / deploy / search 等），
      * 技能页按套件折叠展示，不再是一长串零散条目。
      */
@@ -146,7 +146,7 @@ data class QuroSkill(
 }
 
 /**
- * 套件（Suite）元数据：内置 Zorv 技能按业务域归并成「套件」，技能页按套件折叠展示。
+ * 套件（Suite）元数据：内置 Echo 技能按业务域归并成「套件」，技能页按套件折叠展示。
  * 一组逻辑相关的技能归入同一套件 id（见 manifest.json 的 `suite` 字段）。
  *
  * - [ORDER] 决定套件在列表里的展示顺序（数组下标越小越靠前）。
@@ -209,7 +209,7 @@ object QuroSkillSuites {
  */
 object SkillSigner {
     /** 内置 HMAC salt（与构建期签名脚本保持一致）。仅用于随包资产完整性校验。 */
-    const val SALT = "zorv-ai-builtin-skill-sign-v1"
+    const val SALT = "echo-ai-builtin-skill-sign-v1"
 
     /** 计算规范签名串：id|name|fileContent 的 HMAC-SHA256（hex）。 */
     fun sign(id: String, name: String, content: String): String = hmacSha256("$id|$name|$content", SALT)
@@ -244,10 +244,10 @@ object QuroSkillStore {
     /**
      * 按 id 去重：保留首次出现，丢弃后续重复项。
      *
-     * 背景（崩溃修复 #3）：旧版本 manifest 曾短暂播种过重复 id（如 zorv_ff8e876ec646），
+     * 背景（崩溃修复 #3）：旧版本 manifest 曾短暂播种过重复 id（如 echo_ff8e876ec646），
      * 部分设备 SharedPreferences 里残留两条同 id 记录。本 App 技能页 LazyColumn 用 skill.id
      * 作 key，重复 key 直接抛 `IllegalArgumentException: Key "xxx" was already used` 崩进程。
-     * 播种是幂等的（KEY_BUILTIN_ZORV 守卫）不会主动清理，所以在此对读出数据做兜底去重，
+     * 播种是幂等的（KEY_BUILTIN_ECHO 守卫）不会主动清理，所以在此对读出数据做兜底去重，
      * 让任何残留重复都无法抵达 UI。
      */
     private fun dedupeById(list: List<QuroSkill>): List<QuroSkill> {
@@ -305,8 +305,8 @@ object QuroSkillStore {
     }
 
     /**
-     * 首次启动把 assets/skills/zorv/ 下随包内置的 Zorv AI 技能播种进用户技能库。
-     * 用 manifest.json 里的稳定 id（zorv_<sha1>），幂等：已存在则跳过，用户删过也不会被强制加回。
+     * 首次启动把 assets/skills/echo/ 下随包内置的 Echo AI 技能播种进用户技能库。
+     * 用 manifest.json 里的稳定 id（echo_<sha1>），幂等：已存在则跳过，用户删过也不会被强制加回。
      *
      * ⚠️ 默认 enabled=false / callable=false / alwaysOn=false：
      * - 内置技能的定位是「注入系统提示词的行为约束 / 能力说明」，不应默认全部开启、更不应
@@ -317,18 +317,18 @@ object QuroSkillStore {
      * 这一组教会模型「怎么写对界面」，是 GenUI 渲染质量的地基（见 [designSkills]）。
      * 仍然 callable=false（不注册成工具，避免重演工具爆炸）+ alwaysOn=false（按触发词注入，不常驻）。
      */
-    private const val KEY_BUILTIN_ZORV = "builtin_zorv_v1"
+    private const val KEY_BUILTIN_ECHO = "builtin_echo_v1"
 
     /** 设计/美术套件：默认启用、按需注入的那组内建技能。 */
     const val SUITE_DESIGN = "design-studio"
 
-    fun seedBuiltinZorvSkills(context: Context) {
+    fun seedBuiltinEchoSkills(context: Context) {
         val prefs = context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
-        if (prefs.getBoolean(KEY_BUILTIN_ZORV, false)) return
-        prefs.edit().putBoolean(KEY_BUILTIN_ZORV, true).apply()
+        if (prefs.getBoolean(KEY_BUILTIN_ECHO, false)) return
+        prefs.edit().putBoolean(KEY_BUILTIN_ECHO, true).apply()
         runCatching {
             val am = context.assets
-            val manifest = JSONObject(am.open("skills/zorv/manifest.json").bufferedReader().readText())
+            val manifest = JSONObject(am.open("skills/echo/manifest.json").bufferedReader().readText())
             val arr = manifest.optJSONArray("skills") ?: return@runCatching
             val existing = loadRaw(context).map { it.id }.toSet()
             val list = loadRaw(context).toMutableList()
@@ -339,7 +339,7 @@ object QuroSkillStore {
                 val suite = o.optString("suite", "").trim()
                 val signature = o.optString("signature", "").trim()
                 if (id.isEmpty() || file.isEmpty() || id in existing) continue
-                val md = runCatching { am.open("skills/zorv/$file").bufferedReader().readText() }.getOrNull() ?: continue
+                val md = runCatching { am.open("skills/echo/$file").bufferedReader().readText() }.getOrNull() ?: continue
                 val parsed = parseSkillMd(md).firstOrNull() ?: continue
                 // 签名排查：用随包签名校验内置技能内容完整性；缺失签名→unsigned，不符→failed。
                 val signState = when {
@@ -367,26 +367,26 @@ object QuroSkillStore {
     }
 
     /**
-     * 一次性迁移（离线模型卡死修复配套）：把历史已播种的内置 Zorv 技能（id 以 "zorv_" 开头）
+     * 一次性迁移（离线模型卡死修复配套）：把历史已播种的内置 Echo 技能（id 以 "echo_" 开头）
      * 翻转为 enabled=false / callable=false / alwaysOn=false。
      *
-     * 背景：旧版本 seedBuiltinZorvSkills 把 62 个内置技能默认 enabled=true && callable=true，
+     * 背景：旧版本 seedBuiltinEchoSkills 把 62 个内置技能默认 enabled=true && callable=true，
      * 导致它们被注册成 skill__* function-calling 工具。一旦用户在「本地模型」开启工具调用，
      * 整套云端工具集（含 60+ 技能工具）被塞给 1.2B 本地模型 → 一直"正在处理提示词"卡死 /
      * 调一次工具就乱码。内置技能的定位本是「注入系统提示词的行为约束」，不该默认成为工具。
-     * 幂等（KEY_BUILTIN_ZORV_CALLABLE_FIX 守卫）；新装设备由 seedBuiltinZorvSkills 的新默认值兜底。
+     * 幂等（KEY_BUILTIN_ECHO_CALLABLE_FIX 守卫）；新装设备由 seedBuiltinEchoSkills 的新默认值兜底。
      */
-    private const val KEY_BUILTIN_ZORV_CALLABLE_FIX = "builtin_zorv_offline_callable_fix_v1"
+    private const val KEY_BUILTIN_ECHO_CALLABLE_FIX = "builtin_echo_offline_callable_fix_v1"
 
     fun migrateBuiltinSkillsOff(context: Context) {
         val prefs = context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
-        if (prefs.getBoolean(KEY_BUILTIN_ZORV_CALLABLE_FIX, false)) return
-        prefs.edit().putBoolean(KEY_BUILTIN_ZORV_CALLABLE_FIX, true).apply()
+        if (prefs.getBoolean(KEY_BUILTIN_ECHO_CALLABLE_FIX, false)) return
+        prefs.edit().putBoolean(KEY_BUILTIN_ECHO_CALLABLE_FIX, true).apply()
         val list = loadRaw(context)
         var changed = false
         val out = list.map { s ->
             // 设计套件是例外：它默认开，不能被这次「全部关掉」的迁移误伤
-            if (s.id.startsWith("zorv_") && s.suite != SUITE_DESIGN && (s.enabled || s.callable || s.alwaysOn)) {
+            if (s.id.startsWith("echo_") && s.suite != SUITE_DESIGN && (s.enabled || s.callable || s.alwaysOn)) {
                 changed = true
                 s.copy(enabled = false, callable = false, alwaysOn = false, updatedAt = System.currentTimeMillis())
             } else s
@@ -401,14 +401,14 @@ object QuroSkillStore {
      * 界面质量全靠模型自己猜 —— 这是「组件不好看 / 大片空白 / 文字叠印」的根因之一。
      * 设计套件改为默认启用，但**保持 callable=false**：只注入提示词，不注册成 function-calling 工具，
      * 因此不会重演离线模型被 60+ 技能工具压垮的问题。
-     * 幂等（KEY_BUILTIN_ZORV_DESIGN_ON 守卫）；新装设备由 seedBuiltinZorvSkills 的默认值兜底。
+     * 幂等（KEY_BUILTIN_ECHO_DESIGN_ON 守卫）；新装设备由 seedBuiltinEchoSkills 的默认值兜底。
      */
-    private const val KEY_BUILTIN_ZORV_DESIGN_ON = "builtin_zorv_design_on_v1"
+    private const val KEY_BUILTIN_ECHO_DESIGN_ON = "builtin_echo_design_on_v1"
 
     fun migrateDesignSkillsOn(context: Context) {
         val prefs = context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
-        if (prefs.getBoolean(KEY_BUILTIN_ZORV_DESIGN_ON, false)) return
-        prefs.edit().putBoolean(KEY_BUILTIN_ZORV_DESIGN_ON, true).apply()
+        if (prefs.getBoolean(KEY_BUILTIN_ECHO_DESIGN_ON, false)) return
+        prefs.edit().putBoolean(KEY_BUILTIN_ECHO_DESIGN_ON, true).apply()
         val list = loadRaw(context)
         var changed = false
         val out = list.map { s ->
@@ -423,7 +423,7 @@ object QuroSkillStore {
     /**
      * 当前启用、可被注入提示词的设计/美术套件技能。
      *
-     * GenUI Agent 的大脑（ZorvBrain）用它拼「界面手艺 + 配色 + 自检 + 模式库」这几层，
+     * GenUI Agent 的大脑（EchoBrain）用它拼「界面手艺 + 配色 + 自检 + 模式库」这几层，
      * 让模型在生成界面前就有规矩可依；用户在「技能」页关掉哪个，这里就少哪个。
      */
     fun designSkills(context: Context): List<QuroSkill> =
@@ -437,7 +437,7 @@ object QuroSkillStore {
      * 这正是「组件不好看 / 大片空白 / 文字叠印」的根因。主对话的按需注入仍可走 [designSkills]（遵守开关），
      * 但 GenUI 强制带这套规范，不让用户在技能页随手关掉就废掉界面质量。
      *
-     * 兜底：若用户技能库为空（极端情况），直接从随包 assets/skills/zorv 解析，保证 GenUI 永远拿得到规范。
+     * 兜底：若用户技能库为空（极端情况），直接从随包 assets/skills/echo 解析，保证 GenUI 永远拿得到规范。
      */
     fun designSkillsForGenUI(context: Context): List<QuroSkill> {
         val fromStore = runCatching {
@@ -452,7 +452,7 @@ object QuroSkillStore {
         return runCatching {
             val am = context.assets
             val manifest = JSONObject(
-                am.open("skills/zorv/manifest.json").bufferedReader().readText()
+                am.open("skills/echo/manifest.json").bufferedReader().readText()
             )
             val arr = manifest.optJSONArray("skills") ?: return@runCatching emptyList()
             val out = mutableListOf<QuroSkill>()
@@ -462,7 +462,7 @@ object QuroSkillStore {
                 val id = o.optString("id", "")
                 val file = o.optString("file", "")
                 if (id.isEmpty() || file.isEmpty()) continue
-                val md = runCatching { am.open("skills/zorv/$file").bufferedReader().readText() }.getOrNull()
+                val md = runCatching { am.open("skills/echo/$file").bufferedReader().readText() }.getOrNull()
                     ?: continue
                 val parsed = parseSkillMd(md).firstOrNull() ?: continue
                 out.add(parsed.copy(id = id, suite = SUITE_DESIGN, enabled = true, callable = false, alwaysOn = false))
@@ -473,7 +473,7 @@ object QuroSkillStore {
 
     fun load(context: Context): List<QuroSkill> {
         clearBuiltinSkillsOnce(context)
-        seedBuiltinZorvSkills(context)
+        seedBuiltinEchoSkills(context)
         migrateBuiltinSkillsOff(context)
         migrateDesignSkillsOn(context)
         val out = mutableListOf<QuroSkill>()
@@ -518,7 +518,7 @@ object QuroSkillStore {
     fun verifyBuiltinSignatures(context: Context): SkillVerifyReport {
         val am = context.assets
         val manifest = runCatching {
-            JSONObject(am.open("skills/zorv/manifest.json").bufferedReader().readText())
+            JSONObject(am.open("skills/echo/manifest.json").bufferedReader().readText())
         }.getOrNull() ?: return SkillVerifyReport(0, 0, 0, 0, emptyList())
         val arr = manifest.optJSONArray("skills") ?: return SkillVerifyReport(0, 0, 0, 0, emptyList())
         var verified = 0
@@ -530,7 +530,7 @@ object QuroSkillStore {
             val id = o.optString("id", "")
             val file = o.optString("file", "")
             val signature = o.optString("signature", "").trim()
-            val md = runCatching { am.open("skills/zorv/$file").bufferedReader().readText() }.getOrNull() ?: continue
+            val md = runCatching { am.open("skills/echo/$file").bufferedReader().readText() }.getOrNull() ?: continue
             val name = parseSkillMd(md).firstOrNull()?.name ?: o.optString("name", id)
             when {
                 signature.isBlank() -> unsigned++

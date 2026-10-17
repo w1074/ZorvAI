@@ -36,7 +36,7 @@ class QuroSandboxTool : QuroTool {
 {"action":"read","path":"hello.txt"}
 {"action":"list"}
 {"action":"grep","pattern":"error","path":"logs"}
-{"action":"edit","path":"hello.txt","old_string":"world","new_string":"ZorvAI"}
+{"action":"edit","path":"hello.txt","old_string":"world","new_string":"Echo AI"}
 {"action":"reset"}
 {"action":"status"}"""
     override val parametersJson = """{

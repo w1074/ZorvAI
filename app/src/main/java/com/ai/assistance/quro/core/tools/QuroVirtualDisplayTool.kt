@@ -122,7 +122,7 @@ class QuroVirtualDisplayTool(private val context: Context) : QuroTool {
      * 启动虚拟显示器
      */
     private fun startDisplay(args: JSONObject): QuroToolResult {
-        val displayName = args.optString("display_name", "ZorvAI虚拟显示器")
+        val displayName = args.optString("display_name", "Echo AI虚拟显示器")
         val width = args.optInt("width", 1080)
         val height = args.optInt("height", 1920)
         

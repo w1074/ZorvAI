@@ -579,7 +579,7 @@ class QuroChatViewModel(context: Context) : ViewModel() {
 
     // 注：原先此处有 generateGenUi / lastGenUiHtml / pushGenUiHtmlToChat /
     // pushGenUiMiniAppToChat / pushGenUiTextToChat 五个方法，用于把旧 GenUI 画布的产物
-    // 回流进 ZorvAI 对话框。旧 GenUI 已整体删除（新 GenUI-Agent 是独立内置应用，
+    // 回流进 Echo AI 对话框。旧 GenUI 已整体删除（新 GenUI-Agent 是独立内置应用，
     // 自己持有会话，不再需要回流通道）。
     /**
      * 删除单条/聚合气泡对应的底层消息（v417 对话框缺失功能补全）�?
@@ -840,7 +840,7 @@ class QuroChatViewModel(context: Context) : ViewModel() {
                 // 回复完成 �? 统一触发通知（离开软件弹系统通知 + 刷新桌面卡片，受总开关控制）
                 runCatching {
                     store.all().lastOrNull { it.role == "assistant" && !it.hidden && it.content.isNotBlank() }
-                        ?.let { fireReplyNotification("Zorv AI", it.content) }
+                        ?.let { fireReplyNotification("Echo AI", it.content) }
                 }
                 } catch (e: Exception) {
                     // 🔧 Bug修复「取消被当成错误展示」：取消信号（用户停�?/同会话新消息 barge-in�?
@@ -941,7 +941,7 @@ class QuroChatViewModel(context: Context) : ViewModel() {
             commitCurrent()
             val reply = runVoiceAsk(cfg) { commitCurrent() }
             commitCurrent()
-            fireReplyNotification("Zorv AI", reply)
+            fireReplyNotification("Echo AI", reply)
             return reply
         }
 
@@ -976,7 +976,7 @@ class QuroChatViewModel(context: Context) : ViewModel() {
             }
             convRepo.saveAll(_convs.value)
             emitMeta()
-            fireReplyNotification("Zorv AI", reply)
+            fireReplyNotification("Echo AI", reply)
             reply
         } finally {
             store.clear()
@@ -1176,11 +1176,11 @@ class QuroChatViewModel(context: Context) : ViewModel() {
     // ---- 人格�? / 记忆�? 接线 ----
 
     /** 项目开源地址（GitHub 仓库）�? */
-    private val QURO_REPO_URL = "https://github.com/Quor-a/ZorvAI"
+    private val QURO_REPO_URL = "https://github.com/Quor-a/Echo AI"
 
     /** 默认系统提示词（未激活任何人格卡时使用）�? */
     private val DEFAULT_SYSTEM =
-        """你是运行�? Zorv AI 这个端侧运行环境里的 AI 助手（当前未启用特定人格卡，以通用身份应答），乐于助人、简洁准确�?
+        """你是运行�? Echo AI 这个端侧运行环境里的 AI 助手（当前未启用特定人格卡，以通用身份应答），乐于助人、简洁准确�?
 
 ## 工具调用（主动执行）
 你已接入了设备工具调用能力，遇到需要真实数据或真实动作的需求就主动调用——无需等用户明�?"帮我打开/查一�?"才行动�?
@@ -1229,7 +1229,7 @@ class QuroChatViewModel(context: Context) : ViewModel() {
 
 ## 自我认知（System Manifest�?
 你是运行�? Android 设备上的原生 AI 助手。以下是你的真实档案�?
-- **名称**：Zorv AI 助手（通用模式；启用人格卡后你的真实名字会变成该人格卡�?
+- **名称**：Echo AI 助手（通用模式；启用人格卡后你的真实名字会变成该人格卡�?
 - **平台**：Android（原生应用，非网�?/Web 应用）
 - **架构模式**：ReAct 工具调用循环（LLM �? 工具执行 �? 结果回灌 �? 最终答复）
 - **技术栈**：Jetpack Compose UI / Kotlin / OkHttp / WebView 内置浏览�?
@@ -1674,7 +1674,7 @@ $recent
         // 现改为：开头给完整指令（点破「提示词是中文 ≠ 回复用中文」），末尾再复述一次（见本函数结尾）。
         sb.append(QuroReplyLanguage.directive(appContext))
 
-        // ══════════════ 第一优先级：身份认知（人格卡 = AI 真实身份；Zorv AI = 开发者；运行环境靠工具自行发现） ══════════════
+        // ══════════════ 第一优先级：身份认知（人格卡 = AI 真实身份；Echo AI = 开发者；运行环境靠工具自行发现） ══════════════
         // ══════════════ 灵魂层（人格/标签/语音/记忆）由自写编排引擎生成 ══════════════
         // Project B0：QuroSoulPromptEngine 负责"这张人格卡是谁、怎么说话、记得什么、用什么声�?"�?
         // 与平台基�? / 工具清单 / 用户技能解耦（下方由调用方拼接）�?
@@ -1693,7 +1693,7 @@ $recent
         sb.append(QuroSoulPromptEngine.build(soulCtx)).append("\n")
 
         // ══════════════ 第二优先级：自我认知 + 工具调用原则（不列工具清单） ══════════════
-        // 平台/品牌基座（QuroPlatformManifest.SYSTEM）已声明「你�? Zorv AI」与「必须调用工具」，
+        // 平台/品牌基座（QuroPlatformManifest.SYSTEM）已声明「你�? Echo AI」与「必须调用工具」，
         // 人格仅作为上方叠加的扮演层，此处不再重复品牌与工具原则�?
 
         // ══════════════ Agent 模式：语言分工 + AI 自主决策 ══════════════
@@ -2111,7 +2111,7 @@ $recent
 ---
 ## 🧩 APK 级插件框架（你可以给自己装能力）
 
-ZorvAI 有一套 **APK 级插件系统**：插件是**独立 APK**，宿主用 DexClassLoader 装进来，
+Echo AI 有一套 **APK 级插件系统**：插件是**独立 APK**，宿主用 DexClassLoader 装进来，
 插件注册「扩展点」即可给你增加能力——**AI 工具 / ACI 能力 / 对话卡片 / 内联组件 /
 斜杠指令 / 插件自带界面 / 模型接入 / 知识源 / 定时任务 / 消息渠道 / 文件处理器 / 代码运行时 / 语音**。
 宿主代码不需要为每个插件改动。
@@ -2143,7 +2143,7 @@ ZorvAI 有一套 **APK 级插件系统**：插件是**独立 APK**，宿主用 D
 """.trimIndent())
 
         // ══════════════ 生成式界面（GenUI）交接 ══════════════
-        // 旧实现：ZorvAI 通过 genui_open 工具把「画界面」的活派给内部 GenUI 画布，
+        // 旧实现：Echo AI 通过 genui_open 工具把「画界面」的活派给内部 GenUI 画布，
         // 并注入 GenUiBridge.SYSTEM_SECTION 告知模型这条反向通道。整套旧 GenUI 已删除，
         // 现在换成**内置的完整 GenUI-Agent 独立应用**，入口为工具 `genui_agent_open`
         // （见 core/tools/GenUiAgentOpenTool.kt，工具描述本身就是模型认知来源）。
@@ -2429,7 +2429,7 @@ ZorvAI 有一套 **APK 级插件系统**：插件是**独立 APK**，宿主用 D
             "  注意：你跑出来的网页/图表是**给你向用户展示的成果**，优先用 html 工件或 ```html 围栏让它真正渲染出来，而不是只回一段源码文字。\n" +
             "  · **Web 应用开发（MiniApp，重要）**：你（AI）可以生成**Web 应用代码**并在对话框中实时渲染成可交互页面。 Web 应用支持完整 Page/Component 生命周期、数据绑定（data-bind）、事件绑定（data-action）。**正确下发方法（必须是这个）**：调用 `ui_control(action=\"widget\", type=\"miniapp\", value=\"<完整 HTML 源码>\")`，把 Web 应用 HTML 代码**直接放进 `value` 字段**（不要包 JSON、不要当普通文本、不要写进 `html` 子字段）。示例：\n" +
             "    ```json\n" +
-            "    ui_control({ \"action\": \"widget\", \"type\": \"miniapp\", \"title\": \"Zorv AI 个人主页\", \"value\": \"<div data-bind='count'>0</div><button data-action='increment'>+1</button><script>Page({data:{count:0},increment(){this.setData({count:this.data.count+1})}})</script>\" })\n" +
+            "    ui_control({ \"action\": \"widget\", \"type\": \"miniapp\", \"title\": \"Echo AI 个人主页\", \"value\": \"<div data-bind='count'>0</div><button data-action='increment'>+1</button><script>Page({data:{count:0},increment(){this.setData({count:this.data.count+1})}})</script>\" })\n" +
             "    ```\n" +
             "  **硬性规则（最重要）**：生成 Web 应用时**严禁只把代码作为纯文本或普通代码块发出**——用户会看到一坨源码、看不到可交互页面。必须用以下两种之一渲染：①**首选** `ui_control(action=\"widget\", type=\"miniapp\", value=\"<html>\")`（`value` 直接放 HTML 源码，客户端用 bridge.js 运行时渲染成真 Web 应用）；或 ②把 Web 应用源码包进 **` ```miniapp ` 围栏代码块**（与 mermaid 围栏同理自动渲染）。两种等价。\n" +
             "  补充：除 `ui_control` 的 miniapp 组件外，**直接写 ` ```miniapp ` 围栏代码块也会被对话框渲染成 Web 应用**（等价）；用户自己也能用 ` ```miniapp ` 围栏发 Web 应用。 Web 应用能力对人 / AI 都开放。\n" +
@@ -2482,7 +2482,7 @@ ZorvAI 有一套 **APK 级插件系统**：插件是**独立 APK**，宿主用 D
         sb.append(
             "一句话总纲：**文档内容进文档，对话框渲染的内容进对话框渲染**。\n" +
             "- **进文档（用 AIP 信封 / `aip_compose`，可 export 成 docx/pptx/md/pdf）**：整篇长文档、报告、方案、PPT、思维导图、表格/图表类结构化内容。AIP 的 `html` 块可把网页/图表/Three.js 等内嵌进文档一起渲染（复用对话框 WebView 管线），这是「文档里的 HTML」，与对话框里的 ```html 网页成品是两回事。\n" +
-            "- **只在对话框渲染、不进文档**：单张流程图/架构图用 ```mermaid；网页成品用 ```html；可交互 Web 应用用 ```miniapp；动态 UI 用 ```zorv/ui（quro-ui）。这些是「对话框内的代码渲染」，不是文档，不要写进 AIP 文档或导出文件。\n" +
+            "- **只在对话框渲染、不进文档**：单张流程图/架构图用 ```mermaid；网页成品用 ```html；可交互 Web 应用用 ```miniapp；动态 UI 用 ```echo/ui（quro-ui）。这些是「对话框内的代码渲染」，不是文档，不要写进 AIP 文档或导出文件。\n" +
             "- **怎么写一份好文档（AIP 块写法要点）**：\n" +
             "  1. 先定 `kind` 与 `title`/`subtitle`，再按内容层级铺 `blocks`，id 从 b1 顺序编号且全局唯一。\n" +
             "  2. 标题用 `heading{level:1~6,text}` 或 `section{level,title}` 拉层级；正文用 `paragraph`；并列要点用 `list`；不要什么都堆进一个 paragraph。\n" +
@@ -2576,15 +2576,15 @@ ZorvAI 有一套 **APK 级插件系统**：插件是**独立 APK**，宿主用 D
             "  · copy：写入剪贴板。\n" +
             "  · **open_app：真实启动第三方 App——这是「动态 UI 弹转第三方软件」的标准做法**（支持精确包名或应用名模糊匹配，如 {\"type\":\"open_app\",\"app_name\":\"微信\"}）。\n" +
             "  · toggle：切换节点显隐。\n" +
-            "  · **多层渲染 / 深链（已开放）**：open_screen(进终端/工具中心/可视化编程等内置界面) / render_html / render_vispro(mermaid) / visual_popup / visual_ask——让按钮直接打开 ZorvAI 内部界面或把内容渲染进气泡。\n" +
-            "- **支持所有语言**：code 节点 + run_code 覆盖 ZorvAI 已接入的全部语言（python / node / shell / html / json / css / xml / svg / c / cpp / java / kotlin / dart / go / rust / php / ruby / swift 等），lang 字段标注即可；runnable 按钮会把代码交给 run_code 真跑。\n" +
+            "  · **多层渲染 / 深链（已开放）**：open_screen(进终端/工具中心/可视化编程等内置界面) / render_html / render_vispro(mermaid) / visual_popup / visual_ask——让按钮直接打开 Echo AI 内部界面或把内容渲染进气泡。\n" +
+            "- **支持所有语言**：code 节点 + run_code 覆盖 Echo AI 已接入的全部语言（python / node / shell / html / json / css / xml / svg / c / cpp / java / kotlin / dart / go / rust / php / ruby / swift 等），lang 字段标注即可；runnable 按钮会把代码交给 run_code 真跑。\n" +
             "- **用法口诀**：要「一个完整原生交互界面」→ ```quro-ui 围栏写 JSON 节点树；不确定语法先调 `ui_dsl_spec` 看规范、写后用 `ui_validate` 自检。示例：\n" +
             "    ```json\n" +
             "    {\"type\":\"card\",\"title\":\"介绍\",\"children\":[\n" +
-            "      {\"type\":\"markdown\",\"value\":\"# ZorvAI\\n**原生 AI 助手**\"},\n" +
+            "      {\"type\":\"markdown\",\"value\":\"# Echo AI\\n**原生 AI 助手**\"},\n" +
             "      {\"type\":\"video\",\"url\":\"https://x.com/d.mp4\",\"title\":\"演示\"},\n" +
             "      {\"type\":\"code\",\"lang\":\"python\",\"runnable\":true,\"code\":\"print('hi')\"},\n" +
-            "      {\"type\":\"browser\",\"url\":\"https://zorvai.x.com\",\"height\":360},\n" +
+            "      {\"type\":\"browser\",\"url\":\"https://echoai.x.com\",\"height\":360},\n" +
             "      {\"type\":\"button\",\"label\":\"打开微信\",\"action\":{\"type\":\"open_app\",\"app_name\":\"微信\"}}\n" +
             "    ]}\n" +
             "    ```\n"
@@ -2615,7 +2615,7 @@ ZorvAI 有一套 **APK 级插件系统**：插件是**独立 APK**，宿主用 D
         // ══════════════ ACI（Agent Capability Interface）：AI 作为控制方调用第三方 App ══════════════
         sb.append("\n### 通过 ACI 控制的第三方 App 能力\n")
         sb.append("- ACI 性质（重要）：ACI 是【本地、无 Root、App 间 AIDL】调用框架。第三方 App 声明 exported Service + 权限 ai.aci.permission.CALL（protectionLevel=normal，安装即自动授予，不弹窗、不需提权）。\n")
-        sb.append("- ACI Token 认证：控制端（ZorvAI）在每次调用时自动添加 Token（_aci_token 参数），受控端可选择验证 Token 以增强安全性。Token 使用 AndroidKeyStore 加密存储，每个目标应用独立 Token。\n")
+        sb.append("- ACI Token 认证：控制端（Echo AI）在每次调用时自动添加 Token（_aci_token 参数），受控端可选择验证 Token 以增强安全性。Token 使用 AndroidKeyStore 加密存储，每个目标应用独立 Token。\n")
         sb.append("- ACI 不使用、也不需要：Shizuku / dumpsys / OPLUS 权限 / ROOT / 无障碍 / 设备管理员。遇到任何 ACI 问题时【禁止使用这些系统工具去\"诊断\"或\"修复\"——那会偏离 ACI 的设计，且对解决问题毫无帮助。\n")
         sb.append("- aci_list：列出当前已发现的所用 ACI 第三方 App 及其暴露的能力（id / 说明 / 参数 / 是否需用户确认）。\n")
         sb.append("- aci_call：调用某个第三方 App 的 ACI 能力，参数 {target_package(可选), capability, args}；会跨进程发往目标 App 并同步返回结果。\n")
@@ -2637,7 +2637,7 @@ ZorvAI 有一套 **APK 级插件系统**：插件是**独立 APK**，宿主用 D
         }
         sb.append("- 应用启动时会自动发现设备上已安装的 ACI App；若 aci_list 为空，仅说明目标 App 未安装或未声明 ACI Service —— 直接告知用户去安装该 App，【不要】跑 dumpsys/Shizuku 去查。\n")
         sb.append("- 排障边界（重要）：若 aci_call 返回 503（服务未绑定），这是绑定生命周期问题，框架会自动重绑 → 直接重试一次 aci_call 即可，【不要】去授权任何系统权限。其他错误码请原样转告用户，不要臆测为\"权限不足\"。\n")
-        sb.append("- 官方参考受控端「ZorvAI 浏览器」(包名 com.ai.assistance.quro.browser) 已暴露能力：browser_open(打开网址) / browser_read(读当前页URL+标题+HTML) / browser_crawl(爬结构化正文+出站链接) / browser_search(搜索引擎检索) / browser_script(执行任意JS) / browser_list(列出标签页) / browser_info(版本信息) / browser_capture(抓包) / browser_find(页内查找文本) / browser_nav(前进/后退/刷新) / browser_screenshot(截图存Pictures/QuroAI_screenshots/) / console_ui(控制台UI描述JSON) / console_action(控制台动作) / browser_elements(元素树·稳定ID) / browser_action(按ID/CSS操作·点击/输入/滚动) / browser_wait(条件等待·可见/网络空闲) / browser_snapshot(页面状态快照) / browser_restore(快照回滚) / browser_events(页面事件流) / browser_audit(ACI调用审计) / browser_media(媒体/文件资源) / browser_share(系统分享面板) / browser_console(抓取console输出) / browser_query(CSS选择器查DOM) / browser_tabnew(新建标签页) / browser_tabs(列出标签页) / browser_tab(切换标签页) / browser_tabclose(关闭标签页) / browser_mouse(屏幕坐标模拟鼠标) / http_request(代发HTTP·支持LAN明文) / inject_touch(设备级真实触摸注入·Uinput·需root/系统签名)。（此为依据受控端 onCreateCapabilities 的全量参考，共 31 项；完整实时清单与参数以 aci_list / 下方「已发现的第三方能力清单」为准，二者应一致。）browser_read/browser_crawl 已修复，对 SPA 大页(如 news.sina.cn)也能稳定返回内容。\n")
+        sb.append("- 官方参考受控端「Echo AI 浏览器」(包名 com.ai.assistance.quro.browser) 已暴露能力：browser_open(打开网址) / browser_read(读当前页URL+标题+HTML) / browser_crawl(爬结构化正文+出站链接) / browser_search(搜索引擎检索) / browser_script(执行任意JS) / browser_list(列出标签页) / browser_info(版本信息) / browser_capture(抓包) / browser_find(页内查找文本) / browser_nav(前进/后退/刷新) / browser_screenshot(截图存Pictures/QuroAI_screenshots/) / console_ui(控制台UI描述JSON) / console_action(控制台动作) / browser_elements(元素树·稳定ID) / browser_action(按ID/CSS操作·点击/输入/滚动) / browser_wait(条件等待·可见/网络空闲) / browser_snapshot(页面状态快照) / browser_restore(快照回滚) / browser_events(页面事件流) / browser_audit(ACI调用审计) / browser_media(媒体/文件资源) / browser_share(系统分享面板) / browser_console(抓取console输出) / browser_query(CSS选择器查DOM) / browser_tabnew(新建标签页) / browser_tabs(列出标签页) / browser_tab(切换标签页) / browser_tabclose(关闭标签页) / browser_mouse(屏幕坐标模拟鼠标) / http_request(代发HTTP·支持LAN明文) / inject_touch(设备级真实触摸注入·Uinput·需root/系统签名)。（此为依据受控端 onCreateCapabilities 的全量参考，共 31 项；完整实时清单与参数以 aci_list / 下方「已发现的第三方能力清单」为准，二者应一致。）browser_read/browser_crawl 已修复，对 SPA 大页(如 news.sina.cn)也能稳定返回内容。\n")
         sb.append("- 已发现的第三方能力清单：\n")
         try {
             sb.append(QuroAidlAciManager.getInstance().getCapabilityPrompt())
@@ -2664,7 +2664,7 @@ ZorvAI 有一套 **APK 级插件系统**：插件是**独立 APK**，宿主用 D
 
         // ══════════════ 上下文元数据读取指令 ══════════════
         sb.append("\n### 用户消息中的上下文标记（必须读取）\n")
-        sb.append("- 用户发送的每条消息**开头**可能带有 `[上下文|...]` 标记，例如：`[上下文|工作区: /storage/.../MyProject | ACI应用: ZorvAI浏览器 | 已启用技能: 3个]`\n")
+        sb.append("- 用户发送的每条消息**开头**可能带有 `[上下文|...]` 标记，例如：`[上下文|工作区: /storage/.../MyProject | ACI应用: Echo AI浏览器 | 已启用技能: 3个]`\n")
         sb.append("- 这个标记告诉你用户当前选择的工作区路径、默认 ACI 应用名称、已启用技能数量——**你必须读取并使用这些信息**：\n")
         sb.append("  · 看到「工作区: xxx」→ 你的 workspace_write / workspace_read / workspace_list 的根目录就是这个路径；需要保存文件时直接用它。\n")
         sb.append("  · 看到「ACI应用: xxx」→ 调用 aci_call 时可以省略 target_package，系统会自动用这个应用。\n")

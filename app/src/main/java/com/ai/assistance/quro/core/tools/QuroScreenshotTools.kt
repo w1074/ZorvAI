@@ -47,7 +47,7 @@ class ScreenshotTool : QuroTool {
 
     override fun run(context: Context, arguments: String): String {
         val svc = QuroAccessibilityService.instance
-            ?: return "❌ 无障碍服务未连接：请到设置 → 无障碍 → ZorvAI → 开启"
+            ?: return "❌ 无障碍服务未连接：请到设置 → 无障碍 → Echo AI → 开启"
 
         return try {
             // 方式1: Android P+ 原生截图

@@ -151,7 +151,7 @@ class QuroCmsRepository(context: Context) {
             name = qstr(R.string.qk_03732),
             version = "1.0.0",
             description = qstr(R.string.qk_03575),
-            author = "Zorv AI", license = "Apache-2.0",
+            author = "Echo AI", license = "Apache-2.0",
             state = ModuleState.Ready,
             permissions = listOf(
                 QuroCmsPermission("term.python.exec", PermissionLevel.Normal, "在终端 proot 内执行 Python", "*", AuthorizationLevel.Session),
@@ -203,7 +203,7 @@ PYEOF
             name = qstr(R.string.qk_03683),
             version = "1.0.0",
             description = qstr(R.string.qk_03452),
-            author = "Zorv AI", license = "Apache-2.0",
+            author = "Echo AI", license = "Apache-2.0",
             state = ModuleState.Ready,
             permissions = listOf(
                 QuroCmsPermission("term.node.exec", PermissionLevel.Normal, "在终端 proot 内执行 Node", "*", AuthorizationLevel.Session),
@@ -249,7 +249,7 @@ JSEOF
             name = qstr(R.string.qk_03704),
             version = "1.0.0",
             description = qstr(R.string.qk_03467),
-            author = "Zorv AI", license = "Apache-2.0",
+            author = "Echo AI", license = "Apache-2.0",
             state = ModuleState.Ready,
             permissions = listOf(
                 QuroCmsPermission("term.httpd.exec", PermissionLevel.Normal, "在终端 proot 内启动 HTTP 服务", "*", AuthorizationLevel.Session),

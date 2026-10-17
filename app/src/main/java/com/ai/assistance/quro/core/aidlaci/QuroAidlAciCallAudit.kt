@@ -11,7 +11,7 @@ import java.util.Locale
 /**
  * ACI 调用审计日志（原创）。
  *
- * 持久化「控制端 ZorvAI 发起的每一次 ACI 调用」全生命周期，
+ * 持久化「控制端 Echo AI 发起的每一次 ACI 调用」全生命周期，
  * 用户可事后审查「AI 昨天通过 ACI 调了哪些能力、成功与否、耗时多少、状态码是什么」。
  * 这是 ACI 治理层（凭证 / 审计 / 可观测）的第一块拼图，直接闭合
  * feature-aci-governance-roadmap 中「控制端 ACI 调用审计」P0 项。

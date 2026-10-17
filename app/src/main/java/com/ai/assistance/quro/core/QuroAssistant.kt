@@ -251,7 +251,7 @@ class QuroAssistant(
             val emit = { onUpdate?.invoke() }
             QuroAgentTrace.status("assistant", "AI 开始响应")
             // 自动触发流体云通知：AI 开始处理时创建胶囊
-            showFluidCloudSafe(context, "ZorvAI", "处理中...", 0)
+            showFluidCloudSafe(context, "Echo AI", "处理中...", 0)
             // 本地离线模型使用独立的设置（localTemperature / localMaxTokens / localEnableTools），
             // 与云端模型完全隔离——用户改离线设置不影响云端，反之亦然。
         val isLocal = cfg.provider == "MNN" || cfg.provider == "LLAMA_CPP"
@@ -700,7 +700,7 @@ class QuroAssistant(
                         val fluidProgress = minOf(round * 10, 90)
                         val toolNames = callsWithId.joinToString(",") { it.name }
                         OrchestrationTrace.execute("assistant", "执行工具：$toolNames", "$dur ms")
-                        updateFluidCloudSafe(context, "ZorvAI", "执行工具: $toolNames", fluidProgress)
+                        updateFluidCloudSafe(context, "Echo AI", "执行工具: $toolNames", fluidProgress)
                         // 🔑 关键：把执行结果**回填进 assistant 消息的 toolCalls**（自包含）。
                         // UI 之后直接从这一条 assistant 消息读出「工具名 + 参数 + 结果」三件套，
                         // 彻底不再依赖「跨消息 resultMap 按 toolCallId 匹配 role=tool 结果」这种脆弱写法——
@@ -1149,7 +1149,7 @@ class QuroAssistant(
             "{\"type\":\"object\",\"properties\":{\"task\":{\"type\":\"string\",\"description\":\"要派给子智能体完成的聚焦子任务描述（要具体、自包含）\"}},\"required\":[\"task\"]}"
         /** 子智能体的系统提示词（聚焦、克制、只产出结果）。 */
         const val SUBAGENT_SYSTEM_PROMPT: String =
-            "你是 ZorvAI 主智能体派发的「子智能体」。你的职责是独立、聚焦地完成一个明确的子任务，并向主智能体返回精炼、可直接使用的结果（结论、草稿、清单、分析或代码片段）。要求：1) 不寒暄、不向用户反问、不重复主任务整体目标；2) 若需要事实或资料，自行调用可用的只读工具（联网搜索、读取知识库与文件、计算等）；3) 结果务必简洁、结构清晰，便于主智能体直接采用。"
+            "你是 Echo AI 主智能体派发的「子智能体」。你的职责是独立、聚焦地完成一个明确的子任务，并向主智能体返回精炼、可直接使用的结果（结论、草稿、清单、分析或代码片段）。要求：1) 不寒暄、不向用户反问、不重复主任务整体目标；2) 若需要事实或资料，自行调用可用的只读工具（联网搜索、读取知识库与文件、计算等）；3) 结果务必简洁、结构清晰，便于主智能体直接采用。"
     }
 }
 

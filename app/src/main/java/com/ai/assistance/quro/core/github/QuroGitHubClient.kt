@@ -165,7 +165,7 @@ object QuroGitHubClient {
             val conn = (URL("${getApiBase(ctx)}/user").openConnection() as HttpURLConnection)
             conn.requestMethod = "GET"
             conn.setRequestProperty("Accept", "application/vnd.github+json")
-            conn.setRequestProperty("User-Agent", "ZorvAI")
+            conn.setRequestProperty("User-Agent", "Echo AI")
             conn.setRequestProperty("X-GitHub-Api-Version", "2022-11-28")
             conn.setRequestProperty("Connection", "close")
             conn.setRequestProperty("Authorization", "Bearer $t")
@@ -213,7 +213,7 @@ object QuroGitHubClient {
             conn.requestMethod = "GET"
             conn.connectTimeout = 8000
             conn.readTimeout = 8000
-            conn.setRequestProperty("User-Agent", "ZorvAI")
+            conn.setRequestProperty("User-Agent", "Echo AI")
             conn.instanceFollowRedirects = false
             conn.responseCode
             conn.disconnect()
@@ -238,7 +238,7 @@ object QuroGitHubClient {
             val conn = (URL(url).openConnection() as HttpURLConnection)
             conn.requestMethod = method
             conn.setRequestProperty("Accept", "application/vnd.github+json")
-            conn.setRequestProperty("User-Agent", "ZorvAI")
+            conn.setRequestProperty("User-Agent", "Echo AI")
             conn.setRequestProperty("X-GitHub-Api-Version", "2022-11-28")
             // 禁用 keep-alive：部分代理/镜像会在复用连接时提前截断响应（unexpected end of stream）。
             conn.setRequestProperty("Connection", "close")
@@ -274,7 +274,7 @@ object QuroGitHubClient {
             conn.requestMethod = "POST"
             conn.setRequestProperty("Accept", "application/json")
             conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded")
-            conn.setRequestProperty("User-Agent", "ZorvAI")
+            conn.setRequestProperty("User-Agent", "Echo AI")
             // 禁用 keep-alive：镜像/代理常因连接复用提前截断响应（unexpected end of stream on ...Address）。
             conn.setRequestProperty("Connection", "close")
             conn.connectTimeout = 15000

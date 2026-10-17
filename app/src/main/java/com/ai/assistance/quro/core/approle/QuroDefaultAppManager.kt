@@ -19,7 +19,7 @@ import com.ai.assistance.quro.BuildConfig
  *   经 `RoleManager`（API 29+）申请与查询，系统弹角色选择/确认框。
  * - **非平台角色**（相册 / 视频 / 邮箱 / 文档）：Android 无对应 RoleManager 角色，
  *   靠 `QuroDefaultAppHandlerActivity` 在 Manifest 注册的 `<intent-filter>` 成为候选，
- *   由本类构造一个隐式意图触发系统选择器，用户选「Zorv AI + 总是」即设为默认。
+ *   由本类构造一个隐式意图触发系统选择器，用户选「Echo AI + 总是」即设为默认。
  *
  * ## 安全约束
  * HOME（桌面启动器）需要真正的桌面 UI 才能作为可用启动器。本项目未实现桌面 UI，
@@ -81,7 +81,7 @@ object QuroDefaultAppManager {
     /**
      * 构造「设为默认」意图：
      * - 平台角色（API 29+）→ `RoleManager.createRequestRoleIntent(role)`，系统弹角色确认框。
-     * - 非平台角色 → 隐式意图触发系统选择器，用户选 Zorv AI + 总是。
+     * - 非平台角色 → 隐式意图触发系统选择器，用户选 Echo AI + 总是。
      * 返回 null 表示当前平台不支持（如 API < 29 且无 RoleManager）。
      */
     fun requestIntent(ctx: Context, role: DefaultAppRole): Intent? {

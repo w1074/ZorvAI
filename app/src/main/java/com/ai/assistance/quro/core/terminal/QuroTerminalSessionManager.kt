@@ -26,8 +26,8 @@ import java.util.concurrent.ConcurrentHashMap
  * 底层经 proot+Ubuntu 或回退设备 sh），并实现：
  *  - AI、使用者都能**使用/管理**所有会话与后端（list / create / switch / destroy）；
  *  - 能**创建新会话**；
- *  - 打开终端界面时**跟随启动 zorvAI 终端环境**（installIfMissing=true，必要时安装 proot/Ubuntu）；
- *  - **zorvAI 自启动**时由 [com.ai.assistance.quro.service.QuroTerminalKeepAliveService] 保活默认会话
+ *  - 打开终端界面时**跟随启动 EchoAI 终端环境**（installIfMissing=true，必要时安装 proot/Ubuntu）；
+ *  - **EchoAI 自启动**时由 [com.ai.assistance.quro.service.QuroTerminalKeepAliveService] 保活默认会话
  *    （installIfMissing=false，避免开机无网络时误下载 / 消耗流量）。
  *
  * 关于 CMS 开发环境：其 `cms` / `devenv` 控制（[QuroHostBridge]）与默认会话共用同一 proot/Ubuntu 后端
@@ -121,7 +121,7 @@ object QuroTerminalSessionManager {
      * 确保默认共享会话存在（若不存在则跟随创建）。
      *
      * @param installIfMissing 后端（proot/Ubuntu）未就绪时是否触发安装/下载。
-     *         - 打开终端界面 / 用户主动操作：true（跟随启动 zorvAI 终端环境）。
+     *         - 打开终端界面 / 用户主动操作：true（跟随启动 EchoAI 终端环境）。
      *         - 应用自启动 / 开机保活：false（避免无网络时误下载、或开机即消耗流量）。
      */
     /**
@@ -137,7 +137,7 @@ object QuroTerminalSessionManager {
      * 终端界面永久停在基础命令。升级在 [mutex] 内完成，避免并发重复创建。
      *
      * @param installIfMissing 后端未就绪时是否触发安装/下载。
-     *         - 打开终端界面 / 用户主动操作：true（跟随启动 zorvAI 终端环境）。
+     *         - 打开终端界面 / 用户主动操作：true（跟随启动 EchoAI 终端环境）。
      *         - 应用自启动 / 开机保活：false（避免无网络时误下载、或开机即消耗流量）。
      */
     suspend fun ensureDefault(context: Context, installIfMissing: Boolean = true): QuroShellSession? {

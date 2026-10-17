@@ -47,15 +47,15 @@ class QuroAidlAciCallTool : QuroTool {
             "调用前请勿伪造包名——目标 App 会用 Binder 真实 UID 鉴权。" +
             "若目标能力 requireUserConfirm（aci_list 会标注「需要用户确认」），必须先征询用户明确同意，并在 args 中带 confirm:true 才允许调用。" +
             "若返回 503（服务未绑定），属绑定生命周期问题，框架会自动重绑——直接重试一次即可，禁止用 Shizuku/dumpsys/ROOT 去\"修复\"。其他错误码原样转告用户，不要臆测为权限不足。" +
-            "【像人一样操作网页（重点）】受控 ZorvAI 浏览器能真正『交互』，而普通 open_web/ai_browser 的 open 只是被动展示、点不进去。你要像真人浏览那样一步步操作：① browser_open 打开目标页 → ② browser_elements 获取页面上带稳定ID的可点击元素（链接/按钮/输入框）→ ③ browser_action 按ID『点击进入链接/填写表单/滚动』（点进去才会跳转子页面，别只停在首页）→ ④ browser_read 读取点击后的页面内容 → 若页面未加载完用 browser_wait 等待。严禁『只打开首页就结束』——用户要的是你点进去拿到里面的内容。" +
+            "【像人一样操作网页（重点）】受控 Echo AI 浏览器能真正『交互』，而普通 open_web/ai_browser 的 open 只是被动展示、点不进去。你要像真人浏览那样一步步操作：① browser_open 打开目标页 → ② browser_elements 获取页面上带稳定ID的可点击元素（链接/按钮/输入框）→ ③ browser_action 按ID『点击进入链接/填写表单/滚动』（点进去才会跳转子页面，别只停在首页）→ ④ browser_read 读取点击后的页面内容 → 若页面未加载完用 browser_wait 等待。严禁『只打开首页就结束』——用户要的是你点进去拿到里面的内容。" +
             "【自由组合】你可以把多个 ACI 能力像积木一样链式编排，而不是死板地一步步来：例如先 browser_open 打开页面 → browser_script 执行 JS 取数 → browser_read 回读结果；或先 browser_elements 标注稳定ID → browser_action 按ID操作；需要等页面加载则 browser_wait。" +
-            "【HTTP / 局域网】受控浏览器（ZorvAI 浏览器）暴露 http_request 能力：可经 ACI 让浏览器代为发起任意 HTTP 请求，包括同网段 LAN 明文（http://192.168.x.x、http://10.x、*.local mDNS 等），用于访问路由器/NAS/智能家居后台、私有 API、物联网设备等——受控浏览器已放开局域网明文，无需因公网明文限制而犹豫；公网请求仍走 HTTPS。" +
+            "【HTTP / 局域网】受控浏览器（Echo AI 浏览器）暴露 http_request 能力：可经 ACI 让浏览器代为发起任意 HTTP 请求，包括同网段 LAN 明文（http://192.168.x.x、http://10.x、*.local mDNS 等），用于访问路由器/NAS/智能家居后台、私有 API、物联网设备等——受控浏览器已放开局域网明文，无需因公网明文限制而犹豫；公网请求仍走 HTTPS。" +
             "【真实触摸注入】受控浏览器额外暴露 inject_touch 能力：经 Uinput 伪输入设备向整台设备注入真实触摸事件（action ∈ down/move/up/click/drag/dblclick，参数 x/y/dx/dy/slot/tracking_id/pressure/major），作用于全设备（不限于浏览器视图），与控制面 AIDL/LocalSocket（L1）经 L4 编排协作（信令走 AIDL、内核事件走 Uinput）。仅 root 或系统签名构建真实生效；普通分发版 nativeOpen 失败会明确返回「需 root / 系统签名」，不会假装成功。" +
-            "【端侧 APK 构建台（BuildAci，包名 com.ai.assistance.quro.build）协作工作流】构建台可在设备内把 Java 源码编译成 APK。推荐与 ZorvAI 工作区（QuroWorkspace）协作的闭环：" +
-            "① 调用构建台 ACI.create_project（args:{project_name:\"工程名\"}）→ 它会在 ZorvAI 工作区建好文件夹并返回绝对路径 path；" +
-            "② 用 ZorvAI 自己的 workspace_write 工具把源码写进该 path 下的 src/（如 path/src/Main.java，用户在「工具箱-工作区」也能看到/改）；" +
+            "【端侧 APK 构建台（BuildAci，包名 com.ai.assistance.quro.build）协作工作流】构建台可在设备内把 Java 源码编译成 APK。推荐与 Echo AI 工作区（QuroWorkspace）协作的闭环：" +
+            "① 调用构建台 ACI.create_project（args:{project_name:\"工程名\"}）→ 它会在 Echo AI 工作区建好文件夹并返回绝对路径 path；" +
+            "② 用 Echo AI 自己的 workspace_write 工具把源码写进该 path 下的 src/（如 path/src/Main.java，用户在「工具箱-工作区」也能看到/改）；" +
             "③ 调用构建台 ACI.build_apk（args:{project_dir: path 或工作区相对名, package_name?, app_label?, version_name?}）→ 构建台编译 src/ 全部 Java、注入 base.apk 模板并签名，把 APK 回写到该工程目录；" +
-            "④ build_apk 的结果日志经 ACI 回传给你（AI）读取决策——你不要直接去读构建台目录，日志已在返回里。构建台另暴露 build_dex（单文件源码→DEX）、build_project（自带工程→DEX）、build_toolchain（工具链自检）。注意：构建台读写的就是 ZorvAI 工作区目录（它持有全部文件权限），所以 create_project 建的文件夹会直接出现在「工具箱-工作区」里。"
+            "④ build_apk 的结果日志经 ACI 回传给你（AI）读取决策——你不要直接去读构建台目录，日志已在返回里。构建台另暴露 build_dex（单文件源码→DEX）、build_project（自带工程→DEX）、build_toolchain（工具链自检）。注意：构建台读写的就是 Echo AI 工作区目录（它持有全部文件权限），所以 create_project 建的文件夹会直接出现在「工具箱-工作区」里。"
     override val parametersJson = """{
         "type":"object",
         "properties":{

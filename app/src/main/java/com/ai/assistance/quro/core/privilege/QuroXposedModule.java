@@ -23,7 +23,7 @@ import de.robv.android.xposed.XposedBridge;
 import de.robv.android.xposed.XposedHelpers;
 
 /**
- * Zorv AI 的 LSPosed / Xposed 模块入口（实现 IXposedHookLoadPackage）。
+ * Echo AI 的 LSPosed / Xposed 模块入口（实现 IXposedHookLoadPackage）。
  *
  * 本类仅由 LSPosed 框架在「本应用被纳入作用域」或「钩中配置了的目标包」时加载，
  * 常规 App 运行路径永远不会引用它（故其依赖的 de.robv.android.xposed.* 以 compileOnly 桩提供、
@@ -33,8 +33,8 @@ import de.robv.android.xposed.XposedHelpers;
  *  1) 作用域标记：本应用被纳入作用域时，在 attachBaseContext 钩子里写 .lsposed_scope 标记文件，
  *     供 QuroLSPosed.isAppInScope() 真实判定（取代原先「框架已安装即永真」的假判定）。
  *  2) 可选跨应用注入桥（opt-in）：读外部存储 lsposed_bridge.json，对目标包 Activity.onCreate
- *     发广播通知 Zorv AI「某 App 已打开」（补充 get_foreground_app 在无 usage-stats 权限时的盲区）。
- *  3) 可选系统级重定向桥（opt-in）：按配置重写目标包 startActivity 的 Intent（如把某域名跳转改投 Zorv AI）。
+ *     发广播通知 Echo AI「某 App 已打开」（补充 get_foreground_app 在无 usage-stats 权限时的盲区）。
+ *  3) 可选系统级重定向桥（opt-in）：按配置重写目标包 startActivity 的 Intent（如把某域名跳转改投 Echo AI）。
  *
  * 全部以「配置开关 + try/catch」守卫：配置缺失/不可读/未启用时静默跳过，绝不影响宿主 App 正常运行。
  * 不定义任何 ai.aci.permission.*（定义权属控制端，本应用只声明与使用）。
@@ -67,7 +67,7 @@ public class QuroXposedModule implements IXposedHookLoadPackage {
                 }
             }
         } catch (Throwable t) {
-            XposedBridge.log("ZorvAI Xposed: " + t);
+            XposedBridge.log("Echo AI Xposed: " + t);
         }
     }
 
@@ -84,12 +84,12 @@ public class QuroXposedModule implements IXposedHookLoadPackage {
                             File marker = new File(base.getFilesDir(), SCOPE_MARKER);
                             writeMarker(marker, System.currentTimeMillis());
                         } catch (Throwable t) {
-                            XposedBridge.log("ZorvAI scope marker: " + t);
+                            XposedBridge.log("Echo AI scope marker: " + t);
                         }
                     }
                 });
         } catch (Throwable t) {
-            XposedBridge.log("ZorvAI scope hook: " + t);
+            XposedBridge.log("Echo AI scope hook: " + t);
         }
     }
 
@@ -128,12 +128,12 @@ public class QuroXposedModule implements IXposedHookLoadPackage {
                             i.putExtra("ts", System.currentTimeMillis());
                             a.sendBroadcast(i);
                         } catch (Throwable t) {
-                            XposedBridge.log("ZorvAI bridge inject: " + t);
+                            XposedBridge.log("Echo AI bridge inject: " + t);
                         }
                     }
                 });
         } catch (Throwable t) {
-            XposedBridge.log("ZorvAI bridge hook: " + t);
+            XposedBridge.log("Echo AI bridge hook: " + t);
         }
     }
 
@@ -157,12 +157,12 @@ public class QuroXposedModule implements IXposedHookLoadPackage {
                             if (src.getExtras() != null) dst.putExtras(src.getExtras());
                             param.args[0] = dst;
                         } catch (Throwable t) {
-                            XposedBridge.log("ZorvAI redirect: " + t);
+                            XposedBridge.log("Echo AI redirect: " + t);
                         }
                     }
                 });
         } catch (Throwable t) {
-            XposedBridge.log("ZorvAI redirect hook: " + t);
+            XposedBridge.log("Echo AI redirect hook: " + t);
         }
     }
 

@@ -43,7 +43,7 @@ class QuroGithubReadTool : QuroTool {
         val token = QuroAuthStore.get(context, "github")?.token?.takeIf { it.isNotBlank() }
         val headers = mutableMapOf(
             "Accept" to "application/vnd.github+json",
-            "User-Agent" to "ZorvAI",
+            "User-Agent" to "Echo AI",
             "X-GitHub-Api-Version" to "2022-11-28"
         )
         token?.let { headers["Authorization"] = "Bearer $it" }

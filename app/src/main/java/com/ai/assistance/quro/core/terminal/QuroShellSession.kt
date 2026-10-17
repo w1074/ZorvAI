@@ -236,10 +236,10 @@ class QuroShellSession private constructor(
             pendingReplay += s
         }
         when (mode) {
-            ShellMode.VM -> emit("— Zorv AI 终端（VM · 完整 Linux 内核）已启动 —")
-            ShellMode.LINUX -> emit("— Zorv AI 终端已启动 (proot/Linux · Ubuntu 24.04) —")
+            ShellMode.VM -> emit("— Echo AI 终端（VM · 完整 Linux 内核）已启动 —")
+            ShellMode.LINUX -> emit("— Echo AI 终端已启动 (proot/Linux · Ubuntu 24.04) —")
             ShellMode.DEVICE -> {
-                emit("— Zorv AI 终端已启动 (设备 · Toybox sh) —")
+                emit("— Echo AI 终端已启动 (设备 · Toybox sh) —")
                 // 设备模式 = proot 未启用，所有 Linux 命令都不可用——原因直接打进终端缓冲区。
                 emit("⚠ 当前是 Android 设备 shell，apt-get / dpkg / python3 / node 等 Linux 命令均不可用。")
                 runCatching {

@@ -90,7 +90,7 @@ object ToolCapabilityDirectory {
                 "topic" to "manual 主题：compare/studio/native/errors"
             ),
             tips = listOf(
-                "用户说「做个 Web 应用 / 在这儿做个 Web 应用」→ **就用它**，ZorvAI 自己会写 Web 应用。",
+                "用户说「做个 Web 应用 / 在这儿做个 Web 应用」→ **就用它**，Echo AI 自己会写 Web 应用。",
                 "**create 之后必须再 run 一次**，否则界面根本没交付（用户什么都看不到）。",
                 "run 的结果会自动内嵌进对话流渲染；**run 完不要再自己写一份 HTML**（那是第二块画布）。",
                 "动手前先读手册：miniapp(action=\"manual\") 或 topic=\"studio\""
@@ -124,7 +124,7 @@ object ToolCapabilityDirectory {
             ),
             tips = listOf(
                 "交付的是**原生控件**（不是网页、不是 HTML），这是它和 Web 应用的本质区别。",
-                "它是**独立全屏应用**，有自己的对话页/历史/宠物与右侧抽屉；模型配置、人格灵魂、工具集全部沿用 ZorvAI 主设置。",
+                "它是**独立全屏应用**，有自己的对话页/历史/宠物与右侧抽屉；模型配置、人格灵魂、工具集全部沿用 Echo AI 主设置。",
                 "用户说「Web 应用 / 网页 / HTML」→ 用 `miniapp` 或 ```html 围栏，不要开它。",
                 "prompt 要写清「做什么 + 要哪些功能 + 有哪些数据」，写成「做那个」等于没写。",
                 "调用后本轮立即收尾，不要再补 HTML 或调别的画型工具。"
@@ -149,7 +149,7 @@ object ToolCapabilityDirectory {
                 "apk_plugin(action=\"tools\")",
                 "apk_plugin(action=\"install_builtin\")",
                 "apk_plugin(action=\"call\", name=\"unit_convert\", args=\"{\\\"value\\\":1,\\\"from\\\":\\\"km\\\",\\\"to\\\":\\\"m\\\"}\")",
-                "apk_plugin(action=\"open\", surface_id=\"zorvweb_browser\")"
+                "apk_plugin(action=\"open\", surface_id=\"echoweb_browser\")"
             ),
             parameters = mapOf(
                 "action" to "status/list/info/tools/surfaces/open/install/install_builtin/uninstall/reload/call",
@@ -574,8 +574,8 @@ object ToolCapabilityDirectory {
             useCases = listOf("AI思考中显示状态", "任务进度显示", "工具执行状态", "创建流体云", "更新进度", "结束流体云"),
             examples = listOf(
                 "fluid_cloud(action=create, title=AI思考中, content=正在处理请求...)",
-                "fluid_cloud(action=update, entityId=zorvai_xxx, progress=75)",
-                "fluid_cloud(action=end, entityId=zorvai_xxx)"
+                "fluid_cloud(action=update, entityId=echoai_xxx, progress=75)",
+                "fluid_cloud(action=end, entityId=echoai_xxx)"
             ),
             parameters = mapOf(
                 "action" to "操作类型：create(创建)/update(更新)/end(结束)",
@@ -900,7 +900,7 @@ object ToolCapabilityDirectory {
                 "dependencies" to "依赖JAR路径数组",
                 "icon_path" to "自定义图标PNG路径"
             ),
-            tips = listOf("支持自定义包名、release签名生成与使用、引用依赖JAR、自定义图标", "入口类支持任意包名/类名（动态探测 zorv_entry.txt）", "与 ui_open_build（打开构建台UI）互补"),
+            tips = listOf("支持自定义包名、release签名生成与使用、引用依赖JAR、自定义图标", "入口类支持任意包名/类名（动态探测 echo_entry.txt）", "与 ui_open_build（打开构建台UI）互补"),
             relatedTools = listOf("export_apk", "ui_control", "workspace_write"),
             priority = 5
         ),

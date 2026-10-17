@@ -17,9 +17,9 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 
 /**
- * Zorv AI 专属主题（原创，暖纸 + 陶土 风）。
+ * Echo AI 专属主题（原创，暖纸 + 陶土 风）。
  * 配色取自用户「对话框设计稿（墨问）」：纸感底色 + 陶土强调色 + 墨色文字 + 鼠尾草绿（思考/工具）。
- * 设计稿原话刻意避开 AI 蓝紫，故全站统一为暖色系，品牌「墨问」更名为 Zorv AI。
+ * 设计稿原话刻意避开 AI 蓝紫，故全站统一为暖色系，品牌「墨问」更名为 Echo AI。
  */
 
 // ---- 暖色 token（陶土 / 纸 / 墨）----

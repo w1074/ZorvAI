@@ -20,7 +20,7 @@ import com.ai.assistance.quro.R
  * v196 起由 QuroMainActivity 在首帧以全屏覆盖层渲染 800ms 后淡出，
  * 取代原先独立的 QuroSplashActivity——这样挂后台返回（进程存活）不会再重放开屏。
  *
- * 双开屏修复（Zorv 重做）：Android 12+ 的系统 SplashScreen 默认会先闪一下
+ * 双开屏修复（Echo 重做）：Android 12+ 的系统 SplashScreen 默认会先闪一下
  * ic_launcher 图标（即截图里「只有 logo」的那一帧），随后本 Compose 覆盖层再出
  * logo + 文字，造成「两个开屏」。已在 Theme.Quro 中将
  * windowSplashScreenAnimatedIcon 设为透明，使系统开屏只剩纯色背景、不可见，
@@ -37,12 +37,12 @@ fun QuroSplashContent(modifier: Modifier = Modifier) {
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
             Image(
                 painter = painterResource(R.drawable.quro_logo),
-                contentDescription = "Zorv AI",
+                contentDescription = "Echo AI",
                 modifier = Modifier.size(120.dp),
             )
             Spacer(Modifier.height(18.dp))
             Text(
-                "Zorv AI",
+                "Echo AI",
                 color = colorResource(R.color.quro_splash_text),
                 fontSize = 30.sp,
                 fontWeight = FontWeight.Bold,

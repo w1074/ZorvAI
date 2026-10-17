@@ -19,7 +19,7 @@
         android:paddingEnd="12dp"
         android:paddingTop="5dp"
         android:paddingBottom="5dp"
-        android:text="Zorv AI 提醒"
+        android:text="Echo AI 提醒"
         android:textColor="#FF10141A"
         android:textSize="12sp"
         android:textStyle="bold" />

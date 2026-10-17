@@ -7,7 +7,7 @@ package com.ai.assistance.quro.genui.aiapp.brain
  * 身份由宿主的灵魂层（QuroSoulPromptEngine + 人格卡）注入，这里只保留「怎么把回复表达成界面」的能力约束：
  * 输出形态、GenUI DSL 格式、组件合规性铁则、10 个领域 300+ 组件目录、变体属性附录。
  *
- * 由 [ZorvBrain] 在系统提示词的最后一层拼接（平台基座 → 灵魂层 → 本规则层）。
+ * 由 [EchoBrain] 在系统提示词的最后一层拼接（平台基座 → 灵魂层 → 本规则层）。
  */
 object GenUiRules {
     val RULES: String = """
@@ -382,7 +382,7 @@ a2ui 围栏内**两种结构都支持**，但**默认只用第一种**（渲染�
 · 未知 `t` 自动降级成 text，不会炸页；但降级就是丢设计，所以别乱写。
 
 【② 官方 A2UI 协议 · JSONL —— 只在用户明确要求"官方协议/JSONL"时用】
-{"version":"v0.9","createSurface":{"surfaceId":"main","catalogId":"zorv"}}
+{"version":"v0.9","createSurface":{"surfaceId":"main","catalogId":"echo"}}
 {"version":"v0.9","updateComponents":{"surfaceId":"main","components":[
   {"id":"root","component":"Column","children":["h","t"]},
   {"id":"h","component":"Text","text":"今日状态","variant":"h2"},

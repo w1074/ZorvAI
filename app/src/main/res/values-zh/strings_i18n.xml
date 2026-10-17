@@ -165,7 +165,7 @@
     <string name="qk_00160">🧩 %1$s个技能</string>
     <string name="qk_00161" formatted="false">上传文件</string>
     <string name="qk_00162" formatted="false">语音输入</string>
-    <string name="qk_00163" formatted="false">和 Zorv 说点什么…</string>
+    <string name="qk_00163" formatted="false">和 Echo 说点什么…</string>
     <string name="qk_00164" formatted="false">停止生成</string>
     <string name="qk_00165" formatted="false">发送</string>
     <string name="qk_00166" formatted="false">选择技能</string>
@@ -508,7 +508,7 @@
     <string name="qk_00495">插件界面构建失败：%1$s
 %2$s</string>
     <string name="qk_00496">无法打开链接：%1$s</string>
-    <string name="qk_00497" formatted="false">关于 Zorv AI</string>
+    <string name="qk_00497" formatted="false">关于 Echo AI</string>
     <string name="qk_00498" formatted="false">开源 AI 助手 · 原创构建。</string>
     <string name="qk_00499" formatted="false">更新与支持</string>
     <string name="qk_00500" formatted="false">检查更新</string>
@@ -520,7 +520,7 @@
     <string name="qk_00506">检查更新失败：%1$s</string>
     <string name="qk_00507" formatted="false">项目地址</string>
     <string name="qk_00508" formatted="false">在 GitHub 点个 Star</string>
-    <string name="qk_00509" formatted="false">如果喜欢 Zorv AI，欢迎点个 Star ⭐</string>
+    <string name="qk_00509" formatted="false">如果喜欢 Echo AI，欢迎点个 Star ⭐</string>
     <string name="qk_00510" formatted="false">开源许可声明</string>
     <string name="qk_00511" formatted="false">查看本应用所用第三方依赖的许可证</string>
     <string name="qk_00512" formatted="false">法律与合规</string>
@@ -529,8 +529,8 @@
     <string name="qk_00515" formatted="false">用户使用协议</string>
     <string name="qk_00516" formatted="false">使用本应用前请阅读并了解</string>
     <string name="qk_00517" formatted="false">开发者</string>
-    <string name="qk_00518" formatted="false">© 2025 - 2026 Zorv AI. 保留所有权利。</string>
-    <string name="qk_00519" formatted="false">Zorv AI（本应用）</string>
+    <string name="qk_00518" formatted="false">© 2025 - 2026 Echo AI. 保留所有权利。</string>
+    <string name="qk_00519" formatted="false">Echo AI（本应用）</string>
     <string name="qk_00520" formatted="false">源码以 Apache-2.0 开源，见仓库 LICENSE 文件</string>
     <string name="qk_00521" formatted="false">Google - core-ktx、appcompat、lifecycle、activity-compose、webkit、concurrent-futures 等</string>
     <string name="qk_00522" formatted="false">Google - UI、Material3、icons-extended 等组件</string>
@@ -571,12 +571,12 @@
     <string name="qk_00557" formatted="false">如果下载未自动开始，请点击下方按钮手动下载：</string>
     <string name="qk_00558" formatted="false">手动下载 APK</string>
     <string name="qk_00559" formatted="false">使用 Gitee 镜像下载</string>
-    <string name="qk_00560" formatted="false">下载 ZorvAI 更新</string>
+    <string name="qk_00560" formatted="false">下载 Echo AI 更新</string>
     <string name="qk_00561">正在下载新版本 v%1$s...</string>
     <string name="qk_00562" formatted="false">开始下载更新…</string>
     <string name="qk_00563">下载失败: %1$s</string>
     <string name="qk_00564" formatted="false">本声明随应用版本更新可能调整，最新版本以本页为准。</string>
-    <string name="qk_00565" formatted="false">为保障核心功能正常运行，Zorv AI 会在你主动授权后按需使用下列系统权限。我们恪守「最小必要、合法、透明」原则：
+    <string name="qk_00565" formatted="false">为保障核心功能正常运行，Echo AI 会在你主动授权后按需使用下列系统权限。我们恪守「最小必要、合法、透明」原则：
 · 仅在对应功能被你主动触发时，才申请与调用对应的权限；
 · 不会在后台静默收集与当前功能无关的数据；
 · 任何权限均可在系统设置中随时查看与撤销，撤销仅影响该功能，不会造成应用崩溃。
@@ -878,8 +878,8 @@
 · 不会索取与功能无关的权限；
 · 所有权限的申请目的与调用时机均在本声明中公开。</string>
     <string name="qk_00641" formatted="false">权限的查询与撤销</string>
-    <string name="qk_00642" formatted="false">你可随时在系统「设置 → 应用 → Zorv AI → 权限」中查看已授予的权限，并逐项撤销。撤销某项权限后，仅该功能受限，应用其余部分仍可正常使用；如某项必需权限被撤销导致功能异常，重新授予即可恢复。</string>
-    <string name="qk_00643" formatted="false">欢迎使用 Zorv AI（以下简称「本应用」）。下载、安装或使用本应用前，请认真阅读以下条款。使用即表示同意受约束；不同意请勿使用。</string>
+    <string name="qk_00642" formatted="false">你可随时在系统「设置 → 应用 → Echo AI → 权限」中查看已授予的权限，并逐项撤销。撤销某项权限后，仅该功能受限，应用其余部分仍可正常使用；如某项必需权限被撤销导致功能异常，重新授予即可恢复。</string>
+    <string name="qk_00643" formatted="false">欢迎使用 Echo AI（以下简称「本应用」）。下载、安装或使用本应用前，请认真阅读以下条款。使用即表示同意受约束；不同意请勿使用。</string>
     <string name="qk_00644" formatted="false">一、服务说明</string>
     <string name="qk_00645" formatted="false">本应用提供基于大语言模型的对话、语音合成与识别、工具调用等能力。模型运行在您自行配置的云端服务商，或设备本地的端侧引擎。本应用按「现状」提供，不对第三方模型服务商的内容、稳定性负责。
 本应用为开源软件，源代码以 Apache-2.0 许可证公开。可能包含实验性功能，不稳定或随时变更。</string>
@@ -904,7 +904,7 @@
     <string name="qk_00653" formatted="false">本应用可能集成第三方模型、开源依赖与组件（详见「开源许可声明」）。使用相关第三方服务时，您还应遵守其各自的服务条款；因第三方服务导致的问题，本应用不负责。
 本应用可能包含指向第三方网站的链接，仅为方便提供，我们对第三方内容不负责。</string>
     <string name="qk_00654" formatted="false">六、知识产权</string>
-    <string name="qk_00655" formatted="false">本应用源代码以 Apache-2.0 许可证开源，您可在遵守该许可证的前提下使用、修改与再分发。「Zorv AI」名称与品牌标识的商标权益独立于代码许可证，未经授权不得用于暗示官方背书或误导性商业用途。
+    <string name="qk_00655" formatted="false">本应用源代码以 Apache-2.0 许可证开源，您可在遵守该许可证的前提下使用、修改与再分发。「Echo AI」名称与品牌标识的商标权益独立于代码许可证，未经授权不得用于暗示官方背书或误导性商业用途。
 您使用本应用生成的内容，其知识产权依适用法律及您的输入归属；本应用不因提供生成服务而对生成内容主张权属。</string>
     <string name="qk_00656" formatted="false">七、关于 AI 生成内容</string>
     <string name="qk_00657" formatted="false">AI 生成内容由模型自动产生，仅供参考，不保证准确性、完整性、时效性或适用性，不构成专业建议（包括但不限于医疗、法律、金融等领域）。您应独立判断并自行承担使用风险。
@@ -952,14 +952,14 @@ AI 生成的内容可能涉及版权、商标、肖像权、隐私权等知识�
     <string name="qk_00666" formatted="false">十二、违规处理与终止</string>
     <string name="qk_00667" formatted="false">若您违反本协议或相关法律法规，本应用有权限制或终止您对部分或全部功能的使用。您亦可随时停止使用并卸载本应用。本应用保留在必要时修改或终止服务的权利，但会提前通知用户。因您违反本协议导致的任何损失，本应用不承担责任。</string>
     <string name="qk_00668" formatted="false">十三、协议的变更</string>
-    <string name="qk_00669" formatted="false">我们可能不时更新本协议。更新后在「关于 Zorv AI」中可见；继续使用即视为接受更新后的条款。重大变更通过应用内通知告知。您有权在协议变更后停止使用本应用。</string>
+    <string name="qk_00669" formatted="false">我们可能不时更新本协议。更新后在「关于 Echo AI」中可见；继续使用即视为接受更新后的条款。重大变更通过应用内通知告知。您有权在协议变更后停止使用本应用。</string>
     <string name="qk_00670" formatted="false">十四、法律适用与争议解决</string>
     <string name="qk_00671" formatted="false">本协议的订立、效力、解释及争议解决均适用中华人民共和国大陆地区法律。因本协议引起的争议，双方应首先友好协商；协商不成的，向本应用运营方所在地有管辖权的人民法院提起诉讼。
 本协议的任何条款如被认定无效或不可执行，该条款在允许的最大范围内执行，其余条款仍具效力。</string>
     <string name="qk_00672" formatted="false">十五、其他条款</string>
     <string name="qk_00673" formatted="false">本协议构成双方就使用本应用的完整协议，取代之前的口头或书面协议。本协议的修改或放弃须以书面形式作出。本应用未行使或延迟行使任何权利，不构成对该权利的放弃。</string>
     <string name="qk_00674" formatted="false">十六、联系我们</string>
-    <string name="qk_00675" formatted="false">对本协议或隐私事宜有疑问，可通过「关于 Zorv AI → 项目地址」中的仓库 Issues 联系我们。</string>
+    <string name="qk_00675" formatted="false">对本协议或隐私事宜有疑问，可通过「关于 Echo AI → 项目地址」中的仓库 Issues 联系我们。</string>
     <string name="qk_00676" formatted="false">回显文本</string>
     <string name="qk_00677" formatted="false">要回显的内容</string>
     <string name="qk_00678" formatted="false">回显结果</string>
@@ -1634,13 +1634,13 @@ AI 生成的内容可能涉及版权、商标、肖像权、隐私权等知识�
     <string name="qk_01689" formatted="false">平台角色（系统角色，API 29+）</string>
     <string name="qk_01690" formatted="false">其它默认（靠系统选择器设为默认）</string>
     <string name="qk_01691" formatted="false">说明</string>
-    <string name="qk_01692" formatted="false">设为默认后，打开对应类型（网页 / 图片 / 视频 / 邮件 / 文档 / 拨号 / 短信 / 桌面）时由 Zorv AI 接管处理。</string>
+    <string name="qk_01692" formatted="false">设为默认后，打开对应类型（网页 / 图片 / 视频 / 邮件 / 文档 / 拨号 / 短信 / 桌面）时由 Echo AI 接管处理。</string>
     <string name="qk_01693" formatted="false">平台角色（桌面启动器 / 浏览器 / 拨号 / 短信）经系统角色框申请；本应用未实现桌面 UI，故「桌面启动器」仅提交角色申请，是否生效取决于系统是否将其列为合格候选。</string>
-    <string name="qk_01694" formatted="false">相册 / 视频 / 邮箱 / 文档无系统角色，点「设为默认」会弹出系统选择器，请选择 Zorv AI 并勾选「总是」。</string>
-    <string name="qk_01695" formatted="false">取消默认请到系统设置 → 应用 → Zorv AI → 默认打开 / 默认应用，或对应类型的默认应用管理页。</string>
+    <string name="qk_01694" formatted="false">相册 / 视频 / 邮箱 / 文档无系统角色，点「设为默认」会弹出系统选择器，请选择 Echo AI 并勾选「总是」。</string>
+    <string name="qk_01695" formatted="false">取消默认请到系统设置 → 应用 → Echo AI → 默认打开 / 默认应用，或对应类型的默认应用管理页。</string>
     <string name="qk_01696" formatted="false">已是默认</string>
     <string name="qk_01697" formatted="false">设为默认</string>
-    <string name="qk_01698" formatted="false">✓ Zorv AI 已是默认</string>
+    <string name="qk_01698" formatted="false">✓ Echo AI 已是默认</string>
     <string name="qk_01699">当前默认：%1$s</string>
     <string name="qk_01700" formatted="false">当前未设置默认</string>
     <string name="qk_01701" formatted="false">请在系统默认应用管理中查看</string>
@@ -1812,10 +1812,10 @@ AI 生成的内容可能涉及版权、商标、肖像权、隐私权等知识�
     <string name="qk_01865" formatted="false">留空则使用主模型配置的URL</string>
     <string name="qk_01866" formatted="false">自定义API密钥（可选）</string>
     <string name="qk_01867" formatted="false">留空则使用主模型配置的密钥</string>
-    <string name="qk_01868" formatted="false">&lt;!doctype html&gt;&lt;html&gt;&lt;body&gt;&lt;h1&gt;ZorvAI 导出示例&lt;/h1&gt;&lt;p&gt;由功能权限演示经 MediaStore 导出，无需存储权限。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-    <string name="qk_01869" formatted="false">已导出到 Download/ZorvAI ✓</string>
+    <string name="qk_01868" formatted="false">&lt;!doctype html&gt;&lt;html&gt;&lt;body&gt;&lt;h1&gt;Echo AI 导出示例&lt;/h1&gt;&lt;p&gt;由功能权限演示经 MediaStore 导出，无需存储权限。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string name="qk_01869" formatted="false">已导出到 Download/Echo AI ✓</string>
     <string name="qk_01870" formatted="false">导出失败（请检查存储可用性）</string>
-    <string name="qk_01871" formatted="false">ZorvAI 跑步</string>
+    <string name="qk_01871" formatted="false">Echo AI 跑步</string>
     <string name="qk_01872" formatted="false">已写入一条跑步记录（来源=本应用）✓</string>
     <string name="qk_01873">写入失败: %1$s</string>
     <string name="qk_01874" formatted="false">功能权限</string>
@@ -1835,7 +1835,7 @@ AI 生成的内容可能涉及版权、商标、肖像权、隐私权等知识�
     <string name="qk_01888" formatted="false">设备未提供 Health Connect（Android 14+ 应为系统模块）。可尝试在应用商店安装，或后续接入厂商健康 SDK。</string>
     <string name="qk_01889">已授权 %1$s 项数据类型。</string>
     <string name="qk_01890" formatted="false">测试提醒（5 秒后）</string>
-    <string name="qk_01891" formatted="false">ZorvAI 提醒</string>
+    <string name="qk_01891" formatted="false">Echo AI 提醒</string>
     <string name="qk_01892" formatted="false">这是一条测试提醒</string>
     <string name="qk_01893" formatted="false">已设置 5 秒后精确闹钟 ✓</string>
     <string name="qk_01894" formatted="false">开启精确闹钟</string>
@@ -1860,7 +1860,7 @@ AI 生成的内容可能涉及版权、商标、肖像权、隐私权等知识�
     <string name="qk_01913" formatted="false">前往默认助理设置</string>
     <string name="qk_01914" formatted="false">设为默认数字助理</string>
     <string name="qk_01915" formatted="false">数字助理应用完整功能</string>
-    <string name="qk_01916" formatted="false">将 Zorv AI 设为系统默认数字助理，接管长按 Home / 侧键唤醒的助手手势，提供全局语音/文本助理能力。经系统角色选择框授予。</string>
+    <string name="qk_01916" formatted="false">将 Echo AI 设为系统默认数字助理，接管长按 Home / 侧键唤醒的助手手势，提供全局语音/文本助理能力。经系统角色选择框授予。</string>
     <string name="qk_01917" formatted="false">已是默认数字助理。可在「设置 → 默认应用 → 数字助理」更改。</string>
     <string name="qk_01918" formatted="false">当前系统版本不支持数字助理角色。</string>
     <string name="qk_01919" formatted="false">经系统「默认数字助理」选择框授予，确认后即可全局唤醒。</string>
@@ -1976,14 +1976,14 @@ AI 生成的内容可能涉及版权、商标、肖像权、隐私权等知识�
     <string name="qk_02029" formatted="false">未检测到 LSPosed / Xposed</string>
     <string name="qk_02030" formatted="false">安装 LSPosed (zygisk) 后，这里会显示管理器入口</string>
     <string name="qk_02031" formatted="false">已安装 · 点击打开做作用域 / 模块管理</string>
-    <string name="qk_02032" formatted="false">Zorv AI 作用域</string>
-    <string name="qk_02033" formatted="false">把 Zorv AI 纳入作用域</string>
+    <string name="qk_02032" formatted="false">Echo AI 作用域</string>
+    <string name="qk_02033" formatted="false">把 Echo AI 纳入作用域</string>
     <string name="qk_02034" formatted="false">在管理器「应用」里勾选本应用，框架钩子才对其生效</string>
     <string name="qk_02035" formatted="false">请先安装 LSPosed 管理器</string>
-    <string name="qk_02036" formatted="false">激活 Zorv AI 模块</string>
-    <string name="qk_02037" formatted="false">在 LSPosed「模块」列表启用 Zorv AI，并在「应用」勾选本应用以纳入作用域</string>
-    <string name="qk_02038" formatted="false">Zorv AI 的终端 / ACI / 自动化能力走自有管线（无障碍 · Shizuku · 设备管理员 · ROOT），不依赖 Xposed 也能运行。</string>
-    <string name="qk_02039" formatted="false">Zorv AI 现已提供 opt-in LSPosed 模块：被纳入作用域即写入作用域标记；可选开启跨应用注入 / 系统重定向桥（需外部 lsposed_bridge.json 配置，默认关闭）。本页不定义任何 ai.aci.permission.*。</string>
+    <string name="qk_02036" formatted="false">激活 Echo AI 模块</string>
+    <string name="qk_02037" formatted="false">在 LSPosed「模块」列表启用 Echo AI，并在「应用」勾选本应用以纳入作用域</string>
+    <string name="qk_02038" formatted="false">Echo AI 的终端 / ACI / 自动化能力走自有管线（无障碍 · Shizuku · 设备管理员 · ROOT），不依赖 Xposed 也能运行。</string>
+    <string name="qk_02039" formatted="false">Echo AI 现已提供 opt-in LSPosed 模块：被纳入作用域即写入作用域标记；可选开启跨应用注入 / 系统重定向桥（需外部 lsposed_bridge.json 配置，默认关闭）。本页不定义任何 ai.aci.permission.*。</string>
     <string name="qk_02040" formatted="false">权限定义（ai.aci.permission.* 等）由控制端工程维护，本应用只声明与使用，不重复定义。</string>
     <string name="qk_02041">无法打开 %1$s：%2$s</string>
     <string name="qk_02042" formatted="false">复制并关闭</string>
@@ -2007,7 +2007,7 @@ AI 生成的内容可能涉及版权、商标、肖像权、隐私权等知识�
 |------|------|
 | 内容 | 内容 |</string>
     <string name="qk_02058" formatted="false">MCP 服务</string>
-    <string name="qk_02059">把 Zorv AI 的 %1$s 个内置工具以 MCP（Model Context Protocol）协议暴露给本机其它 AI 客户端</string>
+    <string name="qk_02059">把 Echo AI 的 %1$s 个内置工具以 MCP（Model Context Protocol）协议暴露给本机其它 AI 客户端</string>
     <string name="qk_02060" formatted="false">（Claude Desktop / Cursor / MCP Inspector 等）。</string>
     <string name="qk_02061" formatted="false">启用本地 MCP Server</string>
     <string name="qk_02062">正在监听 127.0.0.1:%1$s</string>
@@ -2243,8 +2243,8 @@ AI 生成的内容可能涉及版权、商标、肖像权、隐私权等知识�
     <string name="qk_02289" formatted="false">选择文档类型</string>
     <string name="qk_02290" formatted="false">选择类型后将创建空白文档并进入编辑器。</string>
     <string name="qk_02291" formatted="false">正在探测…</string>
-    <string name="qk_02292" formatted="false">Zorv AI 闹钟测试</string>
-    <string name="qk_02293" formatted="false">未找到系统时钟应用，请到 设置→应用→Zorv AI→所有权限 中查看「设置闹钟」</string>
+    <string name="qk_02292" formatted="false">Echo AI 闹钟测试</string>
+    <string name="qk_02293" formatted="false">未找到系统时钟应用，请到 设置→应用→Echo AI→所有权限 中查看「设置闹钟」</string>
     <string name="qk_02294" formatted="false">审计日志</string>
     <string name="qk_02295" formatted="false">分层、受控、可审计：L1 无障碍 → L2 Shizuku → L3 设备管理员 → L4 ROOT，逐级提升。任何越权操作都需经过「意图→策略检查→用户确认→审计」四阶段。</string>
     <string name="qk_02296" formatted="false">权限模式</string>
@@ -2278,8 +2278,8 @@ AI 生成的内容可能涉及版权、商标、肖像权、隐私权等知识�
     <string name="qk_02324">ROOT：%1$s（root 命令经 root_exec / shizuku_root_exec 工具真实执行，受「权限模式」策略约束）</string>
     <string name="qk_02325" formatted="false">标准运行时权限</string>
     <string name="qk_02326" formatted="false">请在系统设置开启「精确闹钟」，返回后再次点击测试</string>
-    <string name="qk_02327" formatted="false">请到 设置→应用→Zorv AI→通知/权限 中开启「精确闹钟」</string>
-    <string name="qk_02328" formatted="false">Zorv AI 测试闹钟</string>
+    <string name="qk_02327" formatted="false">请到 设置→应用→Echo AI→通知/权限 中开启「精确闹钟」</string>
+    <string name="qk_02328" formatted="false">Echo AI 测试闹钟</string>
     <string name="qk_02329" formatted="false">测试提醒：精确闹钟权限已生效</string>
     <string name="qk_02330" formatted="false">已设置，约 10 秒后弹出提醒通知</string>
     <string name="qk_02331" formatted="false">功能权限（AI 助手能力）</string>
@@ -2879,7 +2879,7 @@ AI 生成的内容可能涉及版权、商标、肖像权、隐私权等知识�
     <string name="qk_02919" formatted="false">已编译并安装：${out.value[</string>
     <string name="qk_02920">编译/安装失败：%1$s</string>
     <string name="qk_02921" formatted="false">编译并安装</string>
-    <string name="qk_02922" formatted="false">这是一条语音合成测试，Zorv AI 正在朗读。</string>
+    <string name="qk_02922" formatted="false">这是一条语音合成测试，Echo AI 正在朗读。</string>
     <string name="qk_02923" formatted="false">页面加载：开始预初始化 TTS</string>
     <string name="qk_02924" formatted="false">LaunchedEffect ensure 回调: ok=$ok, voices=${runCatching { QuroTtsHolder.getVoices().size }.getOrDefault(0)}</string>
     <string name="qk_02925">初始化回调异常(已忽略): %1$s</string>
@@ -3053,7 +3053,7 @@ AI 生成的内容可能涉及版权、商标、肖像权、隐私权等知识�
     <string name="qk_03084" formatted="false">暂无其它对话框。</string>
     <string name="qk_03085" formatted="false">后台自启动</string>
     <string name="qk_03086" formatted="false">开机后自动拉起常住语音球（含通知栏），不自动聆听，等点按开始。</string>
-    <string name="qk_03087" formatted="false">开启后，设备开机完成会尝试启动前台语音球服务（仅挂通知栏、不主动录音）。若厂商 ROM 限制了自启动，请在系统「电池 / 自启动管理」里允许 Zorv AI。</string>
+    <string name="qk_03087" formatted="false">开启后，设备开机完成会尝试启动前台语音球服务（仅挂通知栏、不主动录音）。若厂商 ROM 限制了自启动，请在系统「电池 / 自启动管理」里允许 Echo AI。</string>
     <string name="qk_03088" formatted="false">LLM 情绪标签</string>
     <string name="qk_03089" formatted="false">开启后 AI 回复自然穿插情绪 / 语气，让语音更有温度。情绪来源自动跟随「语音合成」所选服务商。</string>
     <string name="qk_03090" formatted="false">当前语音来源为本地系统 TTS，不解析情绪标记，AI 会以自然语言（措辞 / 语气词）体现情绪，朗读无额外情感起伏。</string>
@@ -3418,7 +3418,7 @@ AI 生成的内容可能涉及版权、商标、肖像权、隐私权等知识�
     <string name="qk_03437" formatted="false">即想即得</string>
     <string name="qk_03438" formatted="false">保存或更新一个第三方服务授权，供 http_request 用 service 参数自动带鉴权。</string>
     <string name="qk_03439" formatted="false">硅基流动 CosyVoice</string>
-    <string name="qk_03440" formatted="false">通过 Zorv AI 智能体键盘触发当前输入框的『发送』动作（EditorInfo.IME_ACTION_SEND），</string>
+    <string name="qk_03440" formatted="false">通过 Echo AI 智能体键盘触发当前输入框的『发送』动作（EditorInfo.IME_ACTION_SEND），</string>
     <string name="qk_03441" formatted="false">目录名</string>
     <string name="qk_03442" formatted="false">管理多提供商配置，支持自动故障转移、健康检查和优先级排序。可以添加、更新、删除提供商配置，执行健康检查，查看故障转移状态。</string>
     <string name="qk_03443" formatted="false">图像识别/分析</string>
@@ -3433,12 +3433,12 @@ AI 生成的内容可能涉及版权、商标、肖像权、隐私权等知识�
     <string name="qk_03452" formatted="false">在 proot/Ubuntu 终端内运行 Node.js（bootstrap 已装 nodejs）。自带真实入口脚本：部署后拉起本地 HTTP 后端，作为「终端是后端」的另一实现，与 Python 后端可并存。</string>
     <string name="qk_03453" formatted="false">存储权限</string>
     <string name="qk_03454" formatted="false">导出构建产物：把构建台生成的APK导出到可访问位置（替代UI文件选择器，AI也能调起）</string>
-    <string name="qk_03455" formatted="false">Zorv CMS引擎</string>
+    <string name="qk_03455" formatted="false">Echo CMS引擎</string>
     <string name="qk_03456" formatted="false">Tasker 双向集成：fire 点燃指定 Tasker 任务；broadcast 发送任意自定义广播（带 extras）；state 查询 Tasker 是否安装。</string>
     <string name="qk_03457" formatted="false">未连接到受控端</string>
     <string name="qk_03458" formatted="false">检索 Crossref 学术文献数据库（免费、无需鉴权）：按关键词查找论文/书籍/章节，返回标题、作者、年份、DOI 与链接。</string>
     <string name="qk_03459" formatted="false">经 Shizuku 以 ADB/Shell 权限执行命令（比普通 Runtime.exec 更高权限）。</string>
-    <string name="qk_03460" formatted="false">Zorv 对话</string>
+    <string name="qk_03460" formatted="false">Echo 对话</string>
     <string name="qk_03461" formatted="false">默认使用内置占位图标；导入后该 PNG 会替换 APK 桌面图标。</string>
     <string name="qk_03462" formatted="false">屏幕捕获已启用，长按可再次申请</string>
     <string name="qk_03463" formatted="false">拉取 quro-ui DSL 完整规范（节点/属性/动作），避免长 schema 常驻系统提示词</string>
@@ -3469,9 +3469,9 @@ AI 生成的内容可能涉及版权、商标、肖像权、隐私权等知识�
     <string name="qk_03488" formatted="false">终端会话前台保活服务</string>
     <string name="qk_03489" formatted="false">在左侧文件树选择或新建文件开始编写代码…</string>
     <string name="qk_03490" formatted="false">ROOT 访问权限</string>
-    <string name="qk_03491" formatted="false">粘贴：先在目标 App 点一下输入框，再点「粘贴」（走无障碍 SET_TEXT / PASTE）。需开启 ZorvAI 无障碍服务。</string>
+    <string name="qk_03491" formatted="false">粘贴：先在目标 App 点一下输入框，再点「粘贴」（走无障碍 SET_TEXT / PASTE）。需开启 Echo AI 无障碍服务。</string>
     <string name="qk_03492" formatted="false">▶️ 完整 JS/TS 脚本运行器（SandboxPackage）：在 QuickJS 沙箱里运行「工作区脚本文件」或「内联代码片段」，</string>
-    <string name="qk_03493" formatted="false">APK 级插件框架总控（ZorvAI 的插件系统只有一个入口，就是这个工具）。</string>
+    <string name="qk_03493" formatted="false">APK 级插件框架总控（Echo AI 的插件系统只有一个入口，就是这个工具）。</string>
     <string name="qk_03494" formatted="false">波波</string>
     <string name="qk_03495" formatted="false">CMS模块与引擎管理：查看/调用CMS模块、部署/检查CMS引擎状态、修复CMS部署、AI自写CMS模块脚本</string>
     <string name="qk_03496" formatted="false">读取工作区文件</string>
@@ -3488,7 +3488,7 @@ AI 生成的内容可能涉及版权、商标、肖像权、隐私权等知识�
     <string name="qk_03507" formatted="false">构建 APK</string>
     <string name="qk_03508" formatted="false">渲染通道</string>
     <string name="qk_03509" formatted="false">小程序（原生引擎）·</string>
-    <string name="qk_03510" formatted="false">通过 Zorv AI 智能体键盘，把文本直接打字进当前聚焦的输入框（如 WPS 文档）。</string>
+    <string name="qk_03510" formatted="false">通过 Echo AI 智能体键盘，把文本直接打字进当前聚焦的输入框（如 WPS 文档）。</string>
     <string name="qk_03511" formatted="false">已固定到桌面（若系统支持）</string>
     <string name="qk_03512" formatted="false">该插件暂未提供可交互界面</string>
     <string name="qk_03513" formatted="false">已开启 · 每次生成前弹出四选一（GenUI / A2UI / Markdown / HTML），选完才开始生成</string>
@@ -3506,7 +3506,7 @@ AI 生成的内容可能涉及版权、商标、肖像权、隐私权等知识�
     <string name="qk_03525" formatted="false">Python 演示模块</string>
     <string name="qk_03526" formatted="false">添加文档到知识库</string>
     <string name="qk_03527" formatted="false">🧰 从内置模板在工作区创建项目骨架（复制到 工作区/&lt;项目名&gt;/，已存在同名目录则报错）。</string>
-    <string name="qk_03528" formatted="false">ZorvAI 任务实时状态（流体云/实时更新）</string>
+    <string name="qk_03528" formatted="false">Echo AI 任务实时状态（流体云/实时更新）</string>
     <string name="qk_03529" formatted="false">控制WiFi开关</string>
     <string name="qk_03530" formatted="false">以 ROOT 权限执行 shell 命令（最高风险通道！慎用）。优先使用 Shizuku root 通道，降级为 su 直调。</string>
     <string name="qk_03531" formatted="false">查看详情</string>
@@ -3528,7 +3528,7 @@ AI 生成的内容可能涉及版权、商标、肖像权、隐私权等知识�
     <string name="qk_03547" formatted="false">精美设计</string>
     <string name="qk_03548" formatted="false">终端直用特权通道执行命令（Shizuku→ROOT 自动降级）。</string>
     <string name="qk_03549" formatted="false">强制锁定手机屏幕（需 L3 设备管理员已激活）。</string>
-    <string name="qk_03550" formatted="false">Zorv 视频通话</string>
+    <string name="qk_03550" formatted="false">Echo 视频通话</string>
     <string name="qk_03551" formatted="false">给 AI 的指令，例如：写一条夸朋友的评论</string>
     <string name="qk_03552" formatted="false">获取设备型号与系统版本</string>
     <string name="qk_03553" formatted="false">服务状态</string>
@@ -3538,7 +3538,7 @@ AI 生成的内容可能涉及版权、商标、肖像权、隐私权等知识�
     <string name="qk_03557" formatted="false">精读单个网页：抓取URL正文并抽取可读文本/要点，供AI引用作答</string>
     <string name="qk_03558" formatted="false">读取本地已有文档并抽取纯文本，供 AI 理解内容后改写/总结。</string>
     <string name="qk_03559" formatted="false">发送HTTP请求</string>
-    <string name="qk_03560" formatted="false">Zorv AI 暂未内置 PDF 渲染器</string>
+    <string name="qk_03560" formatted="false">Echo AI 暂未内置 PDF 渲染器</string>
     <string name="qk_03561" formatted="false">屏幕捕获授权失败，已 fallback 到无障碍节点树</string>
     <string name="qk_03562" formatted="false">邮件</string>
     <string name="qk_03563" formatted="false">获取当前界面 UI 控件树（UI Tree），用于精准自动化。</string>
@@ -3550,7 +3550,7 @@ AI 生成的内容可能涉及版权、商标、肖像权、隐私权等知识�
     <string name="qk_03569" formatted="false">来自飞书 / QQ / 微信 等机器人的消息（离开软件时系统弹窗）</string>
     <string name="qk_03570" formatted="false">阿里百炼 CosyVoice</string>
     <string name="qk_03571" formatted="false">AI图像生成</string>
-    <string name="qk_03572" formatted="false">Zorv 语音球</string>
+    <string name="qk_03572" formatted="false">Echo 语音球</string>
     <string name="qk_03573" formatted="false">调用一个 CMS v2 能力模块暴露的应用内能力（如 run_node / device_model / open_url / web_search）。</string>
     <string name="qk_03574" formatted="false">位置权限</string>
     <string name="qk_03575" formatted="false">在 proot/Ubuntu 终端内运行 Python（bootstrap 已装 python3）。模块自带真实入口脚本：部署后在终端拉起一个本地 HTTP 后端（监听 0.0.0.0 端口），本 App 作为前端通过 cms_call/ACI 调用，实现「终端是后端、本软是前端」的互为主从。</string>
@@ -3561,7 +3561,7 @@ AI 生成的内容可能涉及版权、商标、肖像权、隐私权等知识�
     <string name="qk_03580" formatted="false">输出 quro-ui 前自检：把「渲染失败」变成事前修正</string>
     <string name="qk_03581" formatted="false">广义IDE知识库和创作工具</string>
     <string name="qk_03582" formatted="false">🔍 知识库关键词检索：在本地知识库里按关键词精确匹配。</string>
-    <string name="qk_03583" formatted="false">列出 ZorvAI 工作区（QuroWorkspace）里某个目录的内容（子目录/文件），默认列根目录。</string>
+    <string name="qk_03583" formatted="false">列出 Echo AI 工作区（QuroWorkspace）里某个目录的内容（子目录/文件），默认列根目录。</string>
     <string name="qk_03584" formatted="false">打开网页（被动展示）</string>
     <string name="qk_03585" formatted="false">小米 MiMo TTS</string>
     <string name="qk_03586" formatted="false">终端资源与进程监控（proot 沙箱内读 /proc，无需 cgroups）。</string>
@@ -3597,7 +3597,7 @@ AI 生成的内容可能涉及版权、商标、肖像权、隐私权等知识�
     <string name="qk_03616" formatted="false">导出产物</string>
     <string name="qk_03617" formatted="false">尚未选择 keystore（生成或导入后生效）。</string>
     <string name="qk_03618" formatted="false">思考过程</string>
-    <string name="qk_03619" formatted="false">Zorv 构建台</string>
+    <string name="qk_03619" formatted="false">Echo 构建台</string>
     <string name="qk_03620" formatted="false">精致细节</string>
     <string name="qk_03621" formatted="false">GenUI · 生成式 UI 对话</string>
     <string name="qk_03622" formatted="false">准备中...</string>
@@ -3609,7 +3609,7 @@ AI 生成的内容可能涉及版权、商标、肖像权、隐私权等知识�
     <string name="qk_03628" formatted="false">创建定时任务</string>
     <string name="qk_03629" formatted="false">列出目录内容</string>
     <string name="qk_03630" formatted="false">插件运行时未就绪，请稍候…</string>
-    <string name="qk_03631" formatted="false">读取 ZorvAI 工作区（QuroWorkspace）里指定相对路径的文本文件内容，返回完整文本。</string>
+    <string name="qk_03631" formatted="false">读取 Echo AI 工作区（QuroWorkspace）里指定相对路径的文本文件内容，返回完整文本。</string>
     <string name="qk_03632" formatted="false">按依赖编排执行一组 terminal 命令（DAG）：无依赖并行、上游 stdout 作为下游输入、任一失败中止后续。</string>
     <string name="qk_03633" formatted="false">GenUI SDK / A2UI / Markdown / HTML —— 选完即开始生成</string>
     <string name="qk_03634" formatted="false">执行Shell命令</string>
@@ -3633,7 +3633,7 @@ AI 生成的内容可能涉及版权、商标、肖像权、隐私权等知识�
     <string name="qk_03652" formatted="false">在 QuroTerm 自研沙盒终端执行命令（ls/cd/cat/echo/grep/ps/top/netstat/ping/curl/wget/dns/</string>
     <string name="qk_03653" formatted="false">内存使用</string>
     <string name="qk_03654" formatted="false">发起HTTP请求并返回响应</string>
-    <string name="qk_03655" formatted="false">Zorv AI 仅拉起系统拨号盘，不自动外呼。</string>
+    <string name="qk_03655" formatted="false">Echo AI 仅拉起系统拨号盘，不自动外呼。</string>
     <string name="qk_03656" formatted="false">UI 解析失败</string>
     <string name="qk_03657" formatted="false">📐 后台 AIP 排版合成：用于整篇长文档 / PPT / 报告 / 思维导图的结构化排版。</string>
     <string name="qk_03658" formatted="false">AI 操控应用内置浏览器（接管当前显示的 WebView，页面已加载时可直接看到/操作内容）。</string>
@@ -3656,7 +3656,7 @@ AI 生成的内容可能涉及版权、商标、肖像权、隐私权等知识�
     <string name="qk_03675" formatted="false">控制 ACI HTTP 模拟服务器（当真实 ACI API 尚未完成时使用）。</string>
     <string name="qk_03676" formatted="false">无法渲染 GenUI 内容</string>
     <string name="qk_03677" formatted="false">调用一个第三方 App 通过 ACI（Agent Capability Interface）暴露的能力（如发消息 / 查未读 / 建群 / 打开网页 / 执行网页 JS / 发起 HTTP 请求 / 共享工作空间读写 workspace_write·workspace_read·workspace_list·workspace_delete）。</string>
-    <string name="qk_03678" formatted="false">Zorv AI 不存储邮件，发送经你选择的邮件应用完成。</string>
+    <string name="qk_03678" formatted="false">Echo AI 不存储邮件，发送经你选择的邮件应用完成。</string>
     <string name="qk_03679" formatted="false">设备管理员权限</string>
     <string name="qk_03680" formatted="false">启动应用</string>
     <string name="qk_03681" formatted="false">AI 返回的数据格式不正确，请重试或调整描述。</string>
@@ -3681,7 +3681,7 @@ AI 生成的内容可能涉及版权、商标、肖像权、隐私权等知识�
     <string name="qk_03700" formatted="false">打开网页浏览器并导航到指定URL</string>
     <string name="qk_03701" formatted="false">本地 Git 版本控制集成：在 proot 容器内对设备存储上的仓库执行 git 命令。</string>
     <string name="qk_03702" formatted="false">已具备特权通道，可直接在终端执行 ADB shell</string>
-    <string name="qk_03703" formatted="false">ZorvAI 沙盒终端</string>
+    <string name="qk_03703" formatted="false">Echo AI 沙盒终端</string>
     <string name="qk_03704" formatted="false">终端·静态HTTP服务</string>
     <string name="qk_03705" formatted="false">HTML 应用</string>
     <string name="qk_03706" formatted="false">输入…</string>
@@ -3694,7 +3694,7 @@ AI 生成的内容可能涉及版权、商标、肖像权、隐私权等知识�
     <string name="qk_03713" formatted="false">宠物管理</string>
     <string name="qk_03714" formatted="false">」及其全部内容？</string>
     <string name="qk_03715" formatted="false">在 proot 容器内用 tmux 管理终端会话（多窗格/后台任务/键盘发送）。</string>
-    <string name="qk_03716" formatted="false">通过 Zorv AI 智能体键盘发送回车键（提交/换行）。前置条件同 ai_type_text：已启用并切到『Zorv AI 键盘』且目标 App 输入框已聚焦。</string>
+    <string name="qk_03716" formatted="false">通过 Echo AI 智能体键盘发送回车键（提交/换行）。前置条件同 ai_type_text：已启用并切到『Echo AI 键盘』且目标 App 输入框已聚焦。</string>
     <string name="qk_03717" formatted="false">工具链</string>
     <string name="qk_03718" formatted="false">列出可用的ACI能力</string>
     <string name="qk_03719" formatted="false">列出CMS能力模块（旧接口，建议使用cms_toolbox）</string>
@@ -3707,11 +3707,11 @@ AI 生成的内容可能涉及版权、商标、肖像权、隐私权等知识�
     <string name="qk_03726" formatted="false">开启语音球需授予「悬浮窗」权限</string>
     <string name="qk_03727" formatted="false">列出工作区内容</string>
     <string name="qk_03728" formatted="false">生成中…</string>
-    <string name="qk_03729" formatted="false">请先在系统设置开启 ZorvAI 无障碍服务</string>
-    <string name="qk_03730" formatted="false">Zorv AI 定时任务到时提醒</string>
+    <string name="qk_03729" formatted="false">请先在系统设置开启 Echo AI 无障碍服务</string>
+    <string name="qk_03730" formatted="false">Echo AI 定时任务到时提醒</string>
     <string name="qk_03731" formatted="false">暂无工具调用</string>
     <string name="qk_03732" formatted="false">终端·Python运行时</string>
-    <string name="qk_03733" formatted="false">已接入 ZorvAI 人格卡/记忆/标签体系，与主对话共用同一个身份，无需在此单独设置</string>
+    <string name="qk_03733" formatted="false">已接入 Echo AI 人格卡/记忆/标签体系，与主对话共用同一个身份，无需在此单独设置</string>
     <string name="qk_03734" formatted="false">滚动当前屏幕上的可滚动容器（列表/页面）。</string>
     <string name="qk_03735" formatted="false">身份与模型</string>
     <string name="qk_03736" formatted="false">多格式文档创建（md/txt/csv/json/html等17种）</string>
@@ -3763,7 +3763,7 @@ AI 生成的内容可能涉及版权、商标、肖像权、隐私权等知识�
     <string name="qk_03781" formatted="false">高级配置：已设自定义密钥</string>
     <string name="qk_03782" formatted="false">高级配置：已设自定义端点与密钥</string>
     <string name="qk_03783" formatted="false">（我摸了摸宠物）</string>
-    <string name="qk_03784" formatted="false">跟随 ZorvAI</string>
+    <string name="qk_03784" formatted="false">跟随 Echo AI</string>
     <string name="qk_03785" formatted="false">思考面板</string>
     <string name="qk_03786" formatted="false">查看推理过程</string>
     <string name="qk_03787" formatted="false">设置中心</string>
@@ -3784,7 +3784,7 @@ AI 生成的内容可能涉及版权、商标、肖像权、隐私权等知识�
     <string name="qk_03802" formatted="false">推荐一首音乐</string>
     <string name="qk_03803" formatted="false">今日运势</string>
     <string name="qk_03804" formatted="false">说晚安</string>
-    <string name="qk_03805">人格卡：%1$s · 模型：%2$s（由 ZorvAI 主设置统一管理）</string>
+    <string name="qk_03805">人格卡：%1$s · 模型：%2$s（由 Echo AI 主设置统一管理）</string>
     <string name="qk_03806">共 %1$s 个界面记录 · 点击回放与查看往来</string>
     <string name="qk_03807" formatted="false">JSON 解析失败：字段不完整</string>
     <string name="qk_03808" formatted="false">无法读取文件</string>
@@ -3808,7 +3808,7 @@ AI 生成的内容可能涉及版权、商标、肖像权、隐私权等知识�
     <string name="qk_03826">⚠️ 语音球出错了：%1$s</string>
     <string name="qk_03827">人格孵化失败：%1$s</string>
     <string name="qk_03828">人格自动孵化失败：%1$s</string>
-    <string name="qk_03829" formatted="false">你好，我是 Zorv AI。已就绪，可以聊天、调用工具。点左上角菜单查看历史对话，或点 ＋ 新建对话。</string>
+    <string name="qk_03829" formatted="false">你好，我是 Echo AI。已就绪，可以聊天、调用工具。点左上角菜单查看历史对话，或点 ＋ 新建对话。</string>
     <string name="qk_03830" formatted="false">关于</string>
     <string name="qk_03831" formatted="false">功能</string>
     <string name="qk_03832" formatted="false">数据</string>
@@ -3872,7 +3872,7 @@ AI 生成的内容可能涉及版权、商标、肖像权、隐私权等知识�
     <string name="qk_03890" formatted="false">已切换到前置摄像头</string>
     <string name="qk_03891" formatted="false">已切换到后置摄像头</string>
     <string name="qk_03892" formatted="false">缺少相机权限，仅使用语音</string>
-    <string name="qk_03893" formatted="false">ZorvAI 视频通话</string>
+    <string name="qk_03893" formatted="false">Echo AI 视频通话</string>
     <string name="qk_03894" formatted="false">开关通话</string>
     <string name="qk_03895" formatted="false">聊天框</string>
     <string name="qk_03896" formatted="false">麦克风</string>

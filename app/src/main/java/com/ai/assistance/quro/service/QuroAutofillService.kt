@@ -17,11 +17,11 @@ import android.view.autofill.AutofillId
 import android.widget.RemoteViews
 
 /**
- * ZorvAI 自动填充服务（对应 PERMISSIONS.md #4）。
+ * Echo AI 自动填充服务（对应 PERMISSIONS.md #4）。
  *
- * 用户在系统「自动填充服务」中选择 Zorv AI 后启用。当前实现：
+ * 用户在系统「自动填充服务」中选择 Echo AI 后启用。当前实现：
  *  - 识别页面中的可编辑字段（EditText）；
- *  - 提供一个「用 ZorvAI 填写」入口（点击打开应用，由 AI 基于页面语义生成填充建议）。
+ *  - 提供一个「用 Echo AI 填写」入口（点击打开应用，由 AI 基于页面语义生成填充建议）。
  * 后续可由 AI 在端侧直接回填具体字段值。
  */
 class QuroAutofillService : AutofillService() {
@@ -50,7 +50,7 @@ class QuroAutofillService : AutofillService() {
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE,
         )
         val presentation = RemoteViews(packageName, android.R.layout.simple_list_item_1).apply {
-            setTextViewText(android.R.id.text1, "用 ZorvAI 填写")
+            setTextViewText(android.R.id.text1, "用 Echo AI 填写")
         }
         val dataset = Dataset.Builder(presentation)
             .setAuthentication(pending.intentSender)

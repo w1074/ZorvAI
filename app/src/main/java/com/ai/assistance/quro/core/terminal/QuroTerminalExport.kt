@@ -46,7 +46,7 @@ object QuroTerminalExport {
         cwd: String,
         at: Date = Date(),
     ): String = buildString {
-        appendLine("# Zorv AI 终端会话日志")
+        appendLine("# Echo AI 终端会话日志")
         appendLine("# 导出时间: ${headerFmt.format(at)}")
         appendLine("# Shell 模式: ${if (mode == ShellMode.LINUX) "proot/Linux (Ubuntu 24.04 ARM64)" else "设备 sh (Toybox)"}")
         appendLine("# 工作目录: $cwd")

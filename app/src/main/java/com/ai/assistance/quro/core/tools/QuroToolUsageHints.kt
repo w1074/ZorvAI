@@ -80,7 +80,7 @@ object QuroToolUsageHints {
         // ── 网络 / Web ──
         "http_request" to "「调一下这个接口」「发个 GET/POST 到 XX」「请求这个 URL」「对接某个 API」都调用",
         "open_web" to "「打开百度」「访问 XX 网址」类请求：若系统提示里已声明【默认 ACI 应用已设置】（通常是受控浏览器），【优先用 aci_call 的 browser_open】（真实可交互、能点进去）；只有在未设默认 ACI 应用时才用 open_web 被动展示（仅供查看，AI 无法点击交互）。真正操作网页（点链接/填表/翻页）一律用 aci_call 的 browser_open→browser_elements→browser_action。",
-        "ai_browser" to "多用途：既能「后台联网搜索资料/自动研究」也能「打开网页被动展示」也能「下载网页里的文件」——需要 AI 自动上网查资料/下载时调用（open 仅展示、不能点击；真正点击/填表/进入子页面请用 aci_call 的 ZorvAI 受控浏览器 browser_open→browser_elements→browser_action）",
+        "ai_browser" to "多用途：既能「后台联网搜索资料/自动研究」也能「打开网页被动展示」也能「下载网页里的文件」——需要 AI 自动上网查资料/下载时调用（open 仅展示、不能点击；真正点击/填表/进入子页面请用 aci_call 的 Echo AI 受控浏览器 browser_open→browser_elements→browser_action）",
         "browser_act" to "【内置浏览器 AI 真·交互工具】接管对话框当前正在显示的内置 WebView，能真正点击/填表/读取 DOM/截图/抓包——与 open_web / ai_browser 的 open（仅被动展示、点不进去）不同，browser_act 能真正操控页面。标准流程：action=open(网址或关键词，未开浏览器时自动打开并等待挂载) → action=status(确认 loaded=true) → action=snapshot(拿可交互元素的 quro-id 列表) → click(id)/fill(id) 操作 → read(selector) 回读 → 必要时 scroll/wait。需要像人一样操作内置浏览器网页（点链接/填表单/翻页/读点击后内容）时优先用 browser_act；化小窗状态下同样可用。",
 
         // ── 代码执行 ──
@@ -92,7 +92,7 @@ object QuroToolUsageHints {
         "terminal_write" to "向已开的终端会话写入输入（如半交互命令的后续参数）",
         "terminal_kill" to "「关掉终端」「杀掉那个 shell 进程」",
         "terminal_status" to "「终端还活着吗」「当前会话状态」",
-        "quroterm_exec" to "走 ZorvAI 自研沙盒终端执行命令（与 terminal_run 同类，按当前通道选用）",
+        "quroterm_exec" to "走 Echo AI 自研沙盒终端执行命令（与 terminal_run 同类，按当前通道选用）",
 
         // ── TTS ──
         "speak" to "「读给我听」「念一下这段」「大声朗读」「用语音播报」都调用；也可用于把 AI 回复转语音",

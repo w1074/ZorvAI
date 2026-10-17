@@ -5,7 +5,7 @@ import com.ai.assistance.quro.util.qstr
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
-import com.ai.assistance.quro.genui.aiapp.brain.ZorvBrain
+import com.ai.assistance.quro.genui.aiapp.brain.EchoBrain
 import com.ai.assistance.quro.genui.aiapp.data.GenUiDiag
 import com.ai.assistance.quro.genui.aiapp.data.GenUISessionStore
 import com.ai.assistance.quro.genui.aiapp.data.RenderChannel
@@ -54,10 +54,10 @@ class ChatViewModel(app: Application) : AndroidViewModel(app) {
     private val thinkingProcessor = AgentThinkingProcessor()
 
     /**
-     * 宿主对接层：模型配置 / 身份灵魂 / 完整工具集全部取自 ZorvAI 宿主，
-     * aiapp 不再自带模型配置与人格注入（详见 [ZorvBrain]）。
+     * 宿主对接层：模型配置 / 身份灵魂 / 完整工具集全部取自 Echo AI 宿主，
+     * aiapp 不再自带模型配置与人格注入（详见 [EchoBrain]）。
      */
-    private val brain = ZorvBrain(app.applicationContext)
+    private val brain = EchoBrain(app.applicationContext)
 
     private val _state = MutableStateFlow(ChatState())
     val state: StateFlow<ChatState> = _state.asStateFlow()
@@ -92,7 +92,7 @@ class ChatViewModel(app: Application) : AndroidViewModel(app) {
         restoreSession()
     }
 
-    /** 系统提示词：宿主平台基座 + 宿主人格/灵魂层 + GenUI 表达规则层（见 [ZorvBrain.systemPrompt]）。 */
+    /** 系统提示词：宿主平台基座 + 宿主人格/灵魂层 + GenUI 表达规则层（见 [EchoBrain.systemPrompt]）。 */
     private fun buildSystemContent(): String = brain.systemPrompt()
 
     /** 用宿主当前人格/模型重建 system 消息 */
@@ -419,7 +419,7 @@ class ChatViewModel(app: Application) : AndroidViewModel(app) {
     /**
      * 注册 GenUI 专属本地工具。
      *
-     * 注意：设备信息、联网、文件、终端等通用能力一律走宿主注册表（[ZorvBrain.executeTool]），
+     * 注意：设备信息、联网、文件、终端等通用能力一律走宿主注册表（[EchoBrain.executeTool]），
      * 这里只保留 GenUI SDK 自己特有的能力——register_component（运行时注册自定义组件类型）。
      * 上游旧版自带的 get_device_info 已删除：宿主同名工具功能更全，避免重名与重复下发。
      */
@@ -475,24 +475,24 @@ class ChatViewModel(app: Application) : AndroidViewModel(app) {
         // 宿主侧可能刚换了人格卡 → 本轮先把 system 消息对齐到当前身份，保证两个入口是同一个人
         if (personaChanged) rebuildSystemMessage()
 
-        // 校验：模型配置全部取自 ZorvAI 主设置
+        // 校验：模型配置全部取自 Echo AI 主设置
         when {
             brain.isLocalProvider(config) -> {
                 _state.update {
-                    it.copy(error = "当前选的是本地离线模型（${config.provider}），GenUI 助手需要云端模型。请到 ZorvAI 主设置切换模型后重试。")
+                    it.copy(error = "当前选的是本地离线模型（${config.provider}），GenUI 助手需要云端模型。请到 Echo AI 主设置切换模型后重试。")
                 }
                 return
             }
             config.apiKey.isBlank() -> {
-                _state.update { it.copy(error = "ZorvAI 尚未配置 API Key，请到主设置 → 模型配置 填写后重试") }
+                _state.update { it.copy(error = "Echo AI 尚未配置 API Key，请到主设置 → 模型配置 填写后重试") }
                 return
             }
             config.baseUrl.isBlank() -> {
-                _state.update { it.copy(error = "ZorvAI 尚未配置 Base URL，请到主设置 → 模型配置 填写后重试") }
+                _state.update { it.copy(error = "Echo AI 尚未配置 Base URL，请到主设置 → 模型配置 填写后重试") }
                 return
             }
             config.model.isBlank() -> {
-                _state.update { it.copy(error = "ZorvAI 尚未选择模型，请到主设置 → 模型配置 选择后重试") }
+                _state.update { it.copy(error = "Echo AI 尚未选择模型，请到主设置 → 模型配置 选择后重试") }
                 return
             }
         }
@@ -537,7 +537,7 @@ class ChatViewModel(app: Application) : AndroidViewModel(app) {
     /**
      * 弹「本轮用哪条渲染通道？」并挂起等用户点。
      *
-     * 复用 ZorvAI 主对话那套可视化询问：同一个全局队列 [VisualQuestionQueue] +
+     * 复用 Echo AI 主对话那套可视化询问：同一个全局队列 [VisualQuestionQueue] +
      * 同一个弹窗（`VisualQuestionDialog`，已挂在 GenUI Agent 的导航外层）。
      * 区别只在于——这里由 App 主动问，不指望模型自己记得调 `visual_question` 工具。
      *
@@ -685,7 +685,7 @@ class ChatViewModel(app: Application) : AndroidViewModel(app) {
      * 多轮调用 LLM，处理工具调用，直到返回文本结果或达到最大轮次。
      */
     private suspend fun runToolCallingLoop(config: QuroModelConfig) {
-        // 工具集 = 宿主完整工具集（ZorvAI ~全部内置工具）+ aiapp 本地 GenUI 专属工具（register_component）
+        // 工具集 = 宿主完整工具集（Echo AI ~全部内置工具）+ aiapp 本地 GenUI 专属工具（register_component）
         val tools = brain.toolSpecs(config).map {
             GenUIToolSpec(name = it.name, description = it.description, parametersJson = it.parametersJson)
         } + GenUIToolRegistry.getAllSpecs()
@@ -1235,7 +1235,7 @@ class ChatViewModel(app: Application) : AndroidViewModel(app) {
      * 执行单个工具调用
      *
      * 分派规则：aiapp 本地注册的 GenUI 专属工具（register_component）就地执行，
-     * 其余一律交给宿主 [ZorvBrain.executeTool]（宿主注册表 + 权限前置申请 + 超时保护）。
+     * 其余一律交给宿主 [EchoBrain.executeTool]（宿主注册表 + 权限前置申请 + 超时保护）。
      *
      * @param toolCall 工具调用
      * @return 工具执行结果（JSON 字符串）

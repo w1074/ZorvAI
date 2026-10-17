@@ -12,7 +12,7 @@ import java.io.File
  * 模块另含可选跨应用注入 / 系统重定向桥（由外部 lsposed_bridge.json 配置驱动，默认关闭）。
  *
  * 不申请任何敏感权限、不定义任何 ai.aci.permission.*（定义权属控制端，本应用只声明与使用）。
- * Zorv AI 的终端 / ACI / 自动化能力走自有管线（无障碍 · Shizuku · 设备管理员 · ROOT），不依赖 Xposed 也能运行；
+ * Echo AI 的终端 / ACI / 自动化能力走自有管线（无障碍 · Shizuku · 设备管理员 · ROOT），不依赖 Xposed 也能运行；
  * LSPosed 仅用于需要更深系统钩子的可选场景。
  */
 object QuroLSPosed {
@@ -60,13 +60,13 @@ object QuroLSPosed {
     fun statusText(ctx: Context): String {
         val mgrs = installedManagers(ctx)
         return if (mgrs.isEmpty()) {
-            "未安装 LSPosed / Xposed 框架（Zorv AI 走自有管线：无障碍/Shizuku/设备管理员/ROOT，无需 Xposed）"
+            "未安装 LSPosed / Xposed 框架（Echo AI 走自有管线：无障碍/Shizuku/设备管理员/ROOT，无需 Xposed）"
         } else {
             val inScope = isAppInScope(ctx)
             if (inScope) {
                 "已安装并纳入作用域：${mgrs.joinToString { it.second }}（opt-in 模块已生效）"
             } else {
-                "已安装：${mgrs.joinToString { it.second }}（在管理器「模块」启用 Zorv AI 并勾选本应用以纳入作用域）"
+                "已安装：${mgrs.joinToString { it.second }}（在管理器「模块」启用 Echo AI 并勾选本应用以纳入作用域）"
             }
         }
     }

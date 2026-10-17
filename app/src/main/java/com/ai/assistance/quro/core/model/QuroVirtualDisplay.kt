@@ -44,7 +44,7 @@ class QuroVirtualDisplay(private val context: Context) {
     /**
      * 启动虚拟显示器
      */
-    fun start(displayName: String = "ZorvAI虚拟显示器"): Boolean {
+    fun start(displayName: String = "Echo AI虚拟显示器"): Boolean {
         if (isRunning.get()) {
             Log.d(TAG, "虚拟显示器已在运行")
             return true

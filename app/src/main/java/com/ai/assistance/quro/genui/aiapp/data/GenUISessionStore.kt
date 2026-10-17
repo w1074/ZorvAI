@@ -9,7 +9,7 @@ import org.json.JSONObject
 /**
  * GenUI 会话持久化（历史对话 + 上次界面 + 历史作品 + 灵魂注入）
  *
- * 自包含模块：仅依赖 Context 与 JSON，可直接移植到任意 Android 项目（如 zorvAI）。
+ * 自包含模块：仅依赖 Context 与 JSON，可直接移植到任意 Android 项目（如 EchoAI）。
  * - 历史对话：LLM 多轮上下文（role/content），恢复时按当前灵魂重建 system 消息
  * - 上次界面：冷启动直接恢复最后一次生成的 GenUI 画布
  * - 历史作品：最近 20 次生成结果，可随时回看

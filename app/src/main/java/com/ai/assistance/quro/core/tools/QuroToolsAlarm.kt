@@ -72,7 +72,7 @@ class SetAlarmTool : QuroTool {
         }
         val id = "alarm_${System.currentTimeMillis()}"
         scheduler.add(
-            QuroAlarmScheduler.ZorvAlarm(
+            QuroAlarmScheduler.EchoAlarm(
                 id = id, hour = hour, minute = minute, label = label,
                 days = days, enabled = true, createdAt = System.currentTimeMillis()
             )

@@ -56,7 +56,7 @@ class ClawBotApiClient(
      */
     fun loginHeaders(botToken: String?): okhttp3.Headers {
         return buildHeaders(botToken).newBuilder()
-            .add("User-Agent", "ZorvAI/iLink")
+            .add("User-Agent", "Echo AI/iLink")
             .build()
     }
 

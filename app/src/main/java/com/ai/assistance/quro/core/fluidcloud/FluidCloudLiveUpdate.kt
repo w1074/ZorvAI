@@ -23,8 +23,8 @@ import android.os.Build
  */
 object FluidCloudLiveUpdate {
 
-    private const val CHANNEL_ID = "zorv_agent_fluid"
-    private const val CHANNEL_NAME = "ZorvAI 流体云"
+    private const val CHANNEL_ID = "echo_agent_fluid"
+    private const val CHANNEL_NAME = "Echo AI 流体云"
     private const val NOTIFICATION_ID = 0x7A1F
 
     private fun ensureChannel(context: Context) {
@@ -56,7 +56,7 @@ object FluidCloudLiveUpdate {
         val builder = Notification.Builder(context, CHANNEL_ID)
             .setSmallIcon(android.R.drawable.stat_sys_upload)
             .setContentTitle(title)
-            .setContentText("ZorvAI 执行中 $progress%")
+            .setContentText("Echo AI 执行中 $progress%")
             .setOngoing(true)  // 必须为 ongoing
             .setWhen(System.currentTimeMillis())
             .setShowWhen(true)
@@ -92,7 +92,7 @@ object FluidCloudLiveUpdate {
             val bigTextStyle = Notification.BigTextStyle()
                 .bigText(bigText)
                 .setBigContentTitle(title)
-                .setSummaryText("ZorvAI 任务")
+                .setSummaryText("Echo AI 任务")
             builder.setStyle(bigTextStyle)
             builder.setProgress(100, progress.coerceIn(0, 100), false)
         }
@@ -104,7 +104,7 @@ object FluidCloudLiveUpdate {
     /**
      * 显示完成状态并移除通知。
      */
-    fun finish(context: Context, title: String = "ZorvAI 任务完成") {
+    fun finish(context: Context, title: String = "Echo AI 任务完成") {
         show(context, title, qstr(R.string.qk_00420), 100)
         // 延迟移除，让用户看到完成状态
         android.os.Handler(context.mainLooper).postDelayed({

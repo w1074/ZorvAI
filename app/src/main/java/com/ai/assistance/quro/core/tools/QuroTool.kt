@@ -195,7 +195,7 @@ class QuroToolRegistry {
             "cms_list", "cms_call", "cms_status", "cms_logs", "cms_result", "cms_run_dag", "cms_deploy_terminal", "cms_undeploy_terminal", "priv_status", "cms_engine_status",
             // ACI（Agent Capability Interface）：AI 作为控制方调用第三方 App 暴露的能力（发现 + 调用）
             "aci_list", "aci_call",
-            // 工作区 AI 工具：AI 直接读写 ZorvAI 自己的 QuroWorkspace（与构建台 ACI 协作写码→编译）
+            // 工作区 AI 工具：AI 直接读写 Echo AI 自己的 QuroWorkspace（与构建台 ACI 协作写码→编译）
             "workspace_write", "workspace_read", "workspace_list",
             // 构建台：端侧 APK 构建（Java → DEX → APK，AI 可真正触发编译打包，与 ui_open_build 互补）
             "build_apk",
@@ -204,7 +204,7 @@ class QuroToolRegistry {
             // L1 无障碍控屏（CapOS 通道）
             "read_screen", "get_foreground_app", "get_screen_state",
             "tap_screen", "swipe_screen", "input_text", "scroll_screen", "global_action",
-            // AI 智能体键盘（Agent IME）：把文本直接打字进聚焦输入框（需启用并切到『Zorv AI 键盘』）
+            // AI 智能体键盘（Agent IME）：把文本直接打字进聚焦输入框（需启用并切到『Echo AI 键盘』）
             "ai_type_text", "ai_press_enter", "ai_press_send",
             // 媒体：百分百开源本地音乐 / 视频播放器（后台可用，对话框显示播放卡片）
             "local_music_player", "local_video_player", "list_media", "music_play",

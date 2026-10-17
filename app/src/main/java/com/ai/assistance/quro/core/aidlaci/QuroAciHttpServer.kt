@@ -118,13 +118,13 @@ class QuroAciHttpServer(private val appContext: Context) {
         mockApps.addAll(listOf(
             createMockApp(
                 packageName = "com.ai.assistance.quro",
-                appName = "ZorvAI",
+                appName = "Echo AI",
                 status = "bound",
                 capabilities = listOf("http_request", "file_read", "file_write", "shell_exec")
             ),
             createMockApp(
                 packageName = "com.ai.assistance.quro.browser",
-                appName = "ZorvAI Browser",
+                appName = "Echo AI Browser",
                 status = "bound",
                 capabilities = listOf("browser_open", "browser_read", "browser_elements", "browser_action")
             ),

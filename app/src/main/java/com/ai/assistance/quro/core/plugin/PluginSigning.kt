@@ -21,7 +21,7 @@ import java.io.File
  * 不另写一套签名逻辑，也不依赖电脑上的 apksigner。
  *
  * ## 密钥从哪来
- * 导入补签**只使用内置宿主密钥**（APK 自带 `assets/keystore/zorvai_release.bks`），
+ * 导入补签**只使用内置宿主密钥**（APK 自带 `assets/keystore/echoai_release.bks`），
  * 首次使用时释放到 `filesDir/plugin_sign/`。
  *
  * 为什么不做自定义密钥库：插件必须和宿主**同签名**才能被加载，第三方密钥签出来的包
@@ -41,7 +41,7 @@ import java.io.File
  * 从源码构建又想要内置补签的，自己把宿主密钥转成 p12/bks 放回该目录即可。
  *
  * ## 为什么用 BKS 而不是 JKS/PKCS12
- * 仓库里的 `zorvai_release.jks` 实际是 **PKCS12**（文件名骗人）。部分 ROM 的
+ * 仓库里的 `echoai_release.jks` 实际是 **PKCS12**（文件名骗人）。部分 ROM 的
  * 默认 Provider 读 PKCS12 会抛 "Wrong version of key store"，所以内置密钥同时准备了
  * **PKCS12 与 BKS 两种封装**；运行时由 [BuildEngine.loadKeyStore] 按
  * BKS → PKCS12 → JKS × 默认 → BC 逐个尝试，[sign] 再在多个候选文件间依次回退。
@@ -66,18 +66,18 @@ object PluginSigning {
      * 两个都打包（合计 5KB），运行时哪个能加载就用哪个，把格式抽奖的概率降到 0。
      */
     private val BUILTIN_ASSETS = listOf(
-        "keystore/zorvai_release.p12",
-        "keystore/zorvai_release.bks",
+        "keystore/echoai_release.p12",
+        "keystore/echoai_release.bks",
     )
 
     /** 主候选名（UI 展示、默认配置用） */
-    const val BUILTIN_NAME = "zorvai_release.p12"
+    const val BUILTIN_NAME = "echoai_release.p12"
 
     /** 内置密钥库的别名与口令。
      *  ⚠️ 这不是「秘密」：密钥库本身随源码公开（见类注释），口令公开与否不改变安全边界。
      *  写在这里是为了让用户零配置可用 —— 否则每次导入插件都要手输口令，等于没做。 */
-    const val BUILTIN_ALIAS = "zorvai"
-    const val BUILTIN_PASSWORD = "zorvai123"
+    const val BUILTIN_ALIAS = "echoai"
+    const val BUILTIN_PASSWORD = "echoai123"
 
     /** 手动选择的密钥库落在这里 */
     private fun keyDir(context: Context) = File(context.filesDir, "plugin_sign").apply { mkdirs() }
@@ -99,7 +99,7 @@ object PluginSigning {
     data class Config(
         val enabled: Boolean = false,
         val keystorePath: String = "",
-        val alias: String = "zorvai",
+        val alias: String = "echoai",
         val storePassword: String = "",
         val keyPassword: String = "",
     ) {
@@ -117,7 +117,7 @@ object PluginSigning {
         var cfg = Config(
             enabled = p.getBoolean(K_ENABLED, false),
             keystorePath = p.getString(K_PATH, "").orEmpty(),
-            alias = p.getString(K_ALIAS, "zorvai").orEmpty().ifBlank { "zorvai" },
+            alias = p.getString(K_ALIAS, "echoai").orEmpty().ifBlank { "echoai" },
             storePassword = p.getString(K_STORE_PASS, "").orEmpty(),
             keyPassword = p.getString(K_KEY_PASS, "").orEmpty(),
         )

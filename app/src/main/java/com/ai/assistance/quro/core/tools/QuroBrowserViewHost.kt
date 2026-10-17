@@ -67,7 +67,7 @@ object QuroBrowserViewHost {
                 javaScriptCanOpenWindowsAutomatically = true
                 defaultTextEncodingName = "utf-8"
 
-                // —— 补齐「成熟浏览器」引擎配置（对齐 ZorvBrowser BrowserCore，解决「部分网页打不开」）——
+                // —— 补齐「成熟浏览器」引擎配置（对齐 EchoBrowser BrowserCore，解决「部分网页打不开」）——
                 // 定位：地图/本地类站点需要；否则静默失败导致页面不可用。
                 setGeolocationEnabled(true)
                 // 移动端适配：页面缩放消除横向溢出。
@@ -276,7 +276,7 @@ object QuroBrowserViewHost {
             }
         }
         wv.webChromeClient = object : WebChromeClient() {
-            // 站点请求定位 → 自动授予（地图/本地类站点；对齐 ZorvBrowser，避免静默失败导致页面不可用）。
+            // 站点请求定位 → 自动授予（地图/本地类站点；对齐 EchoBrowser，避免静默失败导致页面不可用）。
             override fun onGeolocationPermissionsShowPrompt(
                 origin: String?,
                 callback: GeolocationPermissions.Callback?,

@@ -27,7 +27,7 @@ class AlarmPermissionHelper(private val context: Context) {
         context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
 
     companion object {
-        const val CHANNEL_ID = "zorv_health_reminder"
+        const val CHANNEL_ID = "echo_health_reminder"
         const val CHANNEL_NAME = "健康提醒"
     }
 

@@ -61,8 +61,8 @@ object GitHostApi {
     fun commit(dir: File, message: String, name: String, email: String): JSONObject {
         if (message.isBlank()) return JSONObject().put("error", "commit message 不能为空")
         val person = PersonIdent(
-            name.ifBlank { "ZorvAI" },
-            email.ifBlank { "script@zorvai.local" },
+            name.ifBlank { "Echo AI" },
+            email.ifBlank { "script@echoai.local" },
         )
         Git.open(repoDir(dir)).use { git ->
             val st = git.status().call()

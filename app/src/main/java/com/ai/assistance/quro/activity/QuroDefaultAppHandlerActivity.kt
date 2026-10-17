@@ -41,7 +41,7 @@ import java.util.regex.Pattern
 /**
  * 默认应用处理 Activity（原创，无外部依赖）。
  *
- * 当 Zorv AI 被设为某类型的默认应用后，系统会把对应 Intent 发到这里。本 Activity 按类型做**功能性**处理，
+ * 当 Echo AI 被设为某类型的默认应用后，系统会把对应 Intent 发到这里。本 Activity 按类型做**功能性**处理，
  * 而不是把用户挡在「已接管」的死胡同里：
  *  - 图片 / 视频 / PDF / 文本 / 网页(http/https) / 邮件 / 拨号 各自渲染或转发。
  *  - PDF / 未知类型提供「用其他应用打开」按钮（走系统选择器，**排除自身**避免自循环）。
@@ -138,7 +138,7 @@ private fun HandlerScreen(mode: HandleMode, onClose: () -> Unit) {
         ) {
             IconButton(onClick = onClose) { Icon(Icons.Filled.Close, contentDescription = qstr(R.string.qk_00065), tint = MaterialTheme.colorScheme.onSurface) }
             Spacer(Modifier.width(8.dp))
-            Text("Zorv AI · ${mode.label}", fontSize = 16.sp, fontWeight = FontWeight.SemiBold, color = MaterialTheme.colorScheme.onSurface, modifier = Modifier.weight(1f))
+            Text("Echo AI · ${mode.label}", fontSize = 16.sp, fontWeight = FontWeight.SemiBold, color = MaterialTheme.colorScheme.onSurface, modifier = Modifier.weight(1f))
         }
         HorizontalDivider(color = Line)
         Box(Modifier.fillMaxSize().padding(12.dp)) {
@@ -303,7 +303,7 @@ private fun DialHandler(number: String?) {
 
 @Composable
 private fun UnknownHandler() {
-    EmptyNote("Zorv AI 暂不支持以默认应用处理此类型。\n可在系统设置 → 应用 → Zorv AI → 默认打开 中清除该默认关联。")
+    EmptyNote("Echo AI 暂不支持以默认应用处理此类型。\n可在系统设置 → 应用 → Echo AI → 默认打开 中清除该默认关联。")
 }
 
 @Composable

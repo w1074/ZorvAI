@@ -34,7 +34,7 @@ import java.util.concurrent.ScheduledExecutorService
 import java.util.concurrent.TimeUnit
 
 /**
- * QuroAidlAciManager —— Zorv AI 作为 ACI 控制方（AI 中枢）的核心管理器。
+ * QuroAidlAciManager —— Echo AI 作为 ACI 控制方（AI 中枢）的核心管理器。
  * 端口自 aci-aihub 的 ACIManager（Java），改写为 Kotlin 单例。
  *
  * ACI（Agent Capability Interface）协议层由 aci-core AAR 提供
@@ -138,7 +138,7 @@ class QuroAidlAciManager private constructor(private val appContext: Context) {
         // 确保 QuroMainAciService 被纳入
         if (!nameMap.containsKey(selfPkg)) {
             val selfCls = ".service.QuroMainAciService"
-            nameMap[selfPkg] = runCatching { appContext.applicationInfo.loadLabel(pm).toString() }.getOrDefault("ZorvAI")
+            nameMap[selfPkg] = runCatching { appContext.applicationInfo.loadLabel(pm).toString() }.getOrDefault("Echo AI")
             classMap[selfPkg] = selfCls
             AciDiag.log(TAG, "discover: 兜底纳入自身受控端 $selfPkg/$selfCls")
             bindWithWake(selfPkg, selfCls)
@@ -150,7 +150,7 @@ class QuroAidlAciManager private constructor(private val appContext: Context) {
         val terminalKey = "$selfPkg:terminal"
         if (!classMap.containsKey(terminalKey)) {
             AciDiag.log(TAG, "discover: 兜底纳入终端受控端 $selfPkg/$terminalCls")
-            nameMap[terminalKey] = "${runCatching { appContext.applicationInfo.loadLabel(pm).toString() }.getOrDefault("ZorvAI")} - 终端"
+            nameMap[terminalKey] = "${runCatching { appContext.applicationInfo.loadLabel(pm).toString() }.getOrDefault("Echo AI")} - 终端"
             classMap[terminalKey] = terminalCls
             bindWithWake(selfPkg, terminalCls, terminalKey)
         } else {

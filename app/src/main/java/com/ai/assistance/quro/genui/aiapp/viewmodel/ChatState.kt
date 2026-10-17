@@ -35,8 +35,8 @@ data class ToolCallRecord(
  * @property thoughtChain 思考链
  * @property toolCallRecords 工具调用记录列表（用于思考面板显示）
  * @property error 错误信息
- * @property hostPersonaName 当前激活的人格卡名（来自 ZorvAI 宿主，只读展示）
- * @property modelLabel 当前使用的模型（来自 ZorvAI 宿主模型配置，只读展示）
+ * @property hostPersonaName 当前激活的人格卡名（来自 Echo AI 宿主，只读展示）
+ * @property modelLabel 当前使用的模型（来自 Echo AI 宿主模型配置，只读展示）
  * @property conversationHistory 对话历史（发给 LLM 的，不显示在 UI）
  * @property hasUI 是否有 UI 正在显示
  * @property debugInfo 画布诊断信息
@@ -52,9 +52,9 @@ data class ChatState(
     val thoughtChain: AgentThoughtChain? = null,
     val toolCallRecords: List<ToolCallRecord> = emptyList(),
     val error: String? = null,
-    /** 当前激活的人格卡名（ZorvAI 宿主，只读展示） */
+    /** 当前激活的人格卡名（Echo AI 宿主，只读展示） */
     val hostPersonaName: String = "",
-    /** 当前模型标签（ZorvAI 宿主模型配置，只读展示） */
+    /** 当前模型标签（Echo AI 宿主模型配置，只读展示） */
     val modelLabel: String = "",
     val conversationHistory: List<GenUIChatMessage> = emptyList(),
     val hasUI: Boolean = false,

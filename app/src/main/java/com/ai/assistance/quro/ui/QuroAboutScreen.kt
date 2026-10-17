@@ -52,7 +52,7 @@ import com.ai.assistance.quro.ui.theme.Muted
 import com.ai.assistance.quro.ui.theme.Line
 
 /**
- * 关于 Zorv AI（纸感重设计）：品牌 hero + SetGroup/SetRowClickable 分组。
+ * 关于 Echo AI（纸感重设计）：品牌 hero + SetGroup/SetRowClickable 分组。
  * 「项目地址」「在 GitHub 点个 Star」跳转到开源仓库；
  * 「开源许可声明」弹出本应用所用第三方依赖的许可证清单。
  */
@@ -62,7 +62,7 @@ fun QuroAboutScreen(onBack: () -> Unit = {}) {
     val ctx = LocalContext.current
     val versionName = remember { BuildConfig.VERSION_NAME }
     val scope = rememberCoroutineScope()
-    val repoUrl = "https://github.com/Quor-a/ZorvAI"
+    val repoUrl = "https://github.com/Quor-a/Echo AI"
     var showLicense by remember { mutableStateOf(false) }
     var showPermissionStatement by remember { mutableStateOf(false) }
     var showUserAgreement by remember { mutableStateOf(false) }
@@ -139,17 +139,17 @@ fun QuroAboutScreen(onBack: () -> Unit = {}) {
                             var apkUrl: String? = null
                             var errMsg: String? = null
                             // 1) 先试 GitHub（国内网络常不可达）
-                            val gh = runCatching { fetchLatestRelease("https://api.github.com/repos/Quor-a/ZorvAI/releases/latest") }
+                            val gh = runCatching { fetchLatestRelease("https://api.github.com/repos/Quor-a/Echo AI/releases/latest") }
                             if (gh.isSuccess && gh.getOrNull()?.first?.isNotBlank() == true) {
                                 latest = gh.getOrNull()!!.first
                                 htmlUrl = gh.getOrNull()!!.second
                                 apkUrl = gh.getOrNull()!!.third
                             } else {
                                 // 2) GitHub 不可达 → 回退 Gitee 镜像
-                                val ge = runCatching { fetchLatestRelease("https://gitee.com/api/v5/repos/Quor-a/ZorvAI/releases/latest") }
+                                val ge = runCatching { fetchLatestRelease("https://gitee.com/api/v5/repos/Quor-a/Echo AI/releases/latest") }
                                 if (ge.isSuccess && ge.getOrNull()?.first?.isNotBlank() == true) {
                                     latest = ge.getOrNull()!!.first
-                                    htmlUrl = ge.getOrNull()!!.second.ifBlank { "https://gitee.com/Quor-a/ZorvAI/releases" }
+                                    htmlUrl = ge.getOrNull()!!.second.ifBlank { "https://gitee.com/Quor-a/Echo AI/releases" }
                                     apkUrl = ge.getOrNull()!!.third
                                 } else {
                                     errMsg = gh.exceptionOrNull()?.message ?: ge.exceptionOrNull()?.message ?: qstr(R.string.qk_00503)
@@ -163,12 +163,12 @@ fun QuroAboutScreen(onBack: () -> Unit = {}) {
                                         updateVersion = lv
                                         // 自动下载 APK
                                         if (apkUrl != null && apkUrl!!.isNotBlank()) {
-                                            downloadApk(ctx, apkUrl!!, "ZorvAI-v$lv.apk", lv)
+                                            downloadApk(ctx, apkUrl!!, "Echo AI-v$lv.apk", lv)
                                         } else {
                                             // 如果没有 APK 下载链接，显示对话框让用户选择
                                             updateDialog = Triple(
                                                 htmlUrl ?: "$repoUrl/releases/latest",
-                                                "https://gitee.com/Quor-a/ZorvAI/releases",
+                                                "https://gitee.com/Quor-a/Echo AI/releases",
                                                 apkUrl ?: ""
                                             )
                                         }
@@ -435,7 +435,7 @@ private fun isVersionNewer(latest: String, current: String): Boolean {
 /**
  * 自动下载 APK 文件
  */
-private fun downloadApk(context: android.content.Context, apkUrl: String, fileName: String = "ZorvAI-update.apk", version: String = "") {
+private fun downloadApk(context: android.content.Context, apkUrl: String, fileName: String = "Echo AI-update.apk", version: String = "") {
     try {
         val downloadManager = context.getSystemService(android.content.Context.DOWNLOAD_SERVICE) as DownloadManager
         val request = DownloadManager.Request(Uri.parse(apkUrl))

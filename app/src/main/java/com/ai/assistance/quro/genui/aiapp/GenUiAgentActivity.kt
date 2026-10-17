@@ -24,7 +24,7 @@ class GenUiAgentActivity : ComponentActivity() {
 
     companion object {
         /**
-         * 可选入参：一进来就替用户发出去的需求（由 ZorvAI 的 `genui_agent_open` 工具写入）。
+         * 可选入参：一进来就替用户发出去的需求（由 Echo AI 的 `genui_agent_open` 工具写入）。
          * 留空则只打开界面，等用户自己说。
          */
         const val EXTRA_PROMPT = "genui_agent_prompt"

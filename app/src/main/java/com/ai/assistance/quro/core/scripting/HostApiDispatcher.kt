@@ -106,7 +106,7 @@ class HostApiDispatcher(
                 .put("brand", Build.BRAND)
                 .put("androidVersion", Build.VERSION.RELEASE)
                 .put("sdk", Build.VERSION.SDK_INT)
-                .put("app", "ZorvAI")
+                .put("app", "Echo AI")
                 .put("screen", "${appContext.resources.displayMetrics.widthPixels}x${appContext.resources.displayMetrics.heightPixels}")
                 .put("totalMemMB", mi?.totalMem?.shr(20) ?: -1)
                 .put("availMemMB", mi?.availMem?.shr(20) ?: -1)
@@ -118,7 +118,7 @@ class HostApiDispatcher(
             val cm = appContext.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
             val text = p.optString("text", "")
             if (p.has("text")) {
-                cm.setPrimaryClip(ClipData.newPlainText("ZorvAI Script", text))
+                cm.setPrimaryClip(ClipData.newPlainText("Echo AI Script", text))
                 JSONObject().put("ok", true)
             } else {
                 JSONObject().put("text", cm.primaryClip?.getItemAt(0)?.text?.toString() ?: "")
@@ -130,7 +130,7 @@ class HostApiDispatcher(
             nm.createNotificationChannel(ch)
             val n = android.app.Notification.Builder(appContext, "script_notify")
                 .setSmallIcon(android.R.drawable.ic_dialog_info)
-                .setContentTitle(p.optString("title", "ZorvAI Script"))
+                .setContentTitle(p.optString("title", "Echo AI Script"))
                 .setContentText(p.optString("message", ""))
                 .build()
             nm.notify((System.currentTimeMillis() % 100000).toInt(), n)

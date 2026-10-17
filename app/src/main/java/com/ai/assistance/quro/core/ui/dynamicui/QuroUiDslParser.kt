@@ -4,7 +4,7 @@ import org.json.JSONArray
 import org.json.JSONObject
 
 /**
- * ZorvAI 动态 UI DSL 解析器（参照 Kai `KaiUiParser` 的三级流水线重写）。
+ * Echo AI 动态 UI DSL 解析器（参照 Kai `KaiUiParser` 的三级流水线重写）。
  *
  * 流水线：
  *  1. **代码块提取** —— 从模型回复中定位 ```quro-ui 围栏，取出原始 body；
@@ -18,8 +18,8 @@ import org.json.JSONObject
  */
 object QuroUiDslParser {
 
-    /** UI 代码块的围栏语言标识。同时兼容历史写法 zorv-ui。 */
-    private val FENCE_LANGS = setOf("quro-ui", "zorv-ui", "quro_ui")
+    /** UI 代码块的围栏语言标识。同时兼容历史写法 echo-ui。 */
+    private val FENCE_LANGS = setOf("quro-ui", "echo-ui", "quro_ui")
 
     // =========================================================================================
     // 1. 代码块提取
@@ -977,7 +977,7 @@ object QuroUiDslParser {
                         ?: json.optStringOrNull("app") ?: "",
                 )
                 // ─── 多层渲染 / 深链导航（v1.0.82 新增）───
-                // 打开 ZorvAI 内置界面（终端/模型配置/可视化编程/Web 应用/工具中心等）
+                // 打开 Echo AI 内置界面（终端/模型配置/可视化编程/Web 应用/工具中心等）
                 "open_screen", "open_screen_target", "screen", "openscreen" -> QuroOpenScreenAction(
                     target = json.optStringOrNull("target")
                         ?: json.optStringOrNull("screen")

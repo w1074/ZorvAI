@@ -43,7 +43,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 /**
- * ACI 被控方（第三方 App）开发手册 —— 接 Zorv AI 作为控制方时，被调方应如何开发。
+ * ACI 被控方（第三方 App）开发手册 —— 接 Echo AI 作为控制方时，被调方应如何开发。
  * 放在 ACI 管理中心内，供第三方 App 开发者直接照做。
  */
 /**
@@ -124,38 +124,38 @@ private val ACI_DEV_DOC = """
 ══════════════════════════════════════════
 ACI 被控方（第三方 App）开发手册
 ══════════════════════════════════════════
-📌 本文档是「通用被控方开发手册」，面向任何想接入 ZorvAI 的第三方 App 开发者，并非 ZorvAI 浏览器专属。
+📌 本文档是「通用被控方开发手册」，面向任何想接入 Echo AI 的第三方 App 开发者，并非 Echo AI 浏览器专属。
    受控浏览器（com.ai.assistance.quro.browser）只是其中一个「官方参考实现示例」；其能力清单（第十节）仅供照抄声明范式，
    你完全可以用自己的业务后端照此接入，不必局限于浏览器。
 
 一、ACI 是什么
 • 本地、无 Root 的 App 间 AIDL 调用框架；不依赖 Shizuku / dumpsys / ROOT / 无障碍 / 设备管理员。
-• 控制方（AI 中枢，如 Zorv AI）发现并调用第三方 App 暴露的能力；你作为「被控方」按本协议暴露能力。
+• 控制方（AI 中枢，如 Echo AI）发现并调用第三方 App 暴露的能力；你作为「被控方」按本协议暴露能力。
 • 一次调用 = 一个 capability（能力）：带 id、描述、参数清单、是否需用户确认。
 
 二、依赖获取（aci-core AAR）
 • AAR 下载（GitHub Release，免登录）：
-  https://github.com/Quor-a/ZorvAI/releases/download/v1.0.6/aci-core-release.aar
+  https://github.com/Quor-a/Echo AI/releases/download/v1.0.6/aci-core-release.aar
 • Gradle 依赖：implementation(files("libs/aci-core-release.aar"))（把 AAR 放进模块 libs/）
-• ACI 核心库独立开源分支：https://github.com/Quor-a/ZorvAI/tree/aci-core
-• 完整开发者手册（网页版）：https://github.com/Quor-a/ZorvAI/blob/main/docs/ACI_DEVELOPER_GUIDE.md
+• ACI 核心库独立开源分支：https://github.com/Quor-a/Echo AI/tree/aci-core
+• 完整开发者手册（网页版）：https://github.com/Quor-a/Echo AI/blob/main/docs/ACI_DEVELOPER_GUIDE.md
 
 三、被控方接入 5 步
 1) 依赖 aci-core AAR（提供 ai.aci.core.*：IAidlAciService / AidlAciRequest / AidlAciResponse / Capability / BaseAidlAciService / AidlAciError）。
-2) AndroidManifest 声明 uses-permission + Service（见第四节）。⚠️ 注意：权限定义权归控制端（ZorvAI），受控端只需 <uses-permission> 引用，绝不自行 <permission> 定义，否则会触发 INSTALL_FAILED_DUPLICATE_PERMISSION 冲突。
+2) AndroidManifest 声明 uses-permission + Service（见第四节）。⚠️ 注意：权限定义权归控制端（Echo AI），受控端只需 <uses-permission> 引用，绝不自行 <permission> 定义，否则会触发 INSTALL_FAILED_DUPLICATE_PERMISSION 冲突。
 3) 写一个 Service 继承 ai.aci.core.BaseAidlAciService，重写 onCreateCapabilities(caps) 声明能力、onCall(req) 返回 AidlAciResponse。
 4) 在 Application/Activity 里把 Service 跑起来（或被 ACI 唤醒广播拉起，见第五节）。
-5) 打包安装 → 在 Zorv AI「ACT 关联启动」点刷新即可发现；或本页「按名称搜索」找到后「注册并启动」。
+5) 打包安装 → 在 Echo AI「ACT 关联启动」点刷新即可发现；或本页「按名称搜索」找到后「注册并启动」。
 
 四、AndroidManifest 配置
-<!-- ⚠️ 重要：权限定义权归控制端（ZorvAI），受控端只需 <uses-permission> 引用，绝不自行 <permission> 定义。
+<!-- ⚠️ 重要：权限定义权归控制端（Echo AI），受控端只需 <uses-permission> 引用，绝不自行 <permission> 定义。
      否则会因「同名 + 异签名 + 双方都定义」触发 INSTALL_FAILED_DUPLICATE_PERMISSION 冲突。 -->
 
 <!-- ✅ 正确：仅引用控制端已定义的权限 -->
 <uses-permission android:name="ai.aci.permission.CALL" />
 <uses-permission android:name="ai.aci.permission.DISCOVER" />
 
-<!-- ❌ 错误：受控端不要 <permission> 定义 ai.aci.permission.*（定义权归控制端 ZorvAI） -->
+<!-- ❌ 错误：受控端不要 <permission> 定义 ai.aci.permission.*（定义权归控制端 Echo AI） -->
 <!-- <permission android:name="ai.aci.permission.CALL" android:protectionLevel="normal" /> -->
 <!-- <permission android:name="ai.aci.permission.DISCOVER" android:protectionLevel="normal" /> -->
 <!-- <permission android:name="ai.aci.permission.CALL_DANGEROUS" android:protectionLevel="dangerous" /> -->
@@ -220,14 +220,14 @@ class MyAciService : BaseAidlAciService() {
 • 危险能力务必 setUserConfirm(true)，并在 onCall 内校验 user_confirmed（服务端兜底，防被绕过）。
 
 七、控制方如何调用（供你联调）
-• Zorv AI 用 aci_call 调用：aci_call(packageName, capability, params)。
+• Echo AI 用 aci_call 调用：aci_call(packageName, capability, params)。
 • 危险能力调用前控制方会弹确认框；被控方 onCall 仍要查 user_confirmed。
 
 八、打包与测试清单
 ☐ AAR 依赖正确，BaseAidlAciService 可继承
 ☐ Manifest 声明 3 个 <permission> + 2 个 uses-permission + Service + intent-filter + queries
 ☐ 有可启动 Activity 与有效图标
-☐ 安装后在 Zorv AI ACT 关联启动「刷新」可见
+☐ 安装后在 Echo AI ACT 关联启动「刷新」可见
 ☐ echo 类能力能正常返回值
 ☐ 危险能力在两侧都做了确认
 
@@ -238,7 +238,7 @@ class MyAciService : BaseAidlAciService() {
 • 绑定直接失败/秒拒：99% 是 Manifest 漏写 <permission> 定义（CALL / DISCOVER / CALL_DANGEROUS），补上即可。
 
 十、参考实现示例：受控浏览器（com.ai.assistance.quro.browser）已暴露的能力（实际共 31 项，见仓库 docs/ACI_DEVELOPER_GUIDE.md §13；以下为要点示例，非浏览器专属手册；以 ACI 中心「已发现的第三方能力清单」实时刷新为准，二者应一致）
-（官方参考被控方。控制方 Zorv AI 经 ACI 调用它，第三方开发者可直接照抄这套能力声明范式（注意：这是示例，你的后端可声明任意能力，不必照搬此列表）：
+（官方参考被控方。控制方 Echo AI 经 ACI 调用它，第三方开发者可直接照抄这套能力声明范式（注意：这是示例，你的后端可声明任意能力，不必照搬此列表）：
  全部能力均在 onCreateCapabilities 用 Capability.create 参数式声明、onCall 内 when 分发。）
 
 基础能力（13）：
@@ -305,11 +305,11 @@ agentic 增强（新增 7 · 元素级操控 + 状态/事件/审计）：
 • 隔离 Profile 沙盒 / 敏感操作拦截 + 人工接管 / 后台持续渲染 / 多实例（架构级改造，暂未实装）。
 • 速率限制与熔断（防止 AI 高频调用压垮页面）。
 
-十二、控制台后台（ConsoleBackend）开发接入 ZorvAI
-（本文档此前缺失的部分：你的 App 如何提供一个「后端驱动 UI」的控制台，让 ZorvAI 主程序 / 手动控制台无需为每个 App 重写 UI 就能驱动它。）
+十二、控制台后台（ConsoleBackend）开发接入 Echo AI
+（本文档此前缺失的部分：你的 App 如何提供一个「后端驱动 UI」的控制台，让 Echo AI 主程序 / 手动控制台无需为每个 App 重写 UI 就能驱动它。）
 
 【概念】控制台后台是一个「业务状态机」：
-• buildUiSnapshot() 生成一份 UI 描述 JSON（SDUI，组件化），前端（ZorvAI / 手动控制台）拿到后通用渲染；
+• buildUiSnapshot() 生成一份 UI 描述 JSON（SDUI，组件化），前端（Echo AI / 手动控制台）拿到后通用渲染；
   后端想改 UI 不用发版前端，只要改快照 JSON 即可。
 • applyAction(action, payload) 处理前端回传的动作，真正驱动你的业务。
 • 经两个 ACI 能力暴露给通用前端：console_ui（返回快照 JSON）/ console_action（处理动作）。
@@ -333,7 +333,7 @@ agentic 增强（新增 7 · 元素级操控 + 状态/事件/审计）：
   "updatedAt": 1700000000000,
   "components": [ ... ]
 }
-组件类型（与 ZorvAI 渲染器一一对应，任意通用前端都能渲染）：
+组件类型（与 Echo AI 渲染器一一对应，任意通用前端都能渲染）：
 • heading{text}            标题
 • text{text}               说明文字
 • card{title, body}        卡片
@@ -345,7 +345,7 @@ agentic 增强（新增 7 · 元素级操控 + 状态/事件/审计）：
 
 【动作契约】
 • 按钮：回传 payload 为空 Map，后端按 action 字符串区分（如 "nav_back" / "read" / "screenshot"）。
-• 输入框：提交时回传 { <input.key>: <输入文本> }。⚠️ 兼容注意：ZorvAI 主程序 Compose 控制台当前额外回传 {"value":..., "key":...}，
+• 输入框：提交时回传 { <input.key>: <输入文本> }。⚠️ 兼容注意：Echo AI 主程序 Compose 控制台当前额外回传 {"value":..., "key":...}，
   建议后端取值用 payload["value"] ?: payload[inputKey] 兜底，避免取不到。
 • applyAction 返回 {ok:true, action:"<原action>", message:"<可读结果>"}，前端据此刷新快照 / 显示结果。
 
@@ -381,12 +381,12 @@ class MyConsoleBackend : AciConsoleContract {
 • ManualConsolePanel：单线程 worker 编排（避开 WebView 主线程死锁），接 AciConsoleContract 到 UI。
 开发第 2、第 3 个受控软件时，控制台 UI 完全不用重写 —— 只要它们暴露 console_ui / console_action。
 
-【ZorvAI 如何驱动你】
-ZorvAI「设置 → ACI 管理中心」列出已发现的受控 App；点「打开控制台」即经 Binder 拉取你的 console_ui 快照，
-用 AciConsoleScreen（Compose）渲染；按钮 / 输入回传 console_action。你无需为 ZorvAI 写任何前端代码。
+【Echo AI 如何驱动你】
+Echo AI「设置 → ACI 管理中心」列出已发现的受控 App；点「打开控制台」即经 Binder 拉取你的 console_ui 快照，
+用 AciConsoleScreen（Compose）渲染；按钮 / 输入回传 console_action。你无需为 Echo AI 写任何前端代码。
 
 【ACI Token 认证（应用层认证）】
-控制端（ZorvAI）在每次调用时会自动添加 ACI Token，用于验证调用方身份。
+控制端（Echo AI）在每次调用时会自动添加 ACI Token，用于验证调用方身份。
 
 Token 格式：aci_token_{packageName}_{timestamp}_{random}
 存储方式：使用 AndroidKeyStore 加密存储（AES/GCM/NoPadding）

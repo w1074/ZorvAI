@@ -93,7 +93,7 @@ private fun saveBuildLog(ctx: Context, log: String) {
 
 object BuildEngine {
     private const val TAG = "BuildEngine"
-    const val ZORV_PKG = "com.ai.assistance.quro"
+    const val ECHO_PKG = "com.ai.assistance.quro"
 
     data class ToolStatus(
         val name: String,
@@ -107,7 +107,7 @@ object BuildEngine {
         val log: String,
         val dexPath: String? = null,
         val apkPath: String? = null,
-        /** 探测到的入口类全限定名；null = 未找到入口方法。组装 APK 时写入 assets/zorv_entry.txt。 */
+        /** 探测到的入口类全限定名；null = 未找到入口方法。组装 APK 时写入 assets/echo_entry.txt。 */
         val entryClass: String? = null
     )
 
@@ -128,7 +128,7 @@ object BuildEngine {
         val keyPassword: String = "android",
         /** 工程 assets/ 目录：其中的文件会被注入 APK 的 assets/ 下，供用户代码通过 AssetManager 读取。 */
         val assetsDir: File? = null,
-        /** 入口类全限定名：组装 APK 时写入 assets/zorv_entry.txt，宿主 MainActivity 运行时读取并反射调用。
+        /** 入口类全限定名：组装 APK 时写入 assets/echo_entry.txt，宿主 MainActivity 运行时读取并反射调用。
          *  null = 不写入（Web 等无入口类的场景）。由 compileProject/compileToDex 的探测结果填充。 */
         val entryClass: String? = null,
         /** 构建时依赖的第三方 JAR（编译 classpath + d8 lib）。AI 可声明依赖，构建台引用它们一起编译/打包。 */
@@ -328,7 +328,7 @@ object BuildEngine {
      * ⚠️ apksig 默认**不保留**原有签名者，所以已签名的包会被整包换签成 [keystore] 的身份 ——
      * 这正是「补签」想要的行为。若想保留原签名者需显式 `setOtherSignersSignaturesPreserved(true)`。
      *
-     * ⚠️ 补签用的密钥必须就是**宿主自身的那把**（本仓为 `zorvai_release.jks` / 别名 `zorvai`），
+     * ⚠️ 补签用的密钥必须就是**宿主自身的那把**（本仓为 `echoai_release.jks` / 别名 `echoai`），
      * 否则换签后仍然过不了插件的同签名闸门。
      *
      * @return 成功返回 null；失败返回原因文本（调用方负责回退到原包，不要因补签失败而拒绝安装）
@@ -781,7 +781,7 @@ object BuildEngine {
             return BuildResult(false, log.toString() + "\n[DEX 未生成]", null)
         }
 
-        // 入口类探测（支持任意包名/类名）：把全限定名写入 APK 的 assets/zorv_entry.txt，
+        // 入口类探测（支持任意包名/类名）：把全限定名写入 APK 的 assets/echo_entry.txt，
         // 宿主 MainActivity 运行时读取并反射调用对应入口方法，不再硬编码 com.example.hello.Main。
         val (entryClass, discoverLog) = discoverEntryClass(ctx, dexFile, outDir, explicitEntry)
         log.append("\n").append(discoverLog)
@@ -1098,21 +1098,21 @@ object BuildEngine {
         }
 
         // 工程 assets/ 下的文件注入 APK（导入的非 .java 资源，用户代码经 AssetManager 读取）。
-        // 跳过用户自带的 zorv_entry.txt，避免与下面构建台写入的入口声明重复。
+        // 跳过用户自带的 echo_entry.txt，避免与下面构建台写入的入口声明重复。
         config.assetsDir?.takeIf { it.isDirectory }?.walkTopDown()?.filter { it.isFile }?.forEach { f ->
             val rel = f.relativeTo(config.assetsDir!!).path.replace('\\', '/')
-            if (rel == "zorv_entry.txt") return@forEach
+            if (rel == "echo_entry.txt") return@forEach
             val bytes = f.readBytes()
             crc.reset(); crc.update(bytes)
             entries.add(ZipEntryMeta("assets/$rel", ZipEntry.STORED, bytes, crc.value, bytes.size.toLong()))
         }
 
-        // 入口类声明：宿主 MainActivity 运行时读取 assets/zorv_entry.txt 动态定位入口类，
+        // 入口类声明：宿主 MainActivity 运行时读取 assets/echo_entry.txt 动态定位入口类，
         // 从而支持任意包名/类名（不再硬编码 com.example.hello.Main）。null 时不写（Web 等无入口场景）。
         if (config.entryClass != null) {
             val entryBytes = config.entryClass!!.toByteArray(Charsets.UTF_8)
             crc.reset(); crc.update(entryBytes)
-            entries.add(ZipEntryMeta("assets/zorv_entry.txt", ZipEntry.STORED, entryBytes, crc.value, entryBytes.size.toLong()))
+            entries.add(ZipEntryMeta("assets/echo_entry.txt", ZipEntry.STORED, entryBytes, crc.value, entryBytes.size.toLong()))
         }
 
         val little = ByteOrder.LITTLE_ENDIAN
@@ -1260,7 +1260,7 @@ object BuildEngine {
             return BuildResult(false, log.toString() + "\n[DEX 未生成]", null)
         }
 
-        // 入口类探测（支持任意包名/类名）：把全限定名写入 APK 的 assets/zorv_entry.txt，
+        // 入口类探测（支持任意包名/类名）：把全限定名写入 APK 的 assets/echo_entry.txt，
         // 宿主 MainActivity 运行时读取并反射调用对应入口方法，不再硬编码 com.example.hello.Main。
         val (entryClass, discoverLog) = discoverEntryClass(ctx, dexFile, outDir, explicitEntry)
         log.append("\n").append(discoverLog)

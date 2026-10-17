@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Zorv AI</string>
-    <string name="quro_accessibility_desc">Zorv AI accessibility service: for UI automation and screen content reading and other advanced capabilities. This version only completes permission declarations and does not collect any private data.</string>
-    <string name="quro_device_admin_label">Zorv AI Device Admin</string>
+    <string name="app_name">Echo AI</string>
+    <string name="quro_accessibility_desc">Echo AI accessibility service: for UI automation and screen content reading and other advanced capabilities. This version only completes permission declarations and does not collect any private data.</string>
+    <string name="quro_device_admin_label">Echo AI Device Admin</string>
     <string name="quro_device_admin_desc">Used for only two operations: lock screen, disable or restore camera. Does not wipe data or modify lock screen password.</string>
-    <string name="ime_label">Zorv AI Keyboard</string>
+    <string name="ime_label">Echo AI Keyboard</string>
     <string name="sc_voice_short">Voice Ball</string>
     <string name="sc_voice_long">Launch floating voice ball</string>
     <string name="sc_voice_disabled">Voice ball disabled</string>
@@ -12,7 +12,7 @@
     <string name="sc_chat_long">Enter chat directly</string>
     <string name="sc_chat_disabled">Chat disabled</string>
     <string name="sc_browser_short">Browser Console</string>
-    <string name="sc_browser_long">ZorvAI Browser Console</string>
+    <string name="sc_browser_long">Echo AI Browser Console</string>
     <string name="sc_browser_disabled">Browser console disabled</string>
     <string name="settings_appearance">Appearance &amp; Conversation</string>
     <string name="appearance_group_appearance">Appearance</string>
@@ -88,7 +88,7 @@
     <string name="settings_file_manager_sub">Browse sandbox dir · open in system file manager</string>
     <string name="settings_clear_all">Clear All Chats</string>
     <string name="settings_group_about">About</string>
-    <string name="settings_about">About Zorv AI</string>
+    <string name="settings_about">About Echo AI</string>
     <string name="settings_about_sub">Project URL / open-source license / developer</string>
     <string name="config_title">Feature Model Config</string>
     <string name="config_group_caption">Bind a model for each AI capability</string>

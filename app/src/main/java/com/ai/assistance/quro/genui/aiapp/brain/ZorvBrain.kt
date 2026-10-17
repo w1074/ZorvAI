@@ -23,16 +23,16 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
 /**
- * GenUI Agent 的宿主对接层（唯一的 ZorvAI 侧接入点）。
+ * GenUI Agent 的宿主对接层（唯一的 Echo AI 侧接入点）。
  *
- * 设计原则：aiapp 不再自带模型配置、不再自带人格/灵魂注入，全部改用 ZorvAI 宿主既有设施：
+ * 设计原则：aiapp 不再自带模型配置、不再自带人格/灵魂注入，全部改用 Echo AI 宿主既有设施：
  *  · 模型配置 → [QuroModelConfigRepository]（与主对话共用同一份 "quro_model_config"）
  *  · 身份/人格/记忆 → [QuroSoulPromptEngine] + [QuroPlatformManifest.SYSTEM]（与主对话同一套灵魂层）
  *  · 工具调用 → 宿主 [QuroToolRegistry]（fullSpecs ~ 全部内置工具）+ [QuroToolEngine] 执行
  *
  * aiapp 自己只保留一层「GenUI 表达规则」（[GenUiRules]），因为它是输出形态约束，不是人格。
  */
-class ZorvBrain(private val context: Context) {
+class EchoBrain(private val context: Context) {
 
     private val appCtx: Context = context.applicationContext
     private val modelRepo = QuroModelConfigRepository(appCtx)
@@ -43,7 +43,7 @@ class ZorvBrain(private val context: Context) {
 
     // ─────────────────────────── 模型配置（宿主的） ───────────────────────────
 
-    /** 当前生效的模型配置（ZorvAI 主对话同一份）。 */
+    /** 当前生效的模型配置（Echo AI 主对话同一份）。 */
     fun modelConfig(): QuroModelConfig = modelRepo.load()
 
     /** 云端 / 本地离线模型判定：本地模型（MNN / llama.cpp）由宿主 QuroLocalEngine 承载，GenUI 不走该通道。 */

@@ -24,10 +24,10 @@ import java.util.concurrent.TimeUnit
  * App 级宿主桥：把 QuroAI 真实的 AI 对话引擎与终端/Linux 环境暴露给 KaleidoBox 插件。
  *
  * 关键点：
- *  - AI：**直接复用 ZorvAI 主对话的全局模型配置**（[QuroModelConfigRepository]，
+ *  - AI：**直接复用 Echo AI 主对话的全局模型配置**（[QuroModelConfigRepository]，
  *    即用户在主对话「设置 → 模型」里填的同一个 API Key / BaseURL / 模型），通过
  *    [QuroLlmClient] 调同一个引擎。插件不再要求用户为它单独再配一套 provider，
- *    真正"APP 级"——用户在 ZorvAI 能聊，插件就能聊。
+ *    真正"APP 级"——用户在 Echo AI 能聊，插件就能聊。
  *  - 终端：[QuroTerminalBridge.run] 走 proot Linux 环境，同步返回 (退出码, 输出)。
  *  - 此对象在 IO 线程被插件调用（工具中心 invoke 在 Dispatchers.IO），内部 runBlocking 安全。
  */
@@ -35,11 +35,11 @@ class QuroKaleidoBridge(private val context: Context) : KaleidoAppBridge {
 
     override fun aiChat(messages: List<Pair<String, String>>, system: String?): KaleidoAiResult {
         return try {
-            // 直接复用 ZorvAI 主对话的全局模型配置，不要求用户为插件单独再配 provider。
+            // 直接复用 Echo AI 主对话的全局模型配置，不要求用户为插件单独再配 provider。
             val cfg = QuroModelConfigRepository(context).load()
             if (cfg.apiKey.isBlank() || cfg.baseUrl.isBlank() || cfg.model.isBlank()) {
                 return KaleidoAiResult.Err(
-                    "AI 引擎未配置：请在 ZorvAI 主对话「设置 → 模型」里填写 API Key / BaseURL / 模型，本插件会直接复用主对话的同一个 AI。"
+                    "AI 引擎未配置：请在 Echo AI 主对话「设置 → 模型」里填写 API Key / BaseURL / 模型，本插件会直接复用主对话的同一个 AI。"
                 )
             }
             val chatMessages = mutableListOf<QuroChatMessage>().apply {
@@ -161,7 +161,7 @@ class QuroKaleidoBridge(private val context: Context) : KaleidoAppBridge {
 
     private fun fetchUrl(url: String): String {
         if (url.isBlank()) return "（缺少 url 参数）"
-        val req = Request.Builder().url(url).header("User-Agent", "ZorvAI-Kaleido/1.0").get().build()
+        val req = Request.Builder().url(url).header("User-Agent", "Echo AI-Kaleido/1.0").get().build()
         return try {
             httpClient.newCall(req).execute().use { resp ->
                 val body = resp.body?.string().orEmpty()

@@ -341,7 +341,7 @@ private fun SkillRow(
                 style = MaterialTheme.typography.labelSmall,
                 color = if (skill.prompt.isBlank()) cs.error else cs.onSurfaceVariant,
             )
-            if (skill.id.startsWith("zorv_") && skill.signState != "unknown") {
+            if (skill.id.startsWith("echo_") && skill.signState != "unknown") {
                 val (label, color) = when (skill.signState) {
                     "verified" -> "签名已校验" to cs.primary
                     "failed" -> "签名失败·疑似篡改" to cs.error

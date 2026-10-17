@@ -11,112 +11,112 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
-import com.ai.assistance.quro.genui.sdk.style.ZorvPalette
+import com.ai.assistance.quro.genui.sdk.style.EchoPalette
 
 /**
- * GenUI Agent 应用主题 —— 与 ZorvAI 宿主同一视觉体系
+ * GenUI Agent 应用主题 —— 与 Echo AI 宿主同一视觉体系
  *
  * 【为什么整体重写】
  * 原为「深青 Teal #0D9488 + 玫红 #E11D48」自成一套，而 SDK 侧主题又是 Material 默认紫，
- * 宿主 ZorvAI 本体是「陶土 #C25A38 + 纸 #F4F1EA + 墨」。三套配色并行 →
+ * 宿主 Echo AI 本体是「陶土 #C25A38 + 纸 #F4F1EA + 墨」。三套配色并行 →
  * GenUI Agent 打开后像另一个 App 贴进来的一块外来 UI，这就是「没有配色/没有审美」的根。
  *
- * 现在统一为 **陶土 / 纸 / 墨 / 鼠尾草 / 金**（取自 [ZorvPalette]，与宿主 QuroTheme 同源），
+ * 现在统一为 **陶土 / 纸 / 墨 / 鼠尾草 / 金**（取自 [EchoPalette]，与宿主 QuroTheme 同源），
  * 组件里 259 处 `MaterialTheme.colorScheme.*` 与 SDK 侧 `ctx.theme.colorScheme.*` 读到的是同一套颜色。
  */
 
 // ========== 浅色：纸感底 + 白卡 + 陶土强调 ==========
 private val LightColors = lightColorScheme(
-    primary = ZorvPalette.Terracotta,
+    primary = EchoPalette.Terracotta,
     onPrimary = Color.White,
-    primaryContainer = ZorvPalette.TerracottaSoft,
-    onPrimaryContainer = ZorvPalette.TerracottaPress,
-    inversePrimary = ZorvPalette.TerracottaDark,
+    primaryContainer = EchoPalette.TerracottaSoft,
+    onPrimaryContainer = EchoPalette.TerracottaPress,
+    inversePrimary = EchoPalette.TerracottaDark,
 
-    secondary = ZorvPalette.Sage,
+    secondary = EchoPalette.Sage,
     onSecondary = Color.White,
-    secondaryContainer = ZorvPalette.SageSoft,
+    secondaryContainer = EchoPalette.SageSoft,
     onSecondaryContainer = Color(0xFF3E4A36),
 
-    tertiary = ZorvPalette.Gold,
+    tertiary = EchoPalette.Gold,
     onTertiary = Color.White,
-    tertiaryContainer = ZorvPalette.GoldSoft,
-    onTertiaryContainer = ZorvPalette.GoldPress,
+    tertiaryContainer = EchoPalette.GoldSoft,
+    onTertiaryContainer = EchoPalette.GoldPress,
 
-    background = ZorvPalette.Paper,
-    onBackground = ZorvPalette.Ink,
-    surface = ZorvPalette.Card,
-    onSurface = ZorvPalette.Ink,
-    surfaceVariant = ZorvPalette.Paper2,
-    onSurfaceVariant = ZorvPalette.InkSoft,
-    surfaceTint = ZorvPalette.Terracotta,
+    background = EchoPalette.Paper,
+    onBackground = EchoPalette.Ink,
+    surface = EchoPalette.Card,
+    onSurface = EchoPalette.Ink,
+    surfaceVariant = EchoPalette.Paper2,
+    onSurfaceVariant = EchoPalette.InkSoft,
+    surfaceTint = EchoPalette.Terracotta,
 
     // 纸感表面层叠（Lowest 最亮 → Highest 最暗）
     surfaceContainerLowest = Color.White,
-    surfaceContainerLow = ZorvPalette.PaperBright,
-    surfaceContainer = ZorvPalette.Paper,
-    surfaceContainerHigh = ZorvPalette.Paper2,
-    surfaceContainerHighest = ZorvPalette.Paper3,
-    surfaceBright = ZorvPalette.PaperBright,
-    surfaceDim = ZorvPalette.Paper3,
+    surfaceContainerLow = EchoPalette.PaperBright,
+    surfaceContainer = EchoPalette.Paper,
+    surfaceContainerHigh = EchoPalette.Paper2,
+    surfaceContainerHighest = EchoPalette.Paper3,
+    surfaceBright = EchoPalette.PaperBright,
+    surfaceDim = EchoPalette.Paper3,
 
-    outline = ZorvPalette.Line,
-    outlineVariant = ZorvPalette.LineSoft,
+    outline = EchoPalette.Line,
+    outlineVariant = EchoPalette.LineSoft,
 
-    error = ZorvPalette.ErrorWarm,
+    error = EchoPalette.ErrorWarm,
     onError = Color.White,
-    errorContainer = ZorvPalette.ErrorSoft,
+    errorContainer = EchoPalette.ErrorSoft,
     onErrorContainer = Color(0xFF7A2417),
 
-    inverseSurface = ZorvPalette.Ink,
-    inverseOnSurface = ZorvPalette.PaperBright,
+    inverseSurface = EchoPalette.Ink,
+    inverseOnSurface = EchoPalette.PaperBright,
     scrim = Color(0xFF000000)
 )
 
 // ========== 深色：暖近黑（保留纸的温度，不用纯黑）==========
 private val DarkColors = darkColorScheme(
-    primary = ZorvPalette.TerracottaDark,
-    onPrimary = ZorvPalette.TerracottaDarkOn,
-    primaryContainer = ZorvPalette.TerracottaDarkContainer,
-    onPrimaryContainer = ZorvPalette.TerracottaSoft,
-    inversePrimary = ZorvPalette.Terracotta,
+    primary = EchoPalette.TerracottaDark,
+    onPrimary = EchoPalette.TerracottaDarkOn,
+    primaryContainer = EchoPalette.TerracottaDarkContainer,
+    onPrimaryContainer = EchoPalette.TerracottaSoft,
+    inversePrimary = EchoPalette.Terracotta,
 
-    secondary = ZorvPalette.SageDark,
-    onSecondary = ZorvPalette.SageDarkOn,
-    secondaryContainer = ZorvPalette.SageDarkContainer,
+    secondary = EchoPalette.SageDark,
+    onSecondary = EchoPalette.SageDarkOn,
+    secondaryContainer = EchoPalette.SageDarkContainer,
     onSecondaryContainer = Color(0xFFC7D2BB),
 
-    tertiary = ZorvPalette.GoldDark,
-    onTertiary = ZorvPalette.GoldDarkOn,
-    tertiaryContainer = ZorvPalette.GoldDarkContainer,
+    tertiary = EchoPalette.GoldDark,
+    onTertiary = EchoPalette.GoldDarkOn,
+    tertiaryContainer = EchoPalette.GoldDarkContainer,
     onTertiaryContainer = Color(0xFFF0DFAE),
 
-    background = ZorvPalette.BrandBackgroundDark,
-    onBackground = ZorvPalette.OnDark,
-    surface = ZorvPalette.SurfaceDark,
-    onSurface = ZorvPalette.OnDark,
-    surfaceVariant = ZorvPalette.ContainerDark,
-    onSurfaceVariant = ZorvPalette.OnDarkSoft,
-    surfaceTint = ZorvPalette.TerracottaDark,
+    background = EchoPalette.BrandBackgroundDark,
+    onBackground = EchoPalette.OnDark,
+    surface = EchoPalette.SurfaceDark,
+    onSurface = EchoPalette.OnDark,
+    surfaceVariant = EchoPalette.ContainerDark,
+    onSurfaceVariant = EchoPalette.OnDarkSoft,
+    surfaceTint = EchoPalette.TerracottaDark,
 
-    surfaceContainerLowest = ZorvPalette.SurfaceLowestDark,
-    surfaceContainerLow = ZorvPalette.SurfaceLowDark,
-    surfaceContainer = ZorvPalette.SurfaceDark,
-    surfaceContainerHigh = ZorvPalette.SurfaceHighDark,
-    surfaceContainerHighest = ZorvPalette.SurfaceHighestDark,
-    surfaceBright = ZorvPalette.SurfaceHighDark,
-    surfaceDim = ZorvPalette.SurfaceLowestDark,
+    surfaceContainerLowest = EchoPalette.SurfaceLowestDark,
+    surfaceContainerLow = EchoPalette.SurfaceLowDark,
+    surfaceContainer = EchoPalette.SurfaceDark,
+    surfaceContainerHigh = EchoPalette.SurfaceHighDark,
+    surfaceContainerHighest = EchoPalette.SurfaceHighestDark,
+    surfaceBright = EchoPalette.SurfaceHighDark,
+    surfaceDim = EchoPalette.SurfaceLowestDark,
 
-    outline = ZorvPalette.LineDark,
-    outlineVariant = ZorvPalette.LineSoftDark,
+    outline = EchoPalette.LineDark,
+    outlineVariant = EchoPalette.LineSoftDark,
 
-    error = ZorvPalette.ErrorDark,
-    onError = ZorvPalette.ErrorDarkOn,
-    errorContainer = ZorvPalette.ErrorDarkContainer,
+    error = EchoPalette.ErrorDark,
+    onError = EchoPalette.ErrorDarkOn,
+    errorContainer = EchoPalette.ErrorDarkContainer,
     onErrorContainer = Color(0xFFF2C9C0),
 
-    inverseSurface = ZorvPalette.OnDark,
-    inverseOnSurface = ZorvPalette.BrandBackgroundDark,
+    inverseSurface = EchoPalette.OnDark,
+    inverseOnSurface = EchoPalette.BrandBackgroundDark,
     scrim = Color(0xFF000000)
 )
 

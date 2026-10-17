@@ -247,7 +247,7 @@ class QuroTerminalPrivilegeBridge(
         if (launch != null) {
             runCatching { activity.startActivity(launch) }
         } else {
-            Toast.makeText(activity, "请手动打开 ${mgr.second}，在「模块」中启用 Zorv AI 并勾选本应用", Toast.LENGTH_LONG).show()
+            Toast.makeText(activity, "请手动打开 ${mgr.second}，在「模块」中启用 Echo AI 并勾选本应用", Toast.LENGTH_LONG).show()
         }
     }
 

@@ -319,7 +319,7 @@ object WorkflowEngine {
                     log.appendLine("  CAPTURE_PHOTO → ${if (ok) "已调起相机" else "失败"}")
                     Outcome(ok)
                 }
-                // AI 节点：接入 ZorvAI 模型能力（「需要模型才能做到」的核心落点）。
+                // AI 节点：接入 Echo AI 模型能力（「需要模型才能做到」的核心落点）。
                 // 复用全局模型配置（QuroModelConfigRepository + 功能级覆盖），调用 QuroLlmClient.chat，
                 // 把模型回复写入 out 变量，供后续节点（如 HTTP body）消费。
                 NodeType.AI -> {

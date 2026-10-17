@@ -3,7 +3,7 @@ package com.ai.assistance.quro.ui.data
 import com.ai.assistance.quro.core.cards.QuroChatCard
 
 /**
- * Zorv AI 数据模型与示例数据（UI 层）。
+ * Echo AI 数据模型与示例数据（UI 层）。
  * 模型按 API 提供商分组，使用真实模型名称 + 真实 ID（格式：提供商_模型id）。
  */
 

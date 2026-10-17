@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Zorv AI</string>
-    <string name="quro_accessibility_desc">Serviço de acessibilidade Zorv AI: usado para automação de UI e leitura do conteúdo da tela, entre outros recursos avançados. Esta versão apenas declara permissões e não coleta dados privados.</string>
-    <string name="quro_device_admin_label">Administrador de dispositivo Zorv AI</string>
+    <string name="app_name">Echo AI</string>
+    <string name="quro_accessibility_desc">Serviço de acessibilidade Echo AI: usado para automação de UI e leitura do conteúdo da tela, entre outros recursos avançados. Esta versão apenas declara permissões e não coleta dados privados.</string>
+    <string name="quro_device_admin_label">Administrador de dispositivo Echo AI</string>
     <string name="quro_device_admin_desc">Usado apenas para duas operações: bloquear a tela, desativar ou restaurar a câmera. Não apaga dados nem modifica a senha de bloqueio.</string>
-    <string name="ime_label">Teclado Zorv AI</string>
+    <string name="ime_label">Teclado Echo AI</string>
     <string name="sc_voice_short">Bola de voz</string>
     <string name="sc_voice_long">Abrir a bola de voz flutuante</string>
     <string name="sc_voice_disabled">Bola de voz desativada</string>
@@ -12,7 +12,7 @@
     <string name="sc_chat_long">Entrar no chat diretamente</string>
     <string name="sc_chat_disabled">Chat desativado</string>
     <string name="sc_browser_short">Console do navegador</string>
-    <string name="sc_browser_long">Console do navegador ZorvAI</string>
+    <string name="sc_browser_long">Console do navegador Echo AI</string>
     <string name="sc_browser_disabled">Console do navegador desativada</string>
     <string name="settings_appearance">Aparência e conversa</string>
     <string name="appearance_group_appearance">Aparência</string>

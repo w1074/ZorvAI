@@ -26,7 +26,7 @@ import java.util.UUID
  *  - OPEN_MEDIA    打开/查看媒体（target=URL 或应用私有文件路径）
  *  - PLAY_MEDIA    播放音频/视频（target=URL 或应用私有文件路径）
  *  - CAPTURE_PHOTO 调起系统相机拍照（path=保存路径，默认 captured_photo.jpg）
- *  - AI           调用 ZorvAI 模型推理（prompt / system / out）：接入现模型能力，
+ *  - AI           调用 Echo AI 模型推理（prompt / system / out）：接入现模型能力，
  *                 使工作流能「用模型干活」（如生成文案、总结、决策），结果写入 out 变量供后续节点消费。
  *
  * 数据 / 通用执行节点（无新依赖，纯端侧）：

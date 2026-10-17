@@ -35,10 +35,10 @@ import kotlinx.coroutines.withContext
 /**
  * LSPosed / Xposed 模块入口页（路线图标 ①：设置-权限添加 LSPosed）。
  *
- * Zorv AI 自身的能力（ACI / 无障碍 / Shizuku / 设备管理员 / ROOT）走自有管线，
+ * Echo AI 自身的能力（ACI / 无障碍 / Shizuku / 设备管理员 / ROOT）走自有管线，
  * 不在此定义任何 `ai.aci.permission.*`（定义权属控制端）。本页只负责：
  *  - 探测本机是否安装了 LSPosed / EdXposed / 原版 Xposed 管理器；
- *  - 展示 Zorv AI 是否已被纳入框架作用域（引导用户在管理器里勾选）；
+ *  - 展示 Echo AI 是否已被纳入框架作用域（引导用户在管理器里勾选）；
  *  - 一键跳转对应管理器（若已安装）做作用域 / 模块管理。
  *
  * 仅做探测与引导；不请求任何敏感权限、不定义任何 ai.aci.permission.*（定义权属控制端）。

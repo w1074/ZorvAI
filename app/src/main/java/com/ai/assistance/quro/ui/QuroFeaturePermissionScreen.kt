@@ -109,7 +109,7 @@ fun QuroFeaturePermissionScreen(onClose: () -> Unit) {
         val m = manager ?: return
         val html = qstr(R.string.qk_01868)
             .toByteArray(Charsets.UTF_8)
-        val uri = m.media.exportToDownloads(ctx, "zorv_export_sample.html", "text/html", "ZorvAI", html)
+        val uri = m.media.exportToDownloads(ctx, "echo_export_sample.html", "text/html", "Echo AI", html)
         exportMsg = if (uri != null) qstr(R.string.qk_01869) else qstr(R.string.qk_01870)
     }
 

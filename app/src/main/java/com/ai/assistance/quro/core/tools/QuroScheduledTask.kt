@@ -522,7 +522,7 @@ class QuroScheduleReceiver : BroadcastReceiver() {
                 addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_SINGLE_TOP)
                 putExtra(QuroReminderActivity.EXTRA_TITLE, task.title)
                 putExtra(QuroReminderActivity.EXTRA_TEXT, task.content.ifBlank { "定时任务提醒" })
-                putExtra(QuroReminderActivity.EXTRA_BADGE, "Zorv AI 定时提醒")
+                putExtra(QuroReminderActivity.EXTRA_BADGE, "Echo AI 定时提醒")
             },
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
         )
@@ -593,7 +593,7 @@ private fun notifyTaskCompletion(context: Context, task: QuroScheduledTask, targ
                     addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_SINGLE_TOP)
                     putExtra(QuroReminderActivity.EXTRA_TITLE, "定时任务已完成")
                     putExtra(QuroReminderActivity.EXTRA_TEXT, "「${task.title}」AI 已处理完成，点击查看回复")
-                    putExtra(QuroReminderActivity.EXTRA_BADGE, "Zorv AI 定时提醒")
+                    putExtra(QuroReminderActivity.EXTRA_BADGE, "Echo AI 定时提醒")
                 },
                 PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
             )

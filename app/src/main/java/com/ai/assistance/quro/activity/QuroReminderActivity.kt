@@ -68,7 +68,7 @@ class QuroReminderActivity : AppCompatActivity() {
 
         val title = intent.getStringExtra(EXTRA_TITLE) ?: qstr(R.string.qk_01669)
         val text = intent.getStringExtra(EXTRA_TEXT) ?: ""
-        val badge = intent.getStringExtra(EXTRA_BADGE) ?: "Zorv AI 提醒"
+        val badge = intent.getStringExtra(EXTRA_BADGE) ?: "Echo AI 提醒"
 
         findViewById<android.widget.TextView>(R.id.reminder_title).text = title
         findViewById<android.widget.TextView>(R.id.reminder_text).text = text

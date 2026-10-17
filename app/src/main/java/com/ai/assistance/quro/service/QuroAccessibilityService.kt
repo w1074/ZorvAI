@@ -136,7 +136,7 @@ class QuroAccessibilityService : AccessibilityService() {
             )
 
             val notification = NotificationCompat.Builder(this, CHANNEL_ID)
-                .setContentTitle("Zorv AI 无障碍服务")
+                .setContentTitle("Echo AI 无障碍服务")
                 .setContentText("正在运行 · 点击打开设置")
                 .setSmallIcon(android.R.drawable.ic_dialog_info)
                 .setContentIntent(pendingIntent)

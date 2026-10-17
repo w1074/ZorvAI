@@ -91,7 +91,7 @@ object QuroReplyNotifier {
      * Android 10+ 自动附加 Bubble 气泡，用户可点击气泡直接进入对话。
      *
      * @param ctx   上下文（通常用 ApplicationContext）
-     * @param sender 发送者显示名（人格名或 "Zorv AI"）
+     * @param sender 发送者显示名（人格名或 "Echo AI"）
      * @param text  回复正文（自动取首非空行并截断）
      */
     fun notifyReply(ctx: Context, sender: String, text: String) {

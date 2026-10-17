@@ -47,7 +47,7 @@ import kotlin.coroutines.Continuation
 import kotlin.coroutines.resume
 
 /**
- * Zorv AI 入口 Activity。
+ * Echo AI 入口 Activity。
  * 负责麦克风/悬浮窗权限、悬浮语音球开关，并作为工具运行时权限请求的网关。
  */
 class QuroMainActivity : ComponentActivity(), QuroPermissionRequester {

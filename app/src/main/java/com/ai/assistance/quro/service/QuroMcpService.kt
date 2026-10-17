@@ -69,11 +69,11 @@ class QuroMcpService : Service() {
 
     private fun buildNotification(): Notification {
         val nm = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-        val chan = NotificationChannel(CHANNEL_ID, "ZorvAI MCP 服务", NotificationManager.IMPORTANCE_LOW)
+        val chan = NotificationChannel(CHANNEL_ID, "Echo AI MCP 服务", NotificationManager.IMPORTANCE_LOW)
         nm.createNotificationChannel(chan)
         val port = prefs(this).getInt(KEY_PORT, 0)
         return NotificationCompat.Builder(this, CHANNEL_ID)
-            .setContentTitle("Zorv AI · 本地 MCP 服务")
+            .setContentTitle("Echo AI · 本地 MCP 服务")
             .setContentText("已在 127.0.0.1:$port 提供工具调用（仅本机可访问）")
             .setSmallIcon(android.R.drawable.ic_dialog_info)
             .setOngoing(true)

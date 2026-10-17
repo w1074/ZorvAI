@@ -45,7 +45,7 @@ class QuroCrossrefTool : QuroTool {
                 }
                 val conn = (URL(url).openConnection() as HttpURLConnection).apply {
                     requestMethod = "GET"
-                    setRequestProperty("User-Agent", "ZorvAI/1.0 (mailto:quro@example.com)")
+                    setRequestProperty("User-Agent", "Echo AI/1.0 (mailto:quro@example.com)")
                     connectTimeout = 15000
                     readTimeout = 20000
                 }

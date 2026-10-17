@@ -2978,11 +2978,11 @@ fi
         val nativeLibDir = context.applicationInfo.nativeLibraryDir
 
         // 需要创建符号链接的二进制文件
-        // 注意：只链接实际存在的库，不存在的跳过（ZorvAI 只有 proot 和 loader）
+        // 注意：只链接实际存在的库，不存在的跳过（Echo AI 只有 proot 和 loader）
         val libraries = mapOf(
             "libproot.so" to "proot",
             "libproot-loader.so" to "loader"
-            // ZorvAI 不包含 libbash.so、libbusybox.so、libtalloc.so
+            // Echo AI 不包含 libbash.so、libbusybox.so、libtalloc.so
             // bash 通过 apt-get install 安装，busybox/talloc 不需要
         )
 

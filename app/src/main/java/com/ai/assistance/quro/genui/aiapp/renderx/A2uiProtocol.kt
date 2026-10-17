@@ -8,7 +8,7 @@ import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.JsonPrimitive
 
 /**
- * A2UI 官方协议 → FlatDoc 适配层（ZorvAI 侧适配）
+ * A2UI 官方协议 → FlatDoc 适配层（Echo AI 侧适配）
  *
  * 背景：GenUI Agent 的 A2UI 通道原本只认自造的「扁平邻接表」（顶层 root + components），
  * 而模型被 "a2ui" 一词触发时，输出的多半是 **A2UI 官方协议**（a2ui.org 规范）：
@@ -18,7 +18,7 @@ import kotlinx.serialization.json.JsonPrimitive
  *
  * 本适配层把官方协议（JSONL / 对象数组 / 单对象信封，含 v0.8 与 v0.9 两种组件写法、
  * 数据模型指针绑定）翻译成 FlatDoc，复用既有的 FlatDocRenderer / GenUI SDK 渲染。
- * 同时兼容 ZorvAI 自有方言：createSurface.root 直接是一棵嵌套节点树（quro-ui 风格）。
+ * 同时兼容 Echo AI 自有方言：createSurface.root 直接是一棵嵌套节点树（quro-ui 风格）。
  */
 object A2uiProtocol {
 
@@ -128,7 +128,7 @@ object A2uiProtocol {
                 }
                 (m["createSurface"] as? JsonObject)?.let { cs ->
                     when (val r = cs["root"]) {
-                        // ZorvAI 自有方言：root 直接是一棵嵌套节点树（quro-ui 风格）
+                        // Echo AI 自有方言：root 直接是一棵嵌套节点树（quro-ui 风格）
                         is JsonObject -> nestedRoot = r
                         else -> bound(r).ifBlank { null }?.let { declaredRoot = it }
                     }

@@ -38,7 +38,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import kotlinx.coroutines.launch
 
 /**
- * Zorv 构建台屏幕（从 build-aci 集成，已剥离 ACI 受控端）。
+ * Echo 构建台屏幕（从 build-aci 集成，已剥离 ACI 受控端）。
  *
  * 入口：由 QuroAI 工具中心「构建台」卡片经 ChatScreen 全屏覆盖层拉起。
  * 内含：文件树 / Java 编辑器 / 编译日志 / 工具链自检 / 工程设置（包名·图标·签名）。

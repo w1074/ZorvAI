@@ -10,7 +10,7 @@ import org.json.JSONObject
  * AI 智能体键盘工具：把文本直接打字进当前聚焦的输入框（如 WPS 文档）。
  *
  * 与 [InputTextTool]（无障碍 ACTION_SET_TEXT）互补：
- * - [AiKeyboardTypeTool] 走 IME 通道，对绝大多数 App 更可靠，但要求用户已启用并切到「Zorv AI 键盘」。
+ * - [AiKeyboardTypeTool] 走 IME 通道，对绝大多数 App 更可靠，但要求用户已启用并切到「Echo AI 键盘」。
  * - [InputTextTool] 走无障碍通道，无需切换键盘，但依赖目标 App 暴露可编辑节点。
  *
  * 典型链路：launch_app(打开 WPS) → 用户点一下文档输入框（获得焦点）→ ai_type_text(正文) → ai_press_enter(提交)。
@@ -19,7 +19,7 @@ class AiKeyboardTypeTool : QuroTool {
     override val name = "ai_type_text"
     override val description =
         qstr(R.string.qk_03510) +
-        "前置条件：在「系统设置→语言与输入法」启用并切到『Zorv AI 键盘』，且目标 App（如 WPS）的输入框已聚焦。" +
+        "前置条件：在「系统设置→语言与输入法」启用并切到『Echo AI 键盘』，且目标 App（如 WPS）的输入框已聚焦。" +
         "若未启用键盘，请改用 input_text（无障碍通道）。"
     override val parametersJson = """{
         "type":"object",
@@ -31,9 +31,9 @@ class AiKeyboardTypeTool : QuroTool {
 
     override fun run(context: Context, arguments: String): String {
         val svc = QuroAiKeyboardService.instance
-            ?: return "❌ 智能体键盘未运行：请在系统设置启用『Zorv AI 键盘』（设置→语言与输入法→Zorv AI 键盘）"
+            ?: return "❌ 智能体键盘未运行：请在系统设置启用『Echo AI 键盘』（设置→语言与输入法→Echo AI 键盘）"
         if (!svc.isInputActive()) {
-            return "⚠️ 当前没有可输入的焦点：请先切到『Zorv AI 键盘』并确保目标 App（如 WPS）的输入框已聚焦，再重试"
+            return "⚠️ 当前没有可输入的焦点：请先切到『Echo AI 键盘』并确保目标 App（如 WPS）的输入框已聚焦，再重试"
         }
         val text = JSONObject(arguments).optString("text", "").takeIf { it.isNotBlank() }
             ?: return "❌ 缺少 text 参数"
@@ -54,9 +54,9 @@ class AiKeyboardPressEnterTool : QuroTool {
 
     override fun run(context: Context, arguments: String): String {
         val svc = QuroAiKeyboardService.instance
-            ?: return "❌ 智能体键盘未运行：请在系统设置启用『Zorv AI 键盘』"
+            ?: return "❌ 智能体键盘未运行：请在系统设置启用『Echo AI 键盘』"
         if (!svc.isInputActive()) {
-            return "⚠️ 当前没有可输入的焦点：请先切到『Zorv AI 键盘』并确保目标 App 输入框已聚焦，再重试"
+            return "⚠️ 当前没有可输入的焦点：请先切到『Echo AI 键盘』并确保目标 App 输入框已聚焦，再重试"
         }
         return if (svc.pressEnter()) "✅ 已发送回车" else "❌ 发送回车失败"
     }
@@ -69,14 +69,14 @@ class AiKeyboardSendTool : QuroTool {
         qstr(R.string.qk_03440) +
         "适用于聊天/评论框（右下角动作是『发送』而非回车的场景）。" +
         "若输入框没有 SEND 动作，则自动降级为回车提交。" +
-        "前置条件同 ai_type_text：已启用并切到『Zorv AI 键盘』且目标 App 输入框已聚焦。"
+        "前置条件同 ai_type_text：已启用并切到『Echo AI 键盘』且目标 App 输入框已聚焦。"
     override val parametersJson = """{"type":"object","properties":{}}"""
 
     override fun run(context: Context, arguments: String): String {
         val svc = QuroAiKeyboardService.instance
-            ?: return "❌ 智能体键盘未运行：请在系统设置启用『Zorv AI 键盘』"
+            ?: return "❌ 智能体键盘未运行：请在系统设置启用『Echo AI 键盘』"
         if (!svc.isInputActive()) {
-            return "⚠️ 当前没有可输入的焦点：请先切到『Zorv AI 键盘』并确保目标 App 输入框已聚焦，再重试"
+            return "⚠️ 当前没有可输入的焦点：请先切到『Echo AI 键盘』并确保目标 App 输入框已聚焦，再重试"
         }
         return if (svc.pressSend()) "✅ 已触发发送（或降级回车提交）" else "❌ 发送失败"
     }

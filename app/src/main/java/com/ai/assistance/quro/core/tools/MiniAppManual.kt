@@ -15,7 +15,7 @@ import com.ai.assistance.quro.util.qstr
  *   · 落地校验与打回理由：MiniAppTool（create/run 的真实打回条件）
  *
  * ── 谁在用 ──────────────────────────────────────────────────────
- * · ZorvAI 对话框：MiniAppTool 的 action="manual" 按需返回
+ * · Echo AI 对话框：MiniAppTool 的 action="manual" 按需返回
  *   （工具 description 里内联的是 [WEB_APP_BRIEF] 精简版，模型每轮都会读到，必须短）
  *
  * ── 历史沿革（改这段前先读） ──────────────────────────────────────
@@ -185,7 +185,7 @@ location  getLocation                                          获取定位
 """.trimIndent()
 
     // ────────────────────────────────────────────────────────────────
-    //  按需取用（ZorvAI 的 miniapp(action="manual") 走这里）
+    //  按需取用（Echo AI 的 miniapp(action="manual") 走这里）
     // ────────────────────────────────────────────────────────────────
 
     /**

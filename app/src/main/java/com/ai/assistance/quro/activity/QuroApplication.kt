@@ -190,7 +190,7 @@ class QuroApplication : Application(), Configuration.Provider {
         } catch (e: Throwable) {
             android.util.Log.e("QuroApplication", "启动期增强初始化失败（不影响主流程）", e)
         }
-        // ACI（Agent Capability Interface）：让 Zorv AI 成为 ACI 控制方（AI 中枢），
+        // ACI（Agent Capability Interface）：让 Echo AI 成为 ACI 控制方（AI 中枢），
         // 启动即发现并绑定设备上已安装的第三方 ACI App，使其能力可被 AI 调用。
         // 整体包在 try 中，避免 ACI 异常影响应用正常启动。
         try {
@@ -230,7 +230,7 @@ class QuroApplication : Application(), Configuration.Provider {
             android.util.Log.e("QuroApplication", "Workflow 初始化失败（不影响主流程）", e)
         }
         // 终端架构统一：载入持久化会话元数据；拉起默认共享会话（跟随安装 Linux 环境），
-        // 并启动终端保活服务（满足「终端启动默认打开 zorvAI 终端环境」「zorvAI 自启动存活终端保持跟随存话」）。
+        // 并启动终端保活服务（满足「终端启动默认打开 EchoAI 终端环境」「EchoAI 自启动存活终端保持跟随存话」）。
         try {
             QuroTerminalSessionManager.load(applicationContext)
             QuroTerminalSessionManager.ensureDefaultAsync(applicationContext, installIfMissing = true)

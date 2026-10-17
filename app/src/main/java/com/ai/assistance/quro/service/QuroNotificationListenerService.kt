@@ -6,7 +6,7 @@ import android.service.notification.NotificationListenerService
 import android.service.notification.StatusBarNotification
 
 /**
- * ZorvAI 通知侦听服务（对应 PERMISSIONS.md #8 设备与通知）。
+ * Echo AI 通知侦听服务（对应 PERMISSIONS.md #8 设备与通知）。
  *
  * 用户授权「通知访问」后，本服务可：
  *  - 读取所有通知（含联系人姓名与通知内容等个人信息）；

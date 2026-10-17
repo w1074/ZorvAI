@@ -678,7 +678,7 @@ class QuroMiniWindowService : Service() {
 
         return NotificationCompat.Builder(this, CHANNEL_ID)
             .setContentTitle("对话/浏览器悬浮小窗")
-            .setContentText("Zorv AI 系统级悬浮窗运行中")
+            .setContentText("Echo AI 系统级悬浮窗运行中")
             .setSmallIcon(android.R.drawable.ic_dialog_info)
             .setContentIntent(contentIntent)
             .addAction(android.R.drawable.ic_menu_delete, "关闭全部悬浮窗", stopPi)

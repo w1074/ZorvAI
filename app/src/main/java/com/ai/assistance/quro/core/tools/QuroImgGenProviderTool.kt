@@ -105,7 +105,7 @@ class QuroImgGenProviderTool : QuroTool {
             val b64 = item.optString("b64_json", "")
             when {
                 url.isNotBlank() -> {
-                    val dl = QuroDownloadUtil.download(context, url, "ZorvAI/1.0", null, "image/png")
+                    val dl = QuroDownloadUtil.download(context, url, "Echo AI/1.0", null, "image/png")
                     sb.append("第${i + 1}张: $dl\n   $url\n")
                 }
                 b64.isNotBlank() -> {

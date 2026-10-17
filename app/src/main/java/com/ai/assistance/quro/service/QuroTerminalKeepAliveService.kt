@@ -170,7 +170,7 @@ class QuroTerminalKeepAliveService : Service() {
         val nm = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val chan = NotificationChannel(
-                CHANNEL_ID, "Zorv AI 终端", NotificationManager.IMPORTANCE_LOW,
+                CHANNEL_ID, "Echo AI 终端", NotificationManager.IMPORTANCE_LOW,
             ).apply { description = qstr(R.string.qk_03488) }
             nm.createNotificationChannel(chan)
         }
@@ -180,7 +180,7 @@ class QuroTerminalKeepAliveService : Service() {
             PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT,
         )
         return NotificationCompat.Builder(this, CHANNEL_ID)
-            .setContentTitle("Zorv AI 终端运行中")
+            .setContentTitle("Echo AI 终端运行中")
             .setContentText(text)
             .setSmallIcon(android.R.drawable.ic_dialog_info)
             .setContentIntent(pi)

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  Zorv AI 桌面卡片（v1.0.58 重写）
+  Echo AI 桌面卡片（v1.0.58 重写）
   上半区：品牌头 + 最近一条 AI 回复预览（最多 2 行）
   下半区：2×4 功能卡片网格（对话 / 语音 / 提醒 / 知识 / 技能 / 工具 / 终端 / 记忆），
           每张卡片点击进入对应桌面功能（经 MainActivity 的 ui_action 桥接 ChatScreen）。
@@ -12,7 +12,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/widget_bg"
     android:padding="0dp"
-    android:contentDescription="Zorv AI 桌面卡片">
+    android:contentDescription="Echo AI 桌面卡片">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -33,7 +33,7 @@
                 android:layout_width="34dp"
                 android:layout_height="34dp"
                 android:src="@drawable/quro_logo"
-                android:contentDescription="Zorv AI"
+                android:contentDescription="Echo AI"
                 android:scaleType="fitCenter" />
 
             <LinearLayout
@@ -47,7 +47,7 @@
                     android:id="@+id/widget_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Zorv AI"
+                    android:text="Echo AI"
                     android:textSize="15sp"
                     android:textStyle="bold"
                     android:textColor="#FFFFFF"

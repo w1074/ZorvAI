@@ -1,7 +1,7 @@
 package com.ai.assistance.quro.core.ui.dynamicui
 
 /**
- * ZorvAI 动态 UI 节点模型（参照 Kai `ui/dynamicui` 设计重写）。
+ * Echo AI 动态 UI 节点模型（参照 Kai `ui/dynamicui` 设计重写）。
  *
  * 与 Kai 一致采用「AI 输出 UI DSL → 解析 → 原生渲染」三段式：
  * AI 在回复里写 ```quro-ui 代码块，解析器转成节点树，Compose 直接渲染成真实原生控件，
@@ -213,7 +213,7 @@ data class QuroHtmlNode(
     val height: Int? = null,
 ) : QuroUiNode
 
-/** 代码块（展示 ZorvAI 支持的所有语言）：code 为源码，lang 为语言名（python/node/shell/html/
+/** 代码块（展示 Echo AI 支持的所有语言）：code 为源码，lang 为语言名（python/node/shell/html/
  *  json/xml/svg/c/cpp/java 等）。runnable=true 时显示「运行」按钮，点击经 run_code 真执行。 */
 data class QuroCodeNode(
     override val id: String? = null,
@@ -559,7 +559,7 @@ data class QuroUnknownNode(
 // =============================================================================================
 
 /**
- * 节点动作。参照 Kai `UiAction`，并扩展 ZorvAI 特有的工具/技能调用能力，
+ * 节点动作。参照 Kai `UiAction`，并扩展 Echo AI 特有的工具/技能调用能力，
  * 让动态 UI 不只是「展示」，而能驱动 Agent 真正做事。
  */
 /**
@@ -634,7 +634,7 @@ data class QuroOpenAppAction(
 ) : QuroUiAction
 
 /**
- * 打开 ZorvAI 内置界面（深链导航）：让动态 UI 按钮直接跳进终端 / 模型配置 / 可视化编程 /
+ * 打开 Echo AI 内置界面（深链导航）：让动态 UI 按钮直接跳进终端 / 模型配置 / 可视化编程 /
  * Web 应用 / 工具中心等原生界面，而不只是回发文本。
  *
  * target 与 [com.ai.assistance.quro.core.tools.ui.UiNavigationEvent.OpenScreen] 完全对齐：

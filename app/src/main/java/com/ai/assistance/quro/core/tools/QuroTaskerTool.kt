@@ -9,9 +9,9 @@ import org.json.JSONObject
 
 /**
  * Tasker 双向集成：
- *  - 出站（ZorvAI → Tasker）：fire 直接点燃指定 Tasker 任务（net.dinglisch.android.tasker.ACTION_FIRE），
+ *  - 出站（Echo AI → Tasker）：fire 直接点燃指定 Tasker 任务（net.dinglisch.android.tasker.ACTION_FIRE），
  *    broadcast 发送任意自定义广播（可带 extras，供其它 App / 自动化框架消费）。
- *  - 入站（Tasker → ZorvAI）：由 QuroTaskerReceiver 接收 com.ai.assistance.quro.TASKER_TRIGGER，
+ *  - 入站（Tasker → Echo AI）：由 QuroTaskerReceiver 接收 com.ai.assistance.quro.TASKER_TRIGGER，
  *    按 workflow / workflow_id 触发本机已保存工作流（复用 workflow 引擎 WorkflowEngine.run）。
  */
 class QuroTaskerTool : QuroTool {

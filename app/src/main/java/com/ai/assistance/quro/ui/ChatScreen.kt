@@ -51,7 +51,7 @@ import com.ai.assistance.quro.core.ui.card.host.ActionBus
 import com.ai.assistance.quro.core.ui.card.host.CardSurface
 import com.ai.assistance.quro.core.ui.card.spec.CardSpec
 import com.ai.assistance.quro.core.ui.card.spec.parseCardSpec
-// ZorvAI 生成式 UI（:genui 模块）：AI 自写 JSX/HTML → 对话框内 WebView 渲染
+// Echo AI 生成式 UI（:genui 模块）：AI 自写 JSX/HTML → 对话框内 WebView 渲染
 import com.ai.assistance.quro.service.QuroMediaService
 import com.ai.assistance.quro.service.QuroMiniWindowManager
 import com.ai.assistance.quro.service.QuroMiniWindowManager.MiniChatLine
@@ -59,7 +59,7 @@ import com.ai.assistance.quro.core.tools.QuroMediaController
 import com.ai.assistance.quro.core.QuroBrowserBridge
 import com.ai.assistance.quro.util.QuroDiag
 import com.ai.assistance.quro.workflow.data.WorkflowRepository
-// Zorv 构建台（端侧 APK 构建器，已从 build-aci 集成，剥离 ACI 受控端）
+// Echo 构建台（端侧 APK 构建器，已从 build-aci 集成，剥离 ACI 受控端）
 import com.ai.assistance.quro.build.BuildScreen
 import com.ai.assistance.quro.workflow.data.model.Workflow
 import kotlinx.coroutines.CoroutineScope
@@ -386,7 +386,7 @@ fun ChatScreen(
     val fontTiers = listOf(0.92f, 1f, 1.14f)
     val fontNames = listOf(stringResource(R.string.qk_00012), stringResource(R.string.qk_00013), stringResource(R.string.qk_00014))
 
-    // ---- Zorv AI 后端状态（单一真相源） ----
+    // ---- Echo AI 后端状态（单一真相源） ----
     val messages by vm.messages.collectAsState()
     val busy by vm.busy.collectAsState()
     val generatingIds by vm.generatingIds.collectAsState()
@@ -626,7 +626,7 @@ fun ChatScreen(
     var lastSheet by remember { mutableStateOf<SheetType?>(null) }
     SideEffect { if (sheet != null) lastSheet = sheet }
 
-    // 人格编辑对话框（Zorv AI 完整流程：图片上传头像 / 描述 / 角色设定 / 开场白 / 聊天设定 / 标签 / AI孵化 / 保存）
+    // 人格编辑对话框（Echo AI 完整流程：图片上传头像 / 描述 / 角色设定 / 开场白 / 聊天设定 / 标签 / AI孵化 / 保存）
     var personaToEdit by remember { mutableStateOf<QuroPersona?>(null) }
     var personaEditIsNew by remember { mutableStateOf(false) }
     var showSoulSheet by remember { mutableStateOf(false) }
@@ -749,7 +749,7 @@ fun ChatScreen(
     var showToolCenter by remember { mutableStateOf(false) }
     // 工具中心初始进入的子面板（供 AI 经 ui_control(open,target=vispro|node_editor|miniapp 等) 直达）
     var toolCenterInitial by remember { mutableStateOf<String?>(null) }
-    // Zorv 构建台（端侧 APK 构建器：Java → DEX → APK，已从 build-aci 集成，剥离 ACI 受控端）
+    // Echo 构建台（端侧 APK 构建器：Java → DEX → APK，已从 build-aci 集成，剥离 ACI 受控端）
     var showBuild by remember { mutableStateOf(false) }
 
     // GitHub 管理屏（登录 + 仓库/Issue/Star/搜索）：从设置「GitHub」/ ui_open_github 进入
@@ -1179,7 +1179,7 @@ fun ChatScreen(
             cmd.startsWith("copy:") -> {
                 val text = cmd.removePrefix("copy:").trim()
                 val cm = ctx.getSystemService(Context.CLIPBOARD_SERVICE) as android.content.ClipboardManager
-                cm.setPrimaryClip(android.content.ClipData.newPlainText("Zorv", text))
+                cm.setPrimaryClip(android.content.ClipData.newPlainText("Echo", text))
                 Toast.makeText(ctx, qstr(R.string.qk_00023), Toast.LENGTH_SHORT).show()
             }
             cmd.startsWith("ai:") -> {
@@ -1500,7 +1500,7 @@ fun ChatScreen(
                     tags = emptyList(), incubation = "", createdAt = 0L, updatedAt = 0L,
                 )
                 personaEditIsNew = true
-            },  // 打开 Zorv AI 完整人格创建对话框
+            },  // 打开 Echo AI 完整人格创建对话框
             onPickFile = { mime -> pickLauncher.launch(mime) },
             onExport = {
                 val path = exportConversation(ctx, uiMessages)
@@ -1517,7 +1517,7 @@ fun ChatScreen(
             },
             onClear = { vm.clear() },
             onOpenBrowser = { browserUrl = it },
-            // 设置底部弹层：UI 取自 MoWenApp，功能接 Zorv AI 现有状态/页面
+            // 设置底部弹层：UI 取自 MoWenApp，功能接 Echo AI 现有状态/页面
             settingsDarkMode = darkMode,
             onSettingsToggleDark = onToggleDark,
             settingsSoundOn = soundOn,
@@ -1676,7 +1676,7 @@ fun ChatScreen(
             }
         }
 
-        // 人格创建/编辑对话框（Zorv AI 完整流程）
+        // 人格创建/编辑对话框（Echo AI 完整流程）
         personaToEdit?.let { p ->
             PersonaEditDialog(
                 initial = p,
@@ -1686,7 +1686,7 @@ fun ChatScreen(
             )
         }
 
-        // 灵魂注入 / 人格管理（旧 Zorv AI 设置功能，经设置页入口唤出）
+        // 灵魂注入 / 人格管理（旧 Echo AI 设置功能，经设置页入口唤出）
         if (showSoulSheet) {
             SoulInjectionSheet(
                 vm = personaVm,
@@ -1716,7 +1716,7 @@ fun ChatScreen(
             MemoryDialog(personaVm = personaVm, onDismiss = { showMemoryDialog = false })
         }
 
-        // 关于页：全屏覆盖层（从设置「关于 Zorv AI」进入）
+        // 关于页：全屏覆盖层（从设置「关于 Echo AI」进入）
         if (showAbout) {
             // 拦截系统返回键：先关闭关于页回到设置（showSettings 仍 true），而非 finish Activity
             BackHandler { showAbout = false }
@@ -2082,7 +2082,7 @@ fun ChatScreen(
             }
         }
 
-        // Zorv 构建台（端侧 APK 构建器：从工具中心「构建台」卡片进入，全屏覆盖层）
+        // Echo 构建台（端侧 APK 构建器：从工具中心「构建台」卡片进入，全屏覆盖层）
         if (showBuild) {
             BackHandler { showBuild = false }
             Box(Modifier.fillMaxSize().zIndex(100f).background(cs.background)) {
@@ -2358,7 +2358,7 @@ fun ChatScreen(
                     onNewGenUi = {
                         // 旧行为：新建一个 genui 类型会话（渲染面是已删除的 QuroGenUiApp）。
                         // 新行为：拉起**内置的 GenUI-Agent 独立应用**（AI 产出 GenUI JSON DSL →
-                        // 原生 Compose 组件渲染）。它有自己的会话与模型配置，不再占用 ZorvAI 的对话框。
+                        // 原生 Compose 组件渲染）。它有自己的会话与模型配置，不再占用 Echo AI 的对话框。
                         runCatching {
                             ctx.startActivity(
                                 android.content.Intent(ctx, com.ai.assistance.quro.genui.aiapp.GenUiAgentActivity::class.java)
@@ -3006,7 +3006,7 @@ private fun MessageRow(
     // 长按复制反馈：将文本写入剪贴板并显示短暂提示
     fun copyToClipboard(text: String) {
         val cm = ctx.getSystemService(Context.CLIPBOARD_SERVICE) as android.content.ClipboardManager
-        cm.setPrimaryClip(android.content.ClipData.newPlainText("Zorv", text))
+        cm.setPrimaryClip(android.content.ClipData.newPlainText("Echo", text))
         copiedText = if (text.length > 30) text.take(30) + "…" else text
         showCopyMenu = true
     }
@@ -3390,7 +3390,7 @@ private fun MessageRow(
                                 is MsgBlock.Code -> CodeBlock(lang = blk.lang, code = blk.code, scaled = scaled, onSend = onSend)
                                 is MsgBlock.MiniApp -> {
                                     // ```miniapp 围栏：HTML Web 应用（AI 自写 HTML+JS+CSS）→ WebView 渲染。
-                                    // 旧版还有第二种内容——`zorv-miniapp:<app_id>` 原生小程序标记（微信语法
+                                    // 旧版还有第二种内容——`echo-miniapp:<app_id>` 原生小程序标记（微信语法
                                     // WXML/WXSS/JS，由自研引擎 miniapp-sdk 就地渲染）。该引擎与整套旧 GenUI
                                     // 已一并删除，故这条分支（含 NATIVE_MINIAPP_PREFIX 标记解析）随之移除：
                                     // 历史标记不再有引擎可拉，统一按 HTML 处理（空 HTML 时卡片自身给出提示）。
@@ -5572,7 +5572,7 @@ private fun SheetOverlay(
     onExport: () -> Unit,
     onClear: () -> Unit,
     onOpenBrowser: (String) -> Unit,
-    // 设置底部弹层（UI 结构来自 MoWenApp，功能保留 Zorv AI 现有设置项）
+    // 设置底部弹层（UI 结构来自 MoWenApp，功能保留 Echo AI 现有设置项）
     settingsDarkMode: Boolean,
     onSettingsToggleDark: () -> Unit,
     settingsSoundOn: Boolean,
@@ -5706,7 +5706,7 @@ private fun SheetHeader(title: String, sub: String, scaled: (Int) -> androidx.co
     }
 }
 
-// ---------------- 设置底部弹层（UI 结构照搬 MoWenApp，功能保留 Zorv AI 现有设置项） ----------------
+// ---------------- 设置底部弹层（UI 结构照搬 MoWenApp，功能保留 Echo AI 现有设置项） ----------------
 
 @Composable
 private fun SettingsSheetContent(
@@ -5824,7 +5824,7 @@ private fun SettingsSheetContent(
         SetGroup {
             SetRowClickable(Icons.Filled.Info, stringResource(R.string.qk_00497), stringResource(R.string.qk_03855), "", onOpenAbout, scaled)
         }
-        Text("Zorv AI · v${BuildConfig.VERSION_NAME}",
+        Text("Echo AI · v${BuildConfig.VERSION_NAME}",
             fontSize = scaled(11), color = Muted, modifier = Modifier.padding(horizontal = 20.dp, vertical = 12.dp))
     }
 
@@ -6247,7 +6247,7 @@ private fun PersonaSheetContent(
                 }
             }
         }
-        // 新建人格（打开完整 Zorv AI 人格创建对话框：头像/描述/角色设定/开场白/聊天设定/标签/AI孵化）
+        // 新建人格（打开完整 Echo AI 人格创建对话框：头像/描述/角色设定/开场白/聊天设定/标签/AI孵化）
         Row(
             Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 8.dp)
                 .border(1.dp, Line2, RoundedCornerShape(12.dp))
@@ -6269,7 +6269,7 @@ private fun PersonaSheetContent(
 }
 
 // 注：底部快捷设置（深色模式/字号/提示音/回车发送/悬浮语音球）已合并进设置底部弹层，
-// 通过 SheetType.Settings 呈现，UI 结构取自 MoWenApp，功能保留 Zorv AI 现有设置项。
+// 通过 SheetType.Settings 呈现，UI 结构取自 MoWenApp，功能保留 Echo AI 现有设置项。
 
 @Composable
 private fun UploadSheetContent(
@@ -6869,7 +6869,7 @@ private fun parseBlocks(text: String, selfCard: Boolean = true): List<MsgBlock> 
  * 判断是否动态 UI 围栏语言。
  *
  * 兼容三种写法：`quro-ui`（现行）、`quro_ui`（部分模型会把连字符写成下划线）、
- * `zorv-ui`（历史前缀）。与 [com.ai.assistance.quro.core.ui.dynamicui.QuroUiDslParser]
+ * `echo-ui`（历史前缀）。与 [com.ai.assistance.quro.core.ui.dynamicui.QuroUiDslParser]
  * 的围栏识别保持一致，否则解析器认得、渲染层却不认，会出现「明明写了却当普通代码块显示」。
  */
 /**
@@ -6877,31 +6877,31 @@ private fun parseBlocks(text: String, selfCard: Boolean = true): List<MsgBlock> 
  *
  * 按 A2UI 铁律「模型输出永远是数据不是代码，绝不在端上执行 AI 生成的代码」，
  * 该 WebView 路径已废弃，且承载它的 :genui 模块也已随旧 GenUI 一并删除，恒为 false。
- * 此处恒返回 false，使任何 zorv* / quro* 围栏都不再被截留给 WebView，
+ * 此处恒返回 false，使任何 echo* / quro* 围栏都不再被截留给 WebView，
  * 而是统一走原生 A2UI 解释器（QuroUiDslParser + A2uiInterpreter → QuroUiRenderer）。
  */
 private fun isGenUiLang(lang: String): Boolean = false
 
 /**
- * 判定是否为「原生动态 UI 围栏」：quro-ui / zorv/ui 组合式 JSON DSL，由 QuroUiRenderer 原生渲染。
- * 覆盖 quro-ui（现行）、quro_ui、zorv/ui、zorv-ui、zorv_ui 及含 quro/zorv 的标签——
+ * 判定是否为「原生动态 UI 围栏」：quro-ui / echo/ui 组合式 JSON DSL，由 QuroUiRenderer 原生渲染。
+ * 覆盖 quro-ui（现行）、quro_ui、echo/ui、echo-ui、echo_ui 及含 quro/echo 的标签——
  * 即两种历史前缀都并入同一套 A2UI 原生解释器（组合实现，AI 任意嵌套基础节点成树）。
  */
 private fun isDynamicUiLang(lang: String): Boolean {
     val l = lang.trim().lowercase()
-    return l == "quro-ui" || l == "quro_ui" || l == "zorv/ui" || l == "zorv-ui" || l == "zorv_ui" ||
-            l.contains("quro") || l.contains("zorv")
+    return l == "quro-ui" || l == "quro_ui" || l == "echo/ui" || l == "echo-ui" || l == "echo_ui" ||
+            l.contains("quro") || l.contains("echo")
 }
 
 /**
- * 判定是否为「自研卡片渲染」围栏（feat_self_card）：quro-card / quro_card / zorv-card / zorv_card。
- * 必须**先于** [isDynamicUiLang] 判定——后者对含 "quro"/"zorv" 的任意 lang 都返回 true，
+ * 判定是否为「自研卡片渲染」围栏（feat_self_card）：quro-card / quro_card / echo-card / echo_card。
+ * 必须**先于** [isDynamicUiLang] 判定——后者对含 "quro"/"echo" 的任意 lang 都返回 true，
  * 若不先行拦截，```quro-card 会被动态 UI 路径劫持成 quro-ui 节点树，导致自研卡片不渲染、围栏残留。
  * 与动态 UI 严格两条独立路径，不合并。
  */
 private fun isSelfCardLang(lang: String): Boolean {
     val l = lang.trim().lowercase()
-    return l == "quro-card" || l == "quro_card" || l == "zorv-card" || l == "zorv_card"
+    return l == "quro-card" || l == "quro_card" || l == "echo-card" || l == "echo_card"
 }
 
 /** 判断一段 JSON 是否为自研卡片节点（含 data.kind 结构，与内联组件 JSON 区分）。 */
@@ -7189,7 +7189,7 @@ private fun escapeHtml(text: String): String {
 /**
  * 动态 UI 内联渲染块（v1.0.81 当前方案）：直接在对话框消息流里、气泡下方以「全宽原生区块」呈现，
  * 撑满对话框内容区、自适应屏幕宽度、随对话框一起滚动、完整可见——不弹窗、不点卡片、不压窄。
- * 交互动作经 [handleDynamicUiAction] 直连 ZorvAI 内部能力（复制/打开应用/打开链接/调工具/激活技能…）。
+ * 交互动作经 [handleDynamicUiAction] 直连 Echo AI 内部能力（复制/打开应用/打开链接/调工具/激活技能…）。
  */
 @Composable
 private fun DynamicUiBlock(
@@ -7197,13 +7197,13 @@ private fun DynamicUiBlock(
     onCommand: (String) -> Unit,
     onOpenLink: (String) -> Unit,
 ) {
-    // 动态 UI 交互要真调用 ZorvAI 内部功能（复制/打开应用/调用工具/执行技能），
+    // 动态 UI 交互要真调用 Echo AI 内部功能（复制/打开应用/调用工具/执行技能），
     // 需要应用 Context 与协程作用域，从可组合作用域直接取。
     val ctx = LocalContext.current
     val scope = rememberCoroutineScope()
     // 只在 source 变化时重新解析：流式输出期间每来一个字都会重组，
     // 若把解析写在重组体内会导致每帧重解析一次（白白烧 CPU）。
-    // 统一走 A2UI 多语言解释器：quro-ui DSL → Catalog 校验 →（可选 JSONL 信封）；zorv/ui 同路原生渲染。
+    // 统一走 A2UI 多语言解释器：quro-ui DSL → Catalog 校验 →（可选 JSONL 信封）；echo/ui 同路原生渲染。
     val parsed = remember(source) { A2uiInterpreter.interpret(source) }
 
     // 直接在对话框原生层内联渲染：不包 Surface、不另起一层卡片。AI 用 quro-ui DSL 自写 UI，
@@ -7245,14 +7245,14 @@ private fun DynamicUiBlock(
 }
 
 /**
- * 把动态 UI 的交互动作翻译成「ZorvAI 内部功能」的真实调用。
+ * 把动态 UI 的交互动作翻译成「Echo AI 内部功能」的真实调用。
  *
  * 此前这里是「假动作」——所有动作都只是把一句提示文本发回模型、让模型二次解析再 tool_call，
- * 既多一轮往返又依赖模型正确解读指令。现在改为客户端直连 ZorvAI 能力：
+ * 既多一轮往返又依赖模型正确解读指令。现在改为客户端直连 Echo AI 能力：
  *  - copy        → 真写系统剪贴板（[copyPlain]）
  *  - open_app    → 真启动应用（[LaunchAppTool]，支持包名精确 / 应用名模糊）
  *  - open_url    → 已是真打开（应用内浏览器）
- *  - tool_call   → 真执行 ZorvAI 工具（[QuroToolRegistry]，对接全部内置功能），结果回传模型继续对话
+ *  - tool_call   → 真执行 Echo AI 工具（[QuroToolRegistry]，对接全部内置功能），结果回传模型继续对话
  *  - skill       → 真激活技能（技能本质是「指令回灌」，把技能提示词发回模型）
  *  - callback    → 回传用户填写的值给模型（设计如此，让模型继续对话）
  *  - toggle      → 纯本地展开/收起，渲染器内部已处理
@@ -7277,7 +7277,7 @@ fun handleDynamicUiAction(
             onCommand(if (action.event.isNotBlank()) "【${action.event}】\n$body" else body)
         }
 
-        // 复制文本：真写系统剪贴板（ZorvAI 自带能力）。
+        // 复制文本：真写系统剪贴板（Echo AI 自带能力）。
         is QuroCopyAction -> {
             val text = action.text.ifBlank { values.values.firstOrNull() ?: "" }
             if (text.isNotBlank()) {
@@ -7309,7 +7309,7 @@ fun handleDynamicUiAction(
 
         // ─── 多层渲染 / 深链导航（v1.0.82 新增）───
 
-        // 打开 ZorvAI 内置界面（终端/模型配置/可视化编程/Web 应用/工具中心等）：经 UI 控制总线打开。
+        // 打开 Echo AI 内置界面（终端/模型配置/可视化编程/Web 应用/工具中心等）：经 UI 控制总线打开。
         is QuroOpenScreenAction -> {
             val target = action.target.ifBlank { values["target"] ?: "" }
             if (target.isBlank()) {
@@ -7366,7 +7366,7 @@ fun handleDynamicUiAction(
             )
         }
 
-        // 调用内置工具：真执行 ZorvAI 工具（对接全部内部功能），结果回传模型继续对话。
+        // 调用内置工具：真执行 Echo AI 工具（对接全部内部功能），结果回传模型继续对话。
         is QuroToolCallAction -> {
             val args = LinkedHashMap(action.arguments).apply { putAll(values) }
             val toolName = action.tool.ifBlank { values["tool"] ?: "" }
@@ -7997,7 +7997,7 @@ private fun Context.findActivity(): Activity? {
 
 private fun copyPlain(ctx: Context, text: String) {
     val cm = ctx.getSystemService(Context.CLIPBOARD_SERVICE) as android.content.ClipboardManager
-    cm.setPrimaryClip(android.content.ClipData.newPlainText("Zorv", text))
+    cm.setPrimaryClip(android.content.ClipData.newPlainText("Echo", text))
     Toast.makeText(ctx, qstr(R.string.qk_00023), Toast.LENGTH_SHORT).show()
 }
 
@@ -8330,10 +8330,10 @@ private fun exportConversation(ctx: Context, messages: List<Message>): String? {
     }
 }
 
-// ---------------- Zorv AI 后端 → MoWen UI 适配器 ----------------
+// ---------------- Echo AI 后端 → MoWen UI 适配器 ----------------
 
 /** 无激活人格时的兜底人格。 */
-private fun fallbackPersona() = QuroPersona(name = "Zorv", description = qstr(R.string.qk_00280), avatarEmoji = "🤖")
+private fun fallbackPersona() = QuroPersona(name = "Echo", description = qstr(R.string.qk_00280), avatarEmoji = "🤖")
 
 /** QuroMessage → MoWen Message（mine 由 role 决定）。 */
 /** 判断工具结果是否为已知的垃圾值（旧版 bug 残留 / 异常调用）。渲染期与持久化迁移共用。 */
@@ -8381,8 +8381,8 @@ private fun QuroMessage.toMessage(
 /**
  * 处理 AI 回复里的动态 UI 围栏。
  *
- * 原先这里会剥除 ```zorv/ui ... ``` 围栏，因为那时它由 :genui WebView 管线消费。
- * 现在 WebView 红线已废弃，zorv/ui / quro-ui 围栏统一由原生 A2UI 解释器（QuroUiDslParser +
+ * 原先这里会剥除 ```echo/ui ... ``` 围栏，因为那时它由 :genui WebView 管线消费。
+ * 现在 WebView 红线已废弃，echo/ui / quro-ui 围栏统一由原生 A2UI 解释器（QuroUiDslParser +
  * A2uiInterpreter → QuroUiRenderer）渲染，必须保留在原文本里交给 [parseBlocks] 路由。
  * 故此处直接原样返回，不再剥除。
  */
@@ -8391,7 +8391,7 @@ private fun stripGenUiFences(src: String): String = src
 /** QuroPersona → MoWen Persona（含 id 以便回写激活状态）。 */
 private fun QuroPersona.toPersona(): Persona {
     // 头像：emoji 类型用 emoji；图片/无图退化为名称首字母（与 QuroSoulUi.AvatarContent 一致）
-    val safeName = name.ifBlank { "Zorv" }
+    val safeName = name.ifBlank { "Echo" }
     val name1 = (if (safeName == "?") "Q" else safeName).first().toString()  // 永远非空（fallback "Q"，绝不返回 "?"）
     val ava = when {
         avatarType == "emoji" && avatarEmoji.isNotBlank() -> avatarEmoji
@@ -8399,7 +8399,7 @@ private fun QuroPersona.toPersona(): Persona {
     }
     return Persona(
         id = id,
-        name = name.ifBlank { "Zorv" },
+        name = name.ifBlank { "Echo" },
         role = description.ifBlank { qstr(R.string.qk_00280) },
         desc = description.ifBlank { qstr(R.string.qk_00281) },
         ava = ava,

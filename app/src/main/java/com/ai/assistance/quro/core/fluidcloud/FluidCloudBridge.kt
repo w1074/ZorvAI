@@ -24,7 +24,7 @@ object FluidCloudBridge {
     private const val TAG = "FluidCloud"
 
     // 任务唯一标识，每次调用重新生成
-    private fun generateId() = "zorv-ai-task-${System.currentTimeMillis()}"
+    private fun generateId() = "echo-ai-task-${System.currentTimeMillis()}"
 
     fun create(context: Context, title: String, step: String, progress: Int): Boolean {
         return push(context, build(0, title, step, progress))
@@ -37,7 +37,7 @@ object FluidCloudBridge {
     fun finish(context: Context): Boolean {
         val id = generateId()
         val json = JSONObject().apply {
-            put("intentName", "ZorvAI.AgentTask")
+            put("intentName", "Echo AI.AgentTask")
             put("identifier", id)
             put("timestamp", System.currentTimeMillis())
             put("intentAction", JSONObject().apply {
@@ -54,7 +54,7 @@ object FluidCloudBridge {
     private fun build(action: Int, title: String, step: String, progress: Int): String {
         val id = generateId()
         return JSONObject().apply {
-            put("intentName", "ZorvAI.AgentTask")
+            put("intentName", "Echo AI.AgentTask")
             put("identifier", id)
             put("timestamp", System.currentTimeMillis())
             put("intentAction", JSONObject().apply {

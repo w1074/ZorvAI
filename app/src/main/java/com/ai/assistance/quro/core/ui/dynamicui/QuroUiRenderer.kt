@@ -146,7 +146,7 @@ import java.net.URL
 import kotlin.math.roundToInt
 
 /**
- * ZorvAI 动态 UI 的 Compose 原生渲染器（参照 Kai `KaiUiRenderer` 设计重写）。
+ * Echo AI 动态 UI 的 Compose 原生渲染器（参照 Kai `KaiUiRenderer` 设计重写）。
  *
  * 之所以坚持原生渲染而非 WebView：
  *  - 控件可直接读写状态，用户交互能原样回传给模型（WebView 需桥接且易丢事件）；
@@ -1553,7 +1553,7 @@ private fun RenderImage(node: QuroImageNode, modifier: Modifier) {
                             conn.connectTimeout = 8000
                             conn.readTimeout = 12000
                             conn.instanceFollowRedirects = true
-                            conn.setRequestProperty("User-Agent", "ZorvAI/1.0")
+                            conn.setRequestProperty("User-Agent", "Echo AI/1.0")
                             conn.inputStream.use { BitmapFactory.decodeStream(it) }
                         } finally {
                             conn.disconnect()
@@ -1899,7 +1899,7 @@ private fun RenderBrowser(
     }
 }
 
-/** 代码块（展示 ZorvAI 支持的所有语言）；runnable 时附「运行」按钮，经 run_code 真执行。 */
+/** 代码块（展示 Echo AI 支持的所有语言）；runnable 时附「运行」按钮，经 run_code 真执行。 */
 @Composable
 private fun RenderCode(
     node: QuroCodeNode,

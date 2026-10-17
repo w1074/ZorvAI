@@ -9,7 +9,7 @@ import android.os.Bundle
  *
  * 旧版控制端 [QuroAidlAciManager] 直接持有 IAidlAciService（Binder）并内联调用逻辑；
  * 抽象出 [AidlAciAdapter] 后，未来可无缝接入 WebSocket / HTTP / gRPC 等传输，
- * 第三方只需实现一套 Adapter 即可被 ZorvAI 调度，无需关心底层传输与鉴权。
+ * 第三方只需实现一套 Adapter 即可被 Echo AI 调度，无需关心底层传输与鉴权。
  *
  * 当前落地：[BinderAciAdapter] 包裹既有 Binder 调用（委托给 [QuroAidlAciManager] 的
  * 超时/重试/审计逻辑），不改热路径行为；后续 Phase 再派生 WsAciAdapter / HttpAciAdapter。

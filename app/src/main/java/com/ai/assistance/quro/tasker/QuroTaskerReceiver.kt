@@ -18,7 +18,7 @@ import org.json.JSONObject
  * extras 带 workflow(名称) / workflow_id(精确 id) / inputs(JSON 字符串) 即可点燃本机已保存工作流；
  * 带 prompt 字段则转交对话层（best-effort 本地广播 TASKER_PROMPT，由 UI 接管）。
  *
- * 关闭缺失清单 #39（Tasker 集成）：ZorvAI 既能被 Tasker 触发，也能向 Tasker 派发动作。
+ * 关闭缺失清单 #39（Tasker 集成）：Echo AI 既能被 Tasker 触发，也能向 Tasker 派发动作。
  */
 class QuroTaskerReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {

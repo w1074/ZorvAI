@@ -116,7 +116,7 @@ class UiDslSpecTool : QuroTool {
   html(完整 HTML 源码，也接受 content/value), height(可选 dp，默认 400，上限 600)。
   这是「自写 UI」核心节点——当 DSL 白名单节点不够用时（复杂表单、图表、动画、小工具），
   直接写一个 html 节点放任意 HTML 即可，无需 WebView 跳转。长度上限 100KB。
-- code：代码块（展示 ZorvAI 支持的所有语言，语法高亮）。code(也接受 code/content/value), lang,
+- code：代码块（展示 Echo AI 支持的所有语言，语法高亮）。code(也接受 code/content/value), lang,
   title, runnable(为 true 时显示「运行」按钮，将经 run_code 真正执行并把结果回传给你)。
 
 ■ 数据可视化 / 业务卡（v1.0.88，原生渲染，可呈现依赖/框架/引擎/语言/代码库/外部依赖等各类技术信息）
@@ -195,7 +195,7 @@ red green blue yellow orange purple pink teal indigo gray primary secondary erro
   【必读：让组件真的能用（写组件前先看这条）】
   很多「写了但点了没反应 / 不显示」都因下面没做对——照做即可 100% 可用：
   1) 往返铁律：用户点控件 → 你收到【事件名】+ key:value 用户消息 → 你必须在同一条回复里重新输出一整块新 ```quro-ui（带更新状态）。只回文字面板会像「死」的。
-  2) 围栏语言必须是 quro-ui（或 zorv-ui / quro_ui）；JSON 合法、无注释、键与字符串双引号；action 必须是对象 {"type":"callback",...}，写字符串不触发。
+  2) 围栏语言必须是 quro-ui（或 echo-ui / quro_ui）；JSON 合法、无注释、键与字符串双引号；action 必须是对象 {"type":"callback",...}，写字符串不触发。
   3) text_input/select/checkbox/switch/slider 必须给唯一 id（collect_from 才能收到）；button 用 action + 唯一 event（如 ttt_move / ttt_reset）。
   4) game_board：cells 长度 = rows×cols；cellAction 写 callback 且 clickable=true 才有反应；点格自动回发 row/col/index/value。
   5) genui：content 必须是合法 GenUI DSL（与全屏 Agent 同写法）；子树内交互用 GenUI 自己的事件机制，别用 quro-ui 的 button action 跨进子树。
@@ -209,9 +209,9 @@ red green blue yellow orange purple pink teal indigo gray primary secondary erro
 - {"type":"callback","event":"事件名","collect_from":["控件id"],"data":{"键":"值"}}
   → 把收集到的表单值作为用户消息回发给你（AI），你据此继续处理。最常用。
 - {"type":"tool_call","tool":"工具名","arguments":{"键":"值"},"collect_from":["控件id"]}
-  → 客户端直连 ZorvAI 真实执行该内置工具（如 get_battery / run_code / http_request / launch_app /
+  → 客户端直连 Echo AI 真实执行该内置工具（如 get_battery / run_code / http_request / launch_app /
     set_clipboard 等全部内部功能），不是只回发文本。工具返回的结果会回传给你继续组织回复。
-  · run_code 支持 ZorvAI 所有已接入语言：python, node/javascript, shell/bash, html, json, css,
+  · run_code 支持 Echo AI 所有已接入语言：python, node/javascript, shell/bash, html, json, css,
     xml, svg, c, cpp, java, kotlin, dart, go, rust, php, ruby, swift 等。配合 code 节点的
     runnable 按钮可直接把代码交给 run_code 真正跑起来。
 - {"type":"skill","skill":"技能名","input":"输入","collect_from":["控件id"]}
@@ -222,7 +222,7 @@ red green blue yellow orange purple pink teal indigo gray primary secondary erro
   也支持 {"type":"open_app","app_name":"微信"} 用应用名模糊匹配；这是「动态 UI 弹转第三方软件」的标准做法。
 - {"type":"toggle","target_id":"节点id"} → 切换目标节点的显示/隐藏（纯本地，不打扰你）。
 
-■ 多层渲染 / 深链导航（v1.0.81 新增，让按钮直接打开 ZorvAI 内部界面或渲染内容到气泡）
+■ 多层渲染 / 深链导航（v1.0.81 新增，让按钮直接打开 Echo AI 内部界面或渲染内容到气泡）
 - {"type":"open_screen","target":"terminal"} → 客户端直接打开内置界面（深链）。target 取值：
   editor(代码编辑器) / terminal(终端) / toolbox(工具箱) / knowledge(知识库) / cms(内容管理) /
   aci(受控端) / about(关于) / appearance(外观) / soul(人格) / memory(记忆) / permission(权限) /
@@ -277,17 +277,17 @@ red green blue yellow orange purple pink teal indigo gray primary secondary erro
 【富媒体 / 文档 示例】一个「产品介绍」动态 UI：
 
 ```quro-ui
-{"type":"card","title":"ZorvAI 介绍","children":[
-  {"type":"markdown","value":"# ZorvAI\\n这是一款**原生 AI 助手**应用。\\n- 支持文档排版\\n- 支持音视频播放"},
+{"type":"card","title":"Echo AI 介绍","children":[
+  {"type":"markdown","value":"# Echo AI\\n这是一款**原生 AI 助手**应用。\\n- 支持文档排版\\n- 支持音视频播放"},
   {"type":"image","url":"https://example.com/cover.png","height":160,"corner_radius":12},
   {"type":"video","url":"https://example.com/demo.mp4","title":"功能演示"},
   {"type":"audio","url":"https://example.com/speech.mp3","title":"语音解说"},
-  {"type":"code","lang":"python","runnable":true,"code":"print('hello ZorvAI')"},
-  {"type":"browser","url":"https://zorvai.example.com","height":360},
+  {"type":"code","lang":"python","runnable":true,"code":"print('hello Echo AI')"},
+  {"type":"browser","url":"https://echoai.example.com","height":360},
   {"type":"button","label":"打开第三方 App","variant":"filled",
    "action":{"type":"open_app","app_name":"微信"}},
   {"type":"button","label":"在应用内打开官网","variant":"outlined",
-   "action":{"type":"open_url","url":"https://zorvai.example.com"}}
+   "action":{"type":"open_url","url":"https://echoai.example.com"}}
 ]}
 ```
 
@@ -313,7 +313,7 @@ red green blue yellow orange purple pink teal indigo gray primary secondary erro
 也可写 direction:"row" 强制横排、direction:"column" 强制竖排。嵌套结构（如 list 的 itemTemplate 为 pane、pane 内再套 pane）也都支持，动态更新同样下钻生效。
 
 【语言支持】code / run_code 支持 python, node/javascript, shell/bash, html, json, css, xml,
-svg, c, cpp, java, kotlin, dart, go, rust, php, ruby, swift 等 ZorvAI 已接入的全部语言；
+svg, c, cpp, java, kotlin, dart, go, rust, php, ruby, swift 等 Echo AI 已接入的全部语言；
 选择在 code 节点的 lang 字段标注即可。
 """.trimIndent()
     }

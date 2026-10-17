@@ -60,7 +60,7 @@ class QuroDataManager(private val context: Context) {
             Log.d(TAG, "开始导出数据")
             
             val timestamp = System.currentTimeMillis()
-            val fileName = "zorvai_export_${timestamp}.zip"
+            val fileName = "echoai_export_${timestamp}.zip"
             val targetFile = if (exportPath != null) {
                 File(exportPath, fileName)
             } else {
@@ -387,9 +387,9 @@ class QuroDataManager(private val context: Context) {
         {
             "version": "1.0",
             "exportedAt": $timestamp,
-            "appName": "ZorvAI",
+            "appName": "Echo AI",
             "appVersion": "1.0.71",
-            "description": "ZorvAI data export"
+            "description": "Echo AI data export"
         }
         """.trimIndent()
         

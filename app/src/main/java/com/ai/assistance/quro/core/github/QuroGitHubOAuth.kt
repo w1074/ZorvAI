@@ -18,7 +18,7 @@ import java.security.SecureRandom
  * 流程：
  *  1. 登录屏用烤进 BuildConfig 的 client_id 拼出授权页 URL，在 WebView 内打开；
  *  2. 用户用 GitHub 账号授权；
- *  3. GitHub 重定向到 [REDIRECT_URI]（zorv://github-oauth-callback?code=...&state=...）；
+ *  3. GitHub 重定向到 [REDIRECT_URI]（echo://github-oauth-callback?code=...&state=...）；
  *  4. WebView 拦截该跳转，取出 code，用 PKCE code_verifier 换 access_token；
  *  5. 令牌写入私有保险库（QuroAuthStore "github"），登录完成。
  *
@@ -26,7 +26,7 @@ import java.security.SecureRandom
  * 普通用户全程只看到「用 GitHub 登录」按钮，无需填写任何 Token / Client ID / Secret。
  */
 object QuroGitHubOAuth {
-    const val REDIRECT_URI = "zorv://github-oauth-callback"
+    const val REDIRECT_URI = "echo://github-oauth-callback"
     // 仓库读写 / 用户 / 邮箱 / 通知 / 组织 / Gist
     const val SCOPE = "repo read:user user:email notifications read:org gist"
 
@@ -92,7 +92,7 @@ object QuroGitHubOAuth {
         conn.requestMethod = "POST"
         conn.setRequestProperty("Accept", "application/json")
         conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded")
-        conn.setRequestProperty("User-Agent", "ZorvAI")
+        conn.setRequestProperty("User-Agent", "Echo AI")
         conn.connectTimeout = 15000
         conn.readTimeout = 20000
         conn.doOutput = true

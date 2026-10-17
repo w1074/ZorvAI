@@ -32,7 +32,7 @@ class BuildApkTool : QuroTool {
 · HTML：src_path="MyWeb"（其下有 index.html）；不传自动在 workspace 找 index.html。
 【入口类·任意包名/类名】Java 工程无需再固定 com.example.hello.Main：构建台会自动扫描编出的类，
 找到带 public main/run 入口方法的类（静态或实例均可：main(String[])/main(Activity,String[])/run(Activity)/run()），
-把其全限定名写入 APK 的 assets/zorv_entry.txt，宿主运行时动态反射调用。也可用 entry_class="com.xxx.Yyy" 显式指定。
+把其全限定名写入 APK 的 assets/echo_entry.txt，宿主运行时动态反射调用。也可用 entry_class="com.xxx.Yyy" 显式指定。
 端侧离线环境**无法**真正把 Go / C / C++ / Python 编译成 APK（需打进整套交叉编译/解释器工具链，体积巨大且不现实）；
 若传 lang="go"/"c"/"c++"/"python"，会如实说明并给出替代方案，不会假装成功。
 参数：{"lang":"语言(java/html/web/go/c/c++/python;不传按目录自动判断:有 index.html 且无 .java → web,否则 java)","src_path":"源码目录(相对工作区或绝对路径;Java 含 .java,HTML 含 index.html)","entry_class":"Java 入口类全限定名(可选,如 com.example.snake.Game;不传自动探测带 main/run 的类)","package_name":"APK 包名(可选)","app_label":"应用显示名(可选)","version_name":"版本名(可选)"}
@@ -51,9 +51,9 @@ class BuildApkTool : QuroTool {
             "version_name":{"type":"string","description":"版本名(可选,默认 1.0.0)"},
             "entry_class":{"type":"string","description":"Java 入口类全限定名(可选,如 com.example.snake.Game);不传则由构建台自动探测带 public main/run 入口方法的类(任意包名/类名均可)"},
             "generate_keystore":{"type":"boolean","description":"是否端侧自动生成自定义 release 签名 keystore（true=生成并使用，适合发布版 APK）；不传=false，默认用内置 debug.keystore。"},
-            "keystore_alias":{"type":"string","description":"自定义 keystore 别名（generate_keystore=true 或 keystore_path 时生效；不传默认 zorvkey）"},
-            "store_password":{"type":"string","description":"keystore 密码（生成或使用时；不传默认 zorvai）"},
-            "key_password":{"type":"string","description":"密钥密码（生成或使用时；不传默认 zorvai）"},
+            "keystore_alias":{"type":"string","description":"自定义 keystore 别名（generate_keystore=true 或 keystore_path 时生效；不传默认 echokey）"},
+            "store_password":{"type":"string","description":"keystore 密码（生成或使用时；不传默认 echoai）"},
+            "key_password":{"type":"string","description":"密钥密码（生成或使用时；不传默认 echoai）"},
             "keystore_path":{"type":"string","description":"（可选）已存在的 keystore 绝对路径(.jks/.p12)，由构建台使用它签名；与 generate_keystore 二选一"},
             "dependencies":{"type":"array","items":{"type":"string"},"description":"构建时依赖的第三方 JAR 路径数组：绝对路径，或相对「buildproject/deps」/「工作区 deps」的文件名。构建台把它们加入编译 classpath 与 d8 lib。"},
             "icon_path":{"type":"string","description":"（可选）自定义启动图标 PNG 的绝对路径（AI 用 image_gen 生成或 workspace_write 写入的图片文件），写入 APK 作为应用图标（头像）。"}
@@ -95,7 +95,7 @@ class BuildApkTool : QuroTool {
         }
         val built = File(res.apkPath)
         val exportName = "webapp-${cfg.packageName.replace('.', '_')}-v${cfg.versionName}.apk"
-        val export = exportForZorvAI(context, built, exportName)
+        val export = exportForEcho AI(context, built, exportName)
         return buildExportReport(export, built, res.log, "WebView APK（HTML/JS/CSS 工程）")
     }
 
@@ -143,7 +143,7 @@ class BuildApkTool : QuroTool {
         }
         val built = File(res.apkPath)
         val exportName = "buildapp-${cfg.packageName.replace('.', '_')}-v${cfg.versionName}.apk"
-        val export = exportForZorvAI(context, built, exportName)
+        val export = exportForEcho AI(context, built, exportName)
         return buildExportReport(export, built, res.log, "Java APK")
     }
 
@@ -158,7 +158,7 @@ class BuildApkTool : QuroTool {
             "· 真要用 Go/C/C++/Python 产物 → 请在 PC/服务器上交叉编译/构建好 APK 或可执行文件，再用 export_apk 导入到可访问位置安装。"
     }
 
-    private fun buildExportReport(export: ZorvExport, built: File, log: String, kind: String): String {
+    private fun buildExportReport(export: EchoExport, built: File, log: String, kind: String): String {
         val reachable = export.externalFile != null || export.mediaStoreUri != null
         val sb = StringBuilder()
         if (reachable) sb.appendLine("✔ $kind 构建成功，APK 已导出到可访问位置：")
@@ -166,7 +166,7 @@ class BuildApkTool : QuroTool {
         sb.appendLine("内部产物（沙箱私有）：${built.absolutePath}")
         sb.appendLine()
         if (export.externalFile != null) {
-            sb.appendLine("📦 应用外部目录（文件管理器可见、ZorvAI 可直读安装）：")
+            sb.appendLine("📦 应用外部目录（文件管理器可见、Echo AI 可直读安装）：")
             sb.appendLine("   ${export.externalFile.absolutePath}")
             if (export.contentUri != null) sb.appendLine("   FileProvider 安装 URI：${export.contentUri}")
         }
@@ -241,9 +241,9 @@ class BuildApkTool : QuroTool {
     )
 
     private fun resolveSigning(context: Context, args: JSONObject): ResolvedSigning {
-        val alias = args.optString("keystore_alias", "zorvkey").ifBlank { "zorvkey" }
-        val storePass = args.optString("store_password", "zorvai").ifBlank { "zorvai" }
-        val keyPass = args.optString("key_password", "zorvai").ifBlank { "zorvai" }
+        val alias = args.optString("keystore_alias", "echokey").ifBlank { "echokey" }
+        val storePass = args.optString("store_password", "echoai").ifBlank { "echoai" }
+        val keyPass = args.optString("key_password", "echoai").ifBlank { "echoai" }
         // 1) 已有 keystore 路径优先
         val kp = args.optString("keystore_path", "").trim()
         if (kp.isNotEmpty()) {
@@ -306,7 +306,7 @@ class BuildApkTool : QuroTool {
 class ExportApkTool : QuroTool {
     override val name = "export_apk"
     override val description = """导出已构建的 APK 到可访问位置（构建台 UI 的「导出产物」是文件选择器、AI 用不了，本工具替代它）。
-把 APK 复制/写入到：① 应用外部目录 apk/（文件管理器可见、ZorvAI 可直读安装）；② 系统下载 Download/Quro（最易检索/安装）；并返回 FileProvider 安装 URI。
+把 APK 复制/写入到：① 应用外部目录 apk/（文件管理器可见、Echo AI 可直读安装）；② 系统下载 Download/Quro（最易检索/安装）；并返回 FileProvider 安装 URI。
 参数：{"apk_path":"（可选）已构建 APK 的绝对路径；不传则自动取 files/buildproject 下最新的 *.apk"}
 当用户/AI 已经构建出 APK（无论经 build_apk 还是构建台 UI）但拿不到/装不上时使用，把产物导出到可访问目录。"""
     override val parametersJson = """{
@@ -323,7 +323,7 @@ class ExportApkTool : QuroTool {
         if (apk == null) {
             return "⚠️ 找不到可导出的 APK。请先用 build_apk 构建，或在构建台 UI 构建后把 apk_path 传给我；或在构建台用「导出产物」手动取出。"
         }
-        val export = exportForZorvAI(
+        val export = exportForEcho AI(
             context,
             apk,
             "export-${apk.nameWithoutExtension}.apk",
@@ -365,19 +365,19 @@ class ExportApkTool : QuroTool {
 }
 
 /**
- * 把构建出的 APK 复制到一个 ZorvAI/用户可检索的位置，并返回安装用信息。
+ * 把构建出的 APK 复制到一个 Echo AI/用户可检索的位置，并返回安装用信息。
  * 文件级私有（整个 .kt 文件内两个工具类共用）：
  * - 应用外部目录 getExternalFilesDir("apk")：文件管理器可见、应用自身可直读、FileProvider 可分享安装；
  *   对应 file_paths.xml 的 <external-files-path name="quro_sandbox_ext" path="." />，无需额外声明。
  * - 系统下载 Download/Quro（MediaStore）：用户在文件管理器/下载中心可直接找到并安装，最易检索。
  */
-private data class ZorvExport(
+private data class EchoExport(
     val externalFile: File? = null,
     val contentUri: String? = null,
     val mediaStoreUri: String? = null,
 )
 
-private fun exportForZorvAI(context: Context, built: File, displayName: String): ZorvExport {
+private fun exportForEcho AI(context: Context, built: File, displayName: String): EchoExport {
     val safeName = displayName
     var externalFile: File? = null
     var contentUri: String? = null
@@ -434,5 +434,5 @@ private fun exportForZorvAI(context: Context, built: File, displayName: String):
         }
     }
 
-    return ZorvExport(externalFile, contentUri, mediaStoreUri)
+    return EchoExport(externalFile, contentUri, mediaStoreUri)
 }

@@ -77,7 +77,7 @@ class QuroBootReceiver : BroadcastReceiver() {
 
             val notification = NotificationCompat.Builder(context, CHANNEL_ID)
                 .setContentTitle("⚠️ 无障碍服务未开启")
-                .setContentText("Zorv AI 需要无障碍服务才能正常工作，点击开启")
+                .setContentText("Echo AI 需要无障碍服务才能正常工作，点击开启")
                 .setSmallIcon(android.R.drawable.ic_dialog_alert)
                 .setContentIntent(pendingIntent)
                 .setAutoCancel(true)

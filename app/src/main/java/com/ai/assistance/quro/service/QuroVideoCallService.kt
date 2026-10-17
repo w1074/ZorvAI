@@ -739,7 +739,7 @@ class QuroVideoCallService : Service(), CoroutineScope by CoroutineScope(Dispatc
         const val ACTION_START = "com.ai.assistance.quro.action.VIDEO_CALL_START"
         const val ACTION_STOP = "com.ai.assistance.quro.action.VIDEO_CALL_STOP"
         private const val NOTIF_ID = 9003
-        private const val CHANNEL_ID = "zorv_video_call"
+        private const val CHANNEL_ID = "echo_video_call"
         private const val TAG = "QuroVideoCall"
     }
 }

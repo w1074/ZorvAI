@@ -20,8 +20,8 @@ import org.json.JSONObject
  *    含样式 / 动画 / 交互 / 状态 / 技能），表单输入经 `collectFrom` 聚合回 AI 继续对话。
  *
  * 本工具是「独立应用」这一路的入口：模型据此知道「要一块原生可交互界面」时可以派给 GenUI Agent。
- * 它是一个**独立全屏应用**（有自己的对话页、历史、宠物与右侧抽屉），不强占 ZorvAI 的对话框；
- * 但其**模型配置 / 灵魂人格 / 工具集全部复用 ZorvAI 主设置**（见 `genui/aiapp/brain/ZorvBrain.kt`），
+ * 它是一个**独立全屏应用**（有自己的对话页、历史、宠物与右侧抽屉），不强占 Echo AI 的对话框；
+ * 但其**模型配置 / 灵魂人格 / 工具集全部复用 Echo AI 主设置**（见 `genui/aiapp/brain/EchoBrain.kt`），
  * 不再自带独立的模型与灵魂配置页。
  */
 class GenUiAgentOpenTool : QuroTool {
@@ -56,7 +56,7 @@ class GenUiAgentOpenTool : QuroTool {
 - 要一块**原生可交互界面**（GenUI JSON DSL → 原生 Compose 组件，530+ 组件）→ **本工具**。
 
 调用后 GenUI Agent 会以全屏独立界面启动，它有自己的一套独立界面与应用内状态；但模型配置、
-灵魂人格与工具集都读 ZorvAI 的主设置（在主设置里配一次即可），ZorvAI 侧不会替它生成内容。
+灵魂人格与工具集都读 Echo AI 的主设置（在主设置里配一次即可），Echo AI 侧不会替它生成内容。
 """.trimIndent()
 
     override fun run(context: Context, arguments: String): String {
@@ -72,7 +72,7 @@ class GenUiAgentOpenTool : QuroTool {
             }
             context.startActivity(intent)
             if (prompt.isEmpty()) {
-                "已打开 GenUI Agent（独立全屏应用，模型配置/人格/工具集沿用 ZorvAI 主设置）。请在那里继续描述你要的界面。"
+                "已打开 GenUI Agent（独立全屏应用，模型配置/人格/工具集沿用 Echo AI 主设置）。请在那里继续描述你要的界面。"
             } else {
                 "已打开 GenUI Agent，并带上需求：「${prompt.take(80)}」。它是独立界面，后续交互在 GenUI Agent 内完成。"
             }

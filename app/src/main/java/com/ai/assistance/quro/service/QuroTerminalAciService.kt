@@ -40,7 +40,7 @@ import java.util.concurrent.atomic.AtomicLong
  *   （switch_session / send_interrupt 补齐会话切换与命令中断能力，
  *   实现「接口对接口」用自己 ACI 架构覆盖全部终端操控能力）
  * - 前台服务保活（specialUse）
- * - 权限检查：允许自身 + ZorvAI 控制端
+ * - 权限检查：允许自身 + Echo AI 控制端
  * - Token 验证：应用层认证
  * - 审计日志：真实记录每次调用
  */
@@ -58,8 +58,8 @@ class QuroTerminalAciService : BaseAidlAciService() {
         /** 交互式命令超时（30秒） */
         private const val INTERACTIVE_TIMEOUT_S = 30L
 
-        /** ZorvAI 控制端包名 */
-        private const val ZORVAI_PACKAGE = "com.ai.assistance.quro"
+        /** Echo AI 控制端包名 */
+        private const val ECHOAI_PACKAGE = "com.ai.assistance.quro"
 
         /**
          * 确保终端 ACI 服务已启动。返回 true=成功发送启动 Intent，false=失败。
@@ -205,7 +205,7 @@ class QuroTerminalAciService : BaseAidlAciService() {
         )
 
         return android.app.Notification.Builder(this, CHANNEL_ID)
-            .setContentTitle("Zorv AI 终端运行中")
+            .setContentTitle("Echo AI 终端运行中")
             .setContentText("ACI 服务已就绪，可通过 AIDL / Provider / Broadcast / DeepLink 调用")
             .setSmallIcon(android.R.drawable.ic_dialog_info)
             .setContentIntent(pendingIntent)
@@ -494,12 +494,12 @@ class QuroTerminalAciService : BaseAidlAciService() {
     override fun onCheckPermission(request: AidlAciRequest?, callerPkg: String?): Boolean {
         // 放行条件：
         // 1. 自身包名（内部调用）
-        // 2. ZorvAI 主应用包名（控制端）
+        // 2. Echo AI 主应用包名（控制端）
         val selfPkg = packageName
-        val ok = callerPkg == selfPkg || callerPkg == ZORVAI_PACKAGE
+        val ok = callerPkg == selfPkg || callerPkg == ECHOAI_PACKAGE
 
         if (!ok) {
-            Log.w(TAG, "权限拒绝: caller=$callerPkg (需要 $selfPkg 或 $ZORVAI_PACKAGE)")
+            Log.w(TAG, "权限拒绝: caller=$callerPkg (需要 $selfPkg 或 $ECHOAI_PACKAGE)")
         }
         return ok
     }
@@ -841,7 +841,7 @@ class QuroTerminalAciService : BaseAidlAciService() {
 
     private fun handleHelp(): AidlAciResponse {
         val help = """
-Zorv AI 终端 ACI 服务 v$serviceVersion
+Echo AI 终端 ACI 服务 v$serviceVersion
 
 支持的能力（26 个）：
   exec               — 执行命令

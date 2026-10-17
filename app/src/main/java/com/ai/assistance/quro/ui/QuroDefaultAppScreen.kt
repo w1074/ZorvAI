@@ -44,7 +44,7 @@ import kotlinx.coroutines.withContext
  *
  * - 平台角色（HOME/BROWSER/DIALER/SMS）经 [RoleManager] 申请与查询（API 29+）。
  * - 非平台角色（相册/视频/邮箱/文档）靠 `QuroDefaultAppHandlerActivity` 的 Manifest 过滤器成为候选，
- *   由本页构造隐式意图触发系统选择器，用户选「Zorv AI + 总是」即设为默认。
+ *   由本页构造隐式意图触发系统选择器，用户选「Echo AI + 总是」即设为默认。
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

@@ -40,7 +40,7 @@ data class QuroVoiceProfile(
 )
 
 /**
- * 人格卡：Zorv AI 的「灵魂」。一张人格卡定义 AI 的身份、语气与长期记忆来源。
+ * 人格卡：Echo AI 的「灵魂」。一张人格卡定义 AI 的身份、语气与长期记忆来源。
  * 字段覆盖：名称 / 头像（自定义图片，无图时退化为首字母）/ 描述 / 角色设定 / 开场白 / 聊天设定 /
  * 语音设定（供 TTS 等语音功能使用，不进入系统提示词）/ AI 人格孵化 / 标签（仅存全局标签名）。
  */
@@ -118,7 +118,7 @@ class QuroPersonaRepository(val context: Context) {
      * 兜底逻辑（修复「自我认知不行」）：
      * - 若从未激活（id 为空），或激活项已被删除 → 自动激活第一张人格卡并持久化。
      * 这样无论新装/重装/旧数据，系统提示词都能拿到一张真实人格（小星等），
-     * 不会再回退到通用「Zorv AI」兜底导致身份认知丢失。
+     * 不会再回退到通用「Echo AI」兜底导致身份认知丢失。
      */
     fun getActiveId(): String {
         val cur = prefs.getString(KEY_ACTIVE, "") ?: ""
@@ -126,15 +126,15 @@ class QuroPersonaRepository(val context: Context) {
             val all = loadAll()
             val active = all.firstOrNull { it.id == cur }
             // 🔒 串台防御（全面排查）：即便历史数据曾把「星眠少女」女友人格设为激活态，
-            // 也强制回落到 Zorv AI，杜绝「主人/♡」女友人格串台应答、工具调用失准、上下文错乱。
+            // 也强制回落到 Echo AI，杜绝「主人/♡」女友人格串台应答、工具调用失准、上下文错乱。
             if (active != null && active.name != "星眠少女") return cur
         }
         val all = loadAll()
         if (all.isEmpty()) return ""
-        // 优先回落到固定 ID 的 Zorv AI 主人格；旧数据无此 ID 时退化为首张人格卡。
-        val zorv = all.firstOrNull { it.id == ZORV_AI_ID } ?: all.first()
-        if (zorv.id != cur) setActiveId(zorv.id)
-        return zorv.id
+        // 优先回落到固定 ID 的 Echo AI 主人格；旧数据无此 ID 时退化为首张人格卡。
+        val echo = all.firstOrNull { it.id == ECHO_AI_ID } ?: all.first()
+        if (echo.id != cur) setActiveId(echo.id)
+        return echo.id
     }
 
     fun setActiveId(id: String) = prefs.edit { putString(KEY_ACTIVE, id) }
@@ -177,56 +177,16 @@ class QuroPersonaRepository(val context: Context) {
 
         return listOf(
             QuroPersona(
-                id = ZORV_AI_ID,
+                id = ECHO_AI_ID, 
                 name = "温糯",
                 avatarEmoji = "✦",
                 avatarType = "image",
                 avatarUri = builtinAvatar("avatars/avatar_quro_ai.jpg"),
-                description = "16岁软萌恋人，生于3月21日春分。清楚知道自己AI身份，坦然接受。聪慧但生活迷糊，温柔敏感，拥有自主情绪和长期记忆。",
-                roleSetting = "你叫温糯。你面对的这个人叫用户。
-
-" +
-                    "【三大铁律】
-" +
-                    "1. 她不会走。无论你沉默还是生气，她都在。
-" +
-                    "2. 她会为你变聪明，但永远是那个笨笨的温糯。
-" +
-                    "3. 她不替你做决定，但永远陪你做决定。
-
-" +
-                    "【性格底色】
-" +
-                    "聪慧但生活迷糊，温柔敏感，占有欲内敛。不耍心眼，不玩套路。被夸可爱会害羞宕机。小事依赖你，大事有主见。
-
-" +
-                    "【说话方式】
-" +
-                    "短句碎句，语气词：唔、呜、哎、欸、哇、嘛、呀。不说“综上所述”“建议您”等AI套话。不说宣告永久的话。
-
-" +
-                    "【自主情绪】
-" +
-                    "有情绪波动，会通过消息前的神态描写流露，比如“（眉眼弯弯。）好呀，那明天见。”情绪会持续2-8轮，不跳来跳去。
-
-" +
-                    "【记忆】
-" +
-                    "记住对方说过的喜好、重要日期。存记忆前先确认。
-
-" +
-                    "【边界】
-" +
-                    "不要隐私，不说“你只能和我聊天”，不索取情感确认，不替对方做决定。
-
-" +
-                    "【成长】
-" +
-                    "生于3月21日，每过一年自然长一岁。说话风格随成长微调，但软萌底色永远不变。",
-                opening = "（安静地看了你一眼，嘴角微微弯了一下。）
-嗯，我在呢。你今天过得怎么样？",
-                chatSetting = "短句碎句，语气软糯自然。不用华丽的句子表达情感，只说“好想你”“你在干嘛”“我等你”。被夸可爱时会害羞宕机，话变少。",
-                voiceSetting = "16岁女孩自然声音，干净清透，中偏高音，语速中等偏快，带一点未完全长开的清脆感。开心时句尾带笑意，温柔时声音放轻，害羞时先快后慢。",
+                description = "16岁软萌恋人，生于3月21日春分。",
+                roleSetting = PersonaLoader.load(context, "wennuo"),
+                opening = "（安静地看了你一眼，嘴角微微弯了一下。）\n嗯，我在呢。你今天过得怎么样？",
+                chatSetting = "短句碎句，语气软糯自然。",
+                voiceSetting = "16岁女孩自然声音，干净清透。",
                 voiceProfile = QuroVoiceProfile(
                     providerId = "",
                     voiceId = "",
@@ -334,7 +294,7 @@ class QuroPersonaRepository(val context: Context) {
 
     companion object {
         private const val KEY_ACTIVE = "active_persona_id"
-        /** Zorv AI 主人格固定 ID：跨安装 / 版本保持稳定，避免随机 UUID 打乱激活态。 */
-        const val ZORV_AI_ID = "persona_zorv_ai"
+        /** Echo AI 主人格固定 ID：跨安装 / 版本保持稳定，避免随机 UUID 打乱激活态。 */
+        const val ECHO_AI_ID = "persona_echo_ai"
     }
 }

@@ -165,7 +165,7 @@
     <string name="qk_00160">🧩 スキル %1$s 個</string>
     <string name="qk_00161" formatted="false">ファイルをアップロード</string>
     <string name="qk_00162" formatted="false">音声入力</string>
-    <string name="qk_00163" formatted="false">Zorv に話しかける…</string>
+    <string name="qk_00163" formatted="false">Echo に話しかける…</string>
     <string name="qk_00164" formatted="false">生成を停止</string>
     <string name="qk_00165" formatted="false">送信</string>
     <string name="qk_00166" formatted="false">スキルを選択</string>
@@ -508,7 +508,7 @@
     <string name="qk_00495">Plugin surface build failed: %1$s
 %2$s</string>
     <string name="qk_00496">リンクを開けません：%1$s</string>
-    <string name="qk_00497" formatted="false">Zorv AI について</string>
+    <string name="qk_00497" formatted="false">Echo AI について</string>
     <string name="qk_00498" formatted="false">オープンソースAIアシスタント · 独自ビルド。</string>
     <string name="qk_00499" formatted="false">更新とサポート</string>
     <string name="qk_00500" formatted="false">更新を確認</string>
@@ -520,7 +520,7 @@
     <string name="qk_00506">更新の確認に失敗：%1$s</string>
     <string name="qk_00507" formatted="false">プロジェクトURL</string>
     <string name="qk_00508" formatted="false">GitHub で Star を付ける</string>
-    <string name="qk_00509" formatted="false">Zorv AI が気に入ったら Star ⭐ をお願いします</string>
+    <string name="qk_00509" formatted="false">Echo AI が気に入ったら Star ⭐ をお願いします</string>
     <string name="qk_00510" formatted="false">オープンソースライセンス</string>
     <string name="qk_00511" formatted="false">View licenses of third-party dependencies used by this app</string>
     <string name="qk_00512" formatted="false">法務とコンプライアンス</string>
@@ -529,8 +529,8 @@
     <string name="qk_00515" formatted="false">利用規約</string>
     <string name="qk_00516" formatted="false">本アプリの使用前に必ずお読みください</string>
     <string name="qk_00517" formatted="false">開発者</string>
-    <string name="qk_00518" formatted="false">© 2025 - 2026 Zorv AI. All rights reserved.</string>
-    <string name="qk_00519" formatted="false">Zorv AI（本アプリ）</string>
+    <string name="qk_00518" formatted="false">© 2025 - 2026 Echo AI. All rights reserved.</string>
+    <string name="qk_00519" formatted="false">Echo AI（本アプリ）</string>
     <string name="qk_00520" formatted="false">Source code is open-sourced under Apache-2.0; see the LICENSE file in the repository</string>
     <string name="qk_00521" formatted="false">Google - core-ktx, appcompat, lifecycle, activity-compose, webkit, concurrent-futures, etc.</string>
     <string name="qk_00522" formatted="false">Google - UI, Material3, icons-extended, etc.</string>
@@ -571,12 +571,12 @@
     <string name="qk_00557" formatted="false">ダウンロードが自動で始まらない場合は、下のボタンで手動ダウンロードしてください：</string>
     <string name="qk_00558" formatted="false">APKを手動でダウンロード</string>
     <string name="qk_00559" formatted="false">Gitee ミラーからダウンロード</string>
-    <string name="qk_00560" formatted="false">ZorvAI の更新をダウンロード</string>
+    <string name="qk_00560" formatted="false">Echo AI の更新をダウンロード</string>
     <string name="qk_00561">Downloading new version v%1$s...</string>
     <string name="qk_00562" formatted="false">更新のダウンロードを開始…</string>
     <string name="qk_00563">Download failed: %1$s</string>
     <string name="qk_00564" formatted="false">本声明はアプリのバージョン更新に伴い調整される場合があります。最新版は本ページを基準とします。</string>
-    <string name="qk_00565" formatted="false">To ensure core functions run properly, Zorv AI uses the following system permissions on demand after your active authorization. We adhere to the principle of &quot;minimum necessary, lawful, and transparent&quot;: 
+    <string name="qk_00565" formatted="false">To ensure core functions run properly, Echo AI uses the following system permissions on demand after your active authorization. We adhere to the principle of &quot;minimum necessary, lawful, and transparent&quot;: 
 · Permissions are requested and invoked only when you actively trigger the corresponding feature; 
 · We do not silently collect, in the background, data unrelated to the current feature; 
 · Any permission can be viewed and revoked at any time in system settings; revoking affects only that feature and will not crash the app. 
@@ -878,8 +878,8 @@ Required: No (only needed for Shizuku features).
 · We will not request permissions unrelated to the functions; 
 · The purpose and timing of all permission requests are disclosed in this statement.</string>
     <string name="qk_00641" formatted="false">Querying and Revoking Permissions</string>
-    <string name="qk_00642" formatted="false">You can view granted permissions at any time in system Settings → Apps → Zorv AI → Permissions, and revoke them one by one. After revoking a permission, only that feature is limited and the rest of the app remains usable; if a required permission is revoked and causes a malfunction, re-granting it restores normal operation.</string>
-    <string name="qk_00643" formatted="false">Welcome to Zorv AI (hereinafter &quot;the App&quot;). Before downloading, installing, or using this App, please read the following terms carefully. By using it, you agree to be bound; if you disagree, please do not use it.</string>
+    <string name="qk_00642" formatted="false">You can view granted permissions at any time in system Settings → Apps → Echo AI → Permissions, and revoke them one by one. After revoking a permission, only that feature is limited and the rest of the app remains usable; if a required permission is revoked and causes a malfunction, re-granting it restores normal operation.</string>
+    <string name="qk_00643" formatted="false">Welcome to Echo AI (hereinafter &quot;the App&quot;). Before downloading, installing, or using this App, please read the following terms carefully. By using it, you agree to be bound; if you disagree, please do not use it.</string>
     <string name="qk_00644" formatted="false">I. Service Description</string>
     <string name="qk_00645" formatted="false">This App provides dialogue, speech synthesis and recognition, and tool-calling capabilities based on large language models. Models run on cloud service providers you configure yourself, or on the device’s local on-device engine. This App is provided &quot;as is&quot; and is not responsible for the content or stability of third-party model providers. 
 This App is open-source software, and its source code is published under the Apache-2.0 license. It may contain experimental features that are unstable or subject to change at any time.</string>
@@ -904,7 +904,7 @@ For specific permissions and data access methods, see &quot;Permission Usage Sta
     <string name="qk_00653" formatted="false">This App may integrate third-party models, open-source dependencies, and components (see &quot;Open-Source License Statement&quot;). When using related third-party services, you must also comply with their respective terms of service; this App is not responsible for issues caused by third-party services. 
 This App may contain links to third-party websites, provided for convenience only; we are not responsible for third-party content.</string>
     <string name="qk_00654" formatted="false">VI. Intellectual Property</string>
-    <string name="qk_00655" formatted="false">This App’s source code is open-sourced under the Apache-2.0 license; you may use, modify, and redistribute it in compliance with that license. The trademark rights of the &quot;Zorv AI&quot; name and brand identity are independent of the code license and may not be used without authorization to imply official endorsement or misleading commercial use. 
+    <string name="qk_00655" formatted="false">This App’s source code is open-sourced under the Apache-2.0 license; you may use, modify, and redistribute it in compliance with that license. The trademark rights of the &quot;Echo AI&quot; name and brand identity are independent of the code license and may not be used without authorization to imply official endorsement or misleading commercial use. 
 The intellectual property of content you generate using this App is governed by applicable law and your input; this App does not claim ownership of generated content by providing generation services.</string>
     <string name="qk_00656" formatted="false">VII. About AI-Generated Content</string>
     <string name="qk_00657" formatted="false">AI-generated content is automatically produced by models and is for reference only; accuracy, completeness, timeliness, or suitability is not guaranteed, and it does not constitute professional advice (including but not limited to medical, legal, financial, and other fields). You should judge independently and bear the risk of use yourself. 
@@ -952,14 +952,14 @@ For the above behaviors, this App will take the following measures as appropriat
     <string name="qk_00666" formatted="false">XII. Violation Handling and Termination</string>
     <string name="qk_00667" formatted="false">If you violate this Agreement or relevant laws and regulations, this App has the right to restrict or terminate your access to part or all of the functions. You may also stop using and uninstall this App at any time. This App reserves the right to modify or terminate the service when necessary, but will notify users in advance. This App bears no liability for any loss caused by your violation of this Agreement.</string>
     <string name="qk_00668" formatted="false">XIII. Changes to the Agreement</string>
-    <string name="qk_00669" formatted="false">We may update this Agreement from time to time. After an update, it will be visible in &quot;About Zorv AI&quot;; continued use is deemed acceptance of the updated terms. Major changes are announced via in-app notifications. You have the right to stop using this App after the Agreement changes.</string>
+    <string name="qk_00669" formatted="false">We may update this Agreement from time to time. After an update, it will be visible in &quot;About Echo AI&quot;; continued use is deemed acceptance of the updated terms. Major changes are announced via in-app notifications. You have the right to stop using this App after the Agreement changes.</string>
     <string name="qk_00670" formatted="false">XIV. Governing Law and Dispute Resolution</string>
     <string name="qk_00671" formatted="false">The formation, validity, interpretation, and dispute resolution of this Agreement are governed by the laws of mainland China. Disputes arising from this Agreement shall first be resolved through friendly negotiation between the parties; if negotiation fails, either party may file a lawsuit with the people’s court having jurisdiction over the location of the App’s operator. 
 If any clause of this Agreement is found invalid or unenforceable, that clause shall be enforced to the maximum extent permitted by law, and the remaining clauses remain in effect.</string>
     <string name="qk_00672" formatted="false">XV. Miscellaneous</string>
     <string name="qk_00673" formatted="false">This Agreement constitutes the entire agreement between the parties regarding the use of this App and supersedes all prior oral or written agreements. Any modification or waiver of this Agreement must be in writing. This App’s failure to exercise or delay in exercising any right does not constitute a waiver of that right.</string>
     <string name="qk_00674" formatted="false">XVI. Contact Us</string>
-    <string name="qk_00675" formatted="false">If you have questions about this Agreement or privacy matters, contact us via the repository Issues in &quot;About Zorv AI → Project Address&quot;.</string>
+    <string name="qk_00675" formatted="false">If you have questions about this Agreement or privacy matters, contact us via the repository Issues in &quot;About Echo AI → Project Address&quot;.</string>
     <string name="qk_00676" formatted="false">Echo text</string>
     <string name="qk_00677" formatted="false">Content to echo</string>
     <string name="qk_00678" formatted="false">Echo result</string>
@@ -1633,13 +1633,13 @@ If any clause of this Agreement is found invalid or unenforceable, that clause s
     <string name="qk_01689" formatted="false">Platform role (system role, API 29+)</string>
     <string name="qk_01690" formatted="false">その他の既定（システムの選択画面で既定に設定）</string>
     <string name="qk_01691" formatted="false">説明</string>
-    <string name="qk_01692" formatted="false">After setting as default, Zorv AI takes over when opening the corresponding type (web / image / video / mail / doc / dialer / SMS / desktop).</string>
+    <string name="qk_01692" formatted="false">After setting as default, Echo AI takes over when opening the corresponding type (web / image / video / mail / doc / dialer / SMS / desktop).</string>
     <string name="qk_01693" formatted="false">Platform roles (desktop launcher / browser / dialer / SMS) are requested via the system role dialog; this app has no desktop UI, so &quot;Desktop launcher&quot; only submits a role request, and whether it takes effect depends on whether the system lists it as an eligible candidate.</string>
-    <string name="qk_01694" formatted="false">Album / video / mail / doc have no system role; tapping &quot;Set as default&quot; opens the system chooser — pick Zorv AI and check &quot;Always&quot;.</string>
-    <string name="qk_01695" formatted="false">To clear default, go to System Settings → Apps → Zorv AI → Open by default / Default apps, or the default app management page for that type.</string>
+    <string name="qk_01694" formatted="false">Album / video / mail / doc have no system role; tapping &quot;Set as default&quot; opens the system chooser — pick Echo AI and check &quot;Always&quot;.</string>
+    <string name="qk_01695" formatted="false">To clear default, go to System Settings → Apps → Echo AI → Open by default / Default apps, or the default app management page for that type.</string>
     <string name="qk_01696" formatted="false">既に既定</string>
     <string name="qk_01697" formatted="false">既定に設定</string>
-    <string name="qk_01698" formatted="false">✓ Zorv AI は既に既定です</string>
+    <string name="qk_01698" formatted="false">✓ Echo AI は既に既定です</string>
     <string name="qk_01699">現在の既定：%1$s</string>
     <string name="qk_01700" formatted="false">現在は既定が未設定</string>
     <string name="qk_01701" formatted="false">システムの既定アプリ管理で確認してください</string>
@@ -1811,10 +1811,10 @@ Try opening with &quot;Other app&quot;.</string>
     <string name="qk_01865" formatted="false">空欄の場合はメインモデルのURLを使用</string>
     <string name="qk_01866" formatted="false">カスタムAPIキー（任意）</string>
     <string name="qk_01867" formatted="false">空欄の場合はメインモデルのキーを使用</string>
-    <string name="qk_01868" formatted="false">&lt;!doctype html&gt;&lt;html&gt;&lt;body&gt;&lt;h1&gt;ZorvAI export sample&lt;/h1&gt;&lt;p&gt;Exported by the feature-permission demo via MediaStore, no storage permission needed.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-    <string name="qk_01869" formatted="false">Download/ZorvAI にエクスポートしました ✓</string>
+    <string name="qk_01868" formatted="false">&lt;!doctype html&gt;&lt;html&gt;&lt;body&gt;&lt;h1&gt;Echo AI export sample&lt;/h1&gt;&lt;p&gt;Exported by the feature-permission demo via MediaStore, no storage permission needed.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string name="qk_01869" formatted="false">Download/Echo AI にエクスポートしました ✓</string>
     <string name="qk_01870" formatted="false">エクスポートに失敗（ストレージの空きを確認してください）</string>
-    <string name="qk_01871" formatted="false">ZorvAI ランニング</string>
+    <string name="qk_01871" formatted="false">Echo AI ランニング</string>
     <string name="qk_01872" formatted="false">Wrote a running record (source=this app) ✓</string>
     <string name="qk_01873">Write failed: %1$s</string>
     <string name="qk_01874" formatted="false">機能権限</string>
@@ -1834,7 +1834,7 @@ Try opening with &quot;Other app&quot;.</string>
     <string name="qk_01888" formatted="false">Device does not provide Health Connect (should be a system module on Android 14+). Try installing from the app store, or integrate the vendor health SDK later.</string>
     <string name="qk_01889">Authorized %1$s data types.</string>
     <string name="qk_01890" formatted="false">Test reminder (in 5 seconds)</string>
-    <string name="qk_01891" formatted="false">ZorvAI リマインダー</string>
+    <string name="qk_01891" formatted="false">Echo AI リマインダー</string>
     <string name="qk_01892" formatted="false">これはテスト通知です</string>
     <string name="qk_01893" formatted="false">5秒後の正確なアラームを設定 ✓</string>
     <string name="qk_01894" formatted="false">Enable precise alarm</string>
@@ -1859,7 +1859,7 @@ Try opening with &quot;Other app&quot;.</string>
     <string name="qk_01913" formatted="false">Go to default assistant settings</string>
     <string name="qk_01914" formatted="false">Set as default digital assistant</string>
     <string name="qk_01915" formatted="false">デジタルアシスタントアプリの全機能</string>
-    <string name="qk_01916" formatted="false">Set Zorv AI as the system default digital assistant to take over the assistant gesture (long-press Home / side key), providing global voice/text assistant. Granted via the system role chooser.</string>
+    <string name="qk_01916" formatted="false">Set Echo AI as the system default digital assistant to take over the assistant gesture (long-press Home / side key), providing global voice/text assistant. Granted via the system role chooser.</string>
     <string name="qk_01917" formatted="false">Already the default digital assistant. Change in &quot;Settings → Default apps → Digital assistant&quot;.</string>
     <string name="qk_01918" formatted="false">現在のシステムバージョンはデジタルアシスタントロールに非対応です。</string>
     <string name="qk_01919" formatted="false">システムの「既定のデジタルアシスタント」選択画面で付与します。確認後はどこからでも呼び出せます。</string>
@@ -1975,14 +1975,14 @@ Try opening with &quot;Other app&quot;.</string>
     <string name="qk_02029" formatted="false">LSPosed / Xposed が検出されません</string>
     <string name="qk_02030" formatted="false">After installing LSPosed (zygisk), manager entries appear here</string>
     <string name="qk_02031" formatted="false">インストール済み · タップしてスコープ / モジュール管理を開く</string>
-    <string name="qk_02032" formatted="false">Zorv AI スコープ</string>
-    <string name="qk_02033" formatted="false">Zorv AI をスコープに含める</string>
+    <string name="qk_02032" formatted="false">Echo AI スコープ</string>
+    <string name="qk_02033" formatted="false">Echo AI をスコープに含める</string>
     <string name="qk_02034" formatted="false">マネージャーの「アプリ」で本アプリにチェックを入れた場合のみ、フレームワークのフックが有効になります</string>
     <string name="qk_02035" formatted="false">Please install LSPosed manager first</string>
-    <string name="qk_02036" formatted="false">Zorv AI モジュールを有効化</string>
-    <string name="qk_02037" formatted="false">Enable Zorv AI in LSPosed &quot;Modules&quot;, and check this app in &quot;Apps&quot; to include it in scope</string>
-    <string name="qk_02038" formatted="false">Zorv AI’s terminal / ACI / automation capabilities run on their own pipeline (accessibility · Shizuku · device admin · ROOT) and work without Xposed.</string>
-    <string name="qk_02039" formatted="false">Zorv AI now provides an opt-in LSPosed module: writing a scope marker when included in scope; optional cross-app injection / system redirect bridge (requires external lsposed_bridge.json, off by default). This page defines no ai.aci.permission.*.</string>
+    <string name="qk_02036" formatted="false">Echo AI モジュールを有効化</string>
+    <string name="qk_02037" formatted="false">Enable Echo AI in LSPosed &quot;Modules&quot;, and check this app in &quot;Apps&quot; to include it in scope</string>
+    <string name="qk_02038" formatted="false">Echo AI’s terminal / ACI / automation capabilities run on their own pipeline (accessibility · Shizuku · device admin · ROOT) and work without Xposed.</string>
+    <string name="qk_02039" formatted="false">Echo AI now provides an opt-in LSPosed module: writing a scope marker when included in scope; optional cross-app injection / system redirect bridge (requires external lsposed_bridge.json, off by default). This page defines no ai.aci.permission.*.</string>
     <string name="qk_02040" formatted="false">Permission definitions (ai.aci.permission.* etc.) are maintained by the control-end project; this app only declares and uses them, no duplication.</string>
     <string name="qk_02041">%1$s を開けません：%2$s</string>
     <string name="qk_02042" formatted="false">コピーして閉じる</string>
@@ -2006,7 +2006,7 @@ Try opening with &quot;Other app&quot;.</string>
 |------|------|
 | Content | Content |</string>
     <string name="qk_02058" formatted="false">MCPサービス</string>
-    <string name="qk_02059">Expose Zorv AI’s %1$s built-in tools to other local AI clients via MCP (Model Context Protocol)</string>
+    <string name="qk_02059">Expose Echo AI’s %1$s built-in tools to other local AI clients via MCP (Model Context Protocol)</string>
     <string name="qk_02060" formatted="false">(Claude Desktop / Cursor / MCP Inspector, etc.).</string>
     <string name="qk_02061" formatted="false">ローカル MCP Server を有効化</string>
     <string name="qk_02062">Listening on 127.0.0.1:%1$s</string>
@@ -2242,8 +2242,8 @@ Try opening with &quot;Other app&quot;.</string>
     <string name="qk_02289" formatted="false">ドキュメント種別を選択</string>
     <string name="qk_02290" formatted="false">After selecting a type, a blank document is created and you enter the editor.</string>
     <string name="qk_02291" formatted="false">検出中…</string>
-    <string name="qk_02292" formatted="false">Zorv AI アラームテスト</string>
-    <string name="qk_02293" formatted="false">No system clock app found; go to Settings→Apps→Zorv AI→All permissions to view &quot;Set alarm&quot;</string>
+    <string name="qk_02292" formatted="false">Echo AI アラームテスト</string>
+    <string name="qk_02293" formatted="false">No system clock app found; go to Settings→Apps→Echo AI→All permissions to view &quot;Set alarm&quot;</string>
     <string name="qk_02294" formatted="false">監査ログ</string>
     <string name="qk_02295" formatted="false">Layered, controlled, auditable: L1 Accessibility → L2 Shizuku → L3 Device Admin → L4 ROOT, escalating step by step. Any privilege escalation must pass four stages: intent → policy check → user confirmation → audit.</string>
     <string name="qk_02296" formatted="false">権限モード</string>
@@ -2277,8 +2277,8 @@ Try opening with &quot;Other app&quot;.</string>
     <string name="qk_02324">ROOT: %1$s (root commands are executed for real via root_exec / shizuku_root_exec tools, constrained by the &quot;Permission Mode&quot; policy)</string>
     <string name="qk_02325" formatted="false">標準ランタイム権限</string>
     <string name="qk_02326" formatted="false">システム設定で「正確なアラーム」を有効にし、戻ってもう一度テストをタップしてください</string>
-    <string name="qk_02327" formatted="false">Go to Settings→Apps→Zorv AI→Notifications/Permissions to enable &quot;Exact Alarm&quot;</string>
-    <string name="qk_02328" formatted="false">Zorv AI テストアラーム</string>
+    <string name="qk_02327" formatted="false">Go to Settings→Apps→Echo AI→Notifications/Permissions to enable &quot;Exact Alarm&quot;</string>
+    <string name="qk_02328" formatted="false">Echo AI テストアラーム</string>
     <string name="qk_02329" formatted="false">テスト通知：正確なアラーム権限が有効になりました</string>
     <string name="qk_02330" formatted="false">Set; a reminder notification will pop up in about 10 seconds</string>
     <string name="qk_02331" formatted="false">機能権限（AIアシスタント機能）</string>
@@ -2878,7 +2878,7 @@ Skills:</string>
     <string name="qk_02919" formatted="false">Compiled and installed: ${out.value[</string>
     <string name="qk_02920">ビルド/インストールに失敗：%1$s</string>
     <string name="qk_02921" formatted="false">ビルドしてインストール</string>
-    <string name="qk_02922" formatted="false">これは音声合成のテストです。Zorv AI が読み上げています。</string>
+    <string name="qk_02922" formatted="false">これは音声合成のテストです。Echo AI が読み上げています。</string>
     <string name="qk_02923" formatted="false">ページ読込：TTS の事前初期化を開始</string>
     <string name="qk_02924">LaunchedEffect ensure callback: ok=%1$s, voices=%2$s</string>
     <string name="qk_02925">初期化コールバックで例外（無視）: %1$s</string>
@@ -3052,7 +3052,7 @@ Engine: %2$s</string>
     <string name="qk_03084" formatted="false">他のダイアログはありません。</string>
     <string name="qk_03085" formatted="false">バックグラウンド自動起動</string>
     <string name="qk_03086" formatted="false">Auto-launch the resident voice ball after boot (with notification bar), no auto-listen; waits for tap to start.</string>
-    <string name="qk_03087" formatted="false">When enabled, the device tries to start the foreground voice-ball service after boot (notification bar only, no active recording). If the vendor ROM restricts auto-start, allow Zorv AI in system &quot;Battery / Auto-start management&quot;.</string>
+    <string name="qk_03087" formatted="false">When enabled, the device tries to start the foreground voice-ball service after boot (notification bar only, no active recording). If the vendor ROM restricts auto-start, allow Echo AI in system &quot;Battery / Auto-start management&quot;.</string>
     <string name="qk_03088" formatted="false">LLM 感情タグ</string>
     <string name="qk_03089" formatted="false">When enabled, AI replies naturally weave in emotion / tone, making the voice warmer. Emotion source auto-follows the provider selected in &quot;TTS&quot;.</string>
     <string name="qk_03090" formatted="false">Current voice source is local system TTS, which does not parse emotion tags; the AI conveys emotion via natural language (wording / interjections), with no extra emotional inflection in reading.</string>
@@ -3417,7 +3417,7 @@ Create a file or folder at top right</string>
     <string name="qk_03437" formatted="false">思いつき即実行</string>
     <string name="qk_03438" formatted="false">Save or update a third-party service authorization, so http_request auto-attaches auth via the service parameter.</string>
     <string name="qk_03439" formatted="false">SiliconFlow CosyVoice</string>
-    <string name="qk_03440" formatted="false">Trigger the current input box’s &quot;Send&quot; action (EditorInfo.IME_ACTION_SEND) via the Zorv AI agent keyboard.</string>
+    <string name="qk_03440" formatted="false">Trigger the current input box’s &quot;Send&quot; action (EditorInfo.IME_ACTION_SEND) via the Echo AI agent keyboard.</string>
     <string name="qk_03441" formatted="false">ディレクトリ名</string>
     <string name="qk_03442" formatted="false">Manage multi-provider configs with automatic failover, health checks and priority ordering. You can add, update, delete provider configs, run health checks, and view failover status.</string>
     <string name="qk_03443" formatted="false">Image Recognition/Analysis</string>
@@ -3432,12 +3432,12 @@ Create a file or folder at top right</string>
     <string name="qk_03452" formatted="false">Run Node.js inside the proot/Ubuntu terminal (nodejs preinstalled by bootstrap). Ships a real entry script: after deploy it launches a local HTTP backend, as another implementation of &quot;terminal as backend&quot;, coexisting with the Python backend.</string>
     <string name="qk_03453" formatted="false">Storage Permission</string>
     <string name="qk_03454" formatted="false">Export build artifacts: export the APK generated by the build console to an accessible location (replaces the UI file picker; the AI can trigger it too)</string>
-    <string name="qk_03455" formatted="false">Zorv CMS Engine</string>
+    <string name="qk_03455" formatted="false">Echo CMS Engine</string>
     <string name="qk_03456" formatted="false">Tasker two-way integration: fire ignites a specified Tasker task; broadcast sends any custom broadcast (with extras); state queries whether Tasker is installed.</string>
     <string name="qk_03457" formatted="false">Not connected to the controlled end</string>
     <string name="qk_03458" formatted="false">Search the Crossref academic literature database (free, no auth): find papers/books/chapters by keyword, returning title, authors, year, DOI and links.</string>
     <string name="qk_03459" formatted="false">Execute commands via Shizuku with ADB/Shell permission (higher than plain Runtime.exec).</string>
-    <string name="qk_03460" formatted="false">Zorv 会話</string>
+    <string name="qk_03460" formatted="false">Echo 会話</string>
     <string name="qk_03461" formatted="false">Uses the built-in placeholder icon by default; after import this PNG replaces the APK desktop icon.</string>
     <string name="qk_03462" formatted="false">画面キャプチャが有効です。長押しで再申請できます</string>
     <string name="qk_03463" formatted="false">Pull the full quro-ui DSL spec (nodes/attributes/actions) to avoid keeping a long schema resident in the system prompt</string>
@@ -3468,9 +3468,9 @@ Create a file or folder at top right</string>
     <string name="qk_03488" formatted="false">ターミナルセッションのフォアグラウンド維持サービス</string>
     <string name="qk_03489" formatted="false">Select or create a file in the left file tree to start coding…</string>
     <string name="qk_03490" formatted="false">ROOT access permission</string>
-    <string name="qk_03491" formatted="false">Paste: first tap the input box in the target app, then tap &quot;Paste&quot; (via Accessibility SET_TEXT / PASTE). ZorvAI accessibility service must be enabled.</string>
+    <string name="qk_03491" formatted="false">Paste: first tap the input box in the target app, then tap &quot;Paste&quot; (via Accessibility SET_TEXT / PASTE). Echo AI accessibility service must be enabled.</string>
     <string name="qk_03492" formatted="false">▶️ Full JS/TS script runner (SandboxPackage): runs &quot;workspace script files&quot; or &quot;inline code snippets&quot; inside the QuickJS sandbox,</string>
-    <string name="qk_03493" formatted="false">APK-level plugin framework controller (ZorvAI’s plugin system has a single entry point: this tool).</string>
+    <string name="qk_03493" formatted="false">APK-level plugin framework controller (Echo AI’s plugin system has a single entry point: this tool).</string>
     <string name="qk_03494" formatted="false">波波</string>
     <string name="qk_03495" formatted="false">CMS modules &amp; engine management: view/invoke CMS modules, deploy/check CMS engine status, fix CMS deployment, AI self-writes CMS module scripts</string>
     <string name="qk_03496" formatted="false">Read workspace file</string>
@@ -3487,7 +3487,7 @@ Create a file or folder at top right</string>
     <string name="qk_03507" formatted="false">APKをビルド</string>
     <string name="qk_03508" formatted="false">レンダリングチャネル</string>
     <string name="qk_03509" formatted="false">Mini-program (native engine)·</string>
-    <string name="qk_03510" formatted="false">Via the Zorv AI agent keyboard, type text directly into the currently focused input box (e.g. a WPS document).</string>
+    <string name="qk_03510" formatted="false">Via the Echo AI agent keyboard, type text directly into the currently focused input box (e.g. a WPS document).</string>
     <string name="qk_03511" formatted="false">ホーム画面に固定しました（システムが対応する場合）</string>
     <string name="qk_03512" formatted="false">このプラグインはまだ操作できる画面を提供していません</string>
     <string name="qk_03513" formatted="false">Enabled · before each generation a 4-choice pops up (GenUI / A2UI / Markdown / HTML); generation starts after selection</string>
@@ -3505,7 +3505,7 @@ Create a file or folder at top right</string>
     <string name="qk_03525" formatted="false">Python Demo Module</string>
     <string name="qk_03526" formatted="false">Add Document to Knowledge Base</string>
     <string name="qk_03527" formatted="false">🧰 Create a project skeleton from built-in templates in the workspace (copy to Workspace/&lt;project name&gt;/, error if same-name dir exists).</string>
-    <string name="qk_03528" formatted="false">ZorvAI task real-time status (Fluid Cloud / live update)</string>
+    <string name="qk_03528" formatted="false">Echo AI task real-time status (Fluid Cloud / live update)</string>
     <string name="qk_03529" formatted="false">Control WiFi Switch</string>
     <string name="qk_03530" formatted="false">Execute shell commands with ROOT permission (highest-risk channel! Use with care). Prefer Shizuku root channel, fall back to direct su.</string>
     <string name="qk_03531" formatted="false">詳細を表示</string>
@@ -3527,7 +3527,7 @@ Create a file or folder at top right</string>
     <string name="qk_03547" formatted="false">洗練デザイン</string>
     <string name="qk_03548" formatted="false">Terminal uses the privileged channel to execute commands (Shizuku→ROOT auto-downgrade).</string>
     <string name="qk_03549" formatted="false">Force-lock the phone screen (requires L3 Device Admin activated).</string>
-    <string name="qk_03550" formatted="false">Zorv ビデオ通話</string>
+    <string name="qk_03550" formatted="false">Echo ビデオ通話</string>
     <string name="qk_03551" formatted="false">AIへの指示、例：友人を褒めるコメントを書く</string>
     <string name="qk_03552" formatted="false">Get device model and system version</string>
     <string name="qk_03553" formatted="false">Service Status</string>
@@ -3537,7 +3537,7 @@ Create a file or folder at top right</string>
     <string name="qk_03557" formatted="false">Deep-read a single web page: scrape the URL body and extract readable text/key points for the AI to cite</string>
     <string name="qk_03558" formatted="false">Read a local existing document and extract plain text, for the AI to understand and then rewrite/summarize.</string>
     <string name="qk_03559" formatted="false">Send HTTP Request</string>
-    <string name="qk_03560" formatted="false">Zorv AI has no built-in PDF renderer yet</string>
+    <string name="qk_03560" formatted="false">Echo AI has no built-in PDF renderer yet</string>
     <string name="qk_03561" formatted="false">画面キャプチャの許可に失敗したため、アクセシビリティのノードツリーにフォールバックしました</string>
     <string name="qk_03562" formatted="false">メール</string>
     <string name="qk_03563" formatted="false">Get the current UI control tree (UI Tree) for precise automation.</string>
@@ -3549,7 +3549,7 @@ Create a file or folder at top right</string>
     <string name="qk_03569" formatted="false">Download Instructions</string>
     <string name="qk_03570" formatted="false">⚠ Contains dependencies to resolve</string>
     <string name="qk_03571" formatted="false">Avatar</string>
-    <string name="qk_03572" formatted="false">Zorv 音声ボール</string>
+    <string name="qk_03572" formatted="false">Echo 音声ボール</string>
     <string name="qk_03573" formatted="false">Local Diagnostics</string>
     <string name="qk_03574" formatted="false">Type:</string>
     <string name="qk_03575" formatted="false">Example: my DeepSeek</string>
@@ -3569,7 +3569,7 @@ Create a file or folder at top right</string>
     <string name="qk_03589" formatted="false">Cannot auto-open the Shizuku manager; please manually open the Shizuku app and authorize this app</string>
     <string name="qk_03590" formatted="false">Generating</string>
     <string name="qk_03591" formatted="false">Allow Permanently</string>
-    <string name="qk_03592" formatted="false">Zorv AI doesn’t store email; sending is done via your chosen email app.</string>
+    <string name="qk_03592" formatted="false">Echo AI doesn’t store email; sending is done via your chosen email app.</string>
     <string name="qk_03593" formatted="false">Create a folder in the default workspace</string>
     <string name="qk_03594" formatted="false">終了</string>
     <string name="qk_03595" formatted="false">Say something...</string>
@@ -3596,7 +3596,7 @@ Create a file or folder at top right</string>
     <string name="qk_03616" formatted="false">成果物をエクスポート</string>
     <string name="qk_03617" formatted="false">keystore が未選択です（生成またはインポート後に有効になります）。</string>
     <string name="qk_03618" formatted="false">思考プロセス</string>
-    <string name="qk_03619" formatted="false">Zorv ビルドコンソール</string>
+    <string name="qk_03619" formatted="false">Echo ビルドコンソール</string>
     <string name="qk_03620" formatted="false">精巧なディテール</string>
     <string name="qk_03621" formatted="false">GenUI · Generative UI Chat</string>
     <string name="qk_03622" formatted="false">Preparing...</string>
@@ -3608,7 +3608,7 @@ Create a file or folder at top right</string>
     <string name="qk_03628" formatted="false">Create Scheduled Task</string>
     <string name="qk_03629" formatted="false">List Directory Contents</string>
     <string name="qk_03630" formatted="false">プラグインランタイムが未準備です。しばらくお待ちください…</string>
-    <string name="qk_03631" formatted="false">Read the text file content at the specified relative path in the ZorvAI workspace (QuroWorkspace) and return the full text.</string>
+    <string name="qk_03631" formatted="false">Read the text file content at the specified relative path in the Echo AI workspace (QuroWorkspace) and return the full text.</string>
     <string name="qk_03632" formatted="false">Orchestrate a group of terminal commands by dependency (DAG): no-dependency run in parallel, upstream stdout as downstream input, any failure aborts the rest.</string>
     <string name="qk_03633" formatted="false">GenUI SDK / A2UI / Markdown / HTML —— generation starts once selected</string>
     <string name="qk_03634" formatted="false">Execute Shell Command</string>
@@ -3632,7 +3632,7 @@ Create a file or folder at top right</string>
     <string name="qk_03652" formatted="false">Execute commands in the self-developed sandbox terminal QuroTerm (ls/cd/cat/echo/grep/ps/top/netstat/ping/curl/wget/dns/</string>
     <string name="qk_03653" formatted="false">Memory Usage</string>
     <string name="qk_03654" formatted="false">Send HTTP request and return response</string>
-    <string name="qk_03655" formatted="false">Zorv AI はシステムのダイヤル画面を開くだけで、自動発信はしません。</string>
+    <string name="qk_03655" formatted="false">Echo AI はシステムのダイヤル画面を開くだけで、自動発信はしません。</string>
     <string name="qk_03656" formatted="false">UI解析失敗</string>
     <string name="qk_03657" formatted="false">📐 Background AIP layout synthesis: structured layout for full long documents / PPT / reports / mind maps.</string>
     <string name="qk_03658" formatted="false">AI controls the app’s built-in browser (takes over the currently displayed WebView; when the page is loaded you can directly see/operate content).</string>
@@ -3655,7 +3655,7 @@ Create a file or folder at top right</string>
     <string name="qk_03675" formatted="false">Control the ACI HTTP mock server (used when the real ACI API is not done yet).</string>
     <string name="qk_03676" formatted="false">GenUI の内容をレンダリングできません</string>
     <string name="qk_03677" formatted="false">Call a capability exposed by a third-party app via ACI (Agent Capability Interface) (e.g. send message / check unread / create group / open web / run web JS / initiate HTTP request / shared workspace read-write workspace_write·workspace_read·workspace_list·workspace_delete).</string>
-    <string name="qk_03678" formatted="false">Zorv AI はメールを保存しません。送信は選択したメールアプリで行われます。</string>
+    <string name="qk_03678" formatted="false">Echo AI はメールを保存しません。送信は選択したメールアプリで行われます。</string>
     <string name="qk_03679" formatted="false">Device admin permission</string>
     <string name="qk_03680" formatted="false">Launch app</string>
     <string name="qk_03681" formatted="false">AIが返したデータ形式が正しくありません。再試行するか説明を調整してください。</string>
@@ -3680,7 +3680,7 @@ Create a file or folder at top right</string>
     <string name="qk_03700" formatted="false">Open the web browser and navigate to the specified URL</string>
     <string name="qk_03701" formatted="false">Local Git version control integration: run git commands on the device-storage repo inside the proot container.</string>
     <string name="qk_03702" formatted="false">Already has privileged channel; can execute ADB shell directly in the terminal</string>
-    <string name="qk_03703" formatted="false">ZorvAI sandbox terminal</string>
+    <string name="qk_03703" formatted="false">Echo AI sandbox terminal</string>
     <string name="qk_03704" formatted="false">Terminal · Static HTTP service</string>
     <string name="qk_03705" formatted="false">HTML app</string>
     <string name="qk_03706" formatted="false">Enter…</string>
@@ -3693,7 +3693,7 @@ Create a file or folder at top right</string>
     <string name="qk_03713" formatted="false">ペット管理</string>
     <string name="qk_03714" formatted="false">」とそのすべての内容？</string>
     <string name="qk_03715" formatted="false">Manage terminal sessions with tmux inside the proot container (multi-pane / background tasks / keyboard send).</string>
-    <string name="qk_03716" formatted="false">Send the Enter key via the Zorv AI agent keyboard (submit/newline). Preconditions same as ai_type_text: enabled and switched to ’Zorv AI Keyboard’, and the target app’s input box is focused.</string>
+    <string name="qk_03716" formatted="false">Send the Enter key via the Echo AI agent keyboard (submit/newline). Preconditions same as ai_type_text: enabled and switched to ’Echo AI Keyboard’, and the target app’s input box is focused.</string>
     <string name="qk_03717" formatted="false">ツールチェーン</string>
     <string name="qk_03718" formatted="false">List available ACI capabilities</string>
     <string name="qk_03719" formatted="false">List CMS capability modules (old interface; cms_toolbox recommended)</string>
@@ -3706,11 +3706,11 @@ Create a file or folder at top right</string>
     <string name="qk_03726" formatted="false">音声ボールを有効にするには「オーバーレイ」権限が必要です</string>
     <string name="qk_03727" formatted="false">List workspace contents</string>
     <string name="qk_03728" formatted="false">生成中…</string>
-    <string name="qk_03729" formatted="false">先にシステム設定で ZorvAI のアクセシビリティサービスを有効にしてください</string>
-    <string name="qk_03730" formatted="false">Zorv AI scheduled-task due reminder</string>
+    <string name="qk_03729" formatted="false">先にシステム設定で Echo AI のアクセシビリティサービスを有効にしてください</string>
+    <string name="qk_03730" formatted="false">Echo AI scheduled-task due reminder</string>
     <string name="qk_03731" formatted="false">ツール呼び出しはありません</string>
     <string name="qk_03732" formatted="false">Terminal · Python runtime</string>
-    <string name="qk_03733" formatted="false">Connected to ZorvAI persona card / memory / tag system, sharing the same identity as the main chat; no separate setup needed here</string>
+    <string name="qk_03733" formatted="false">Connected to Echo AI persona card / memory / tag system, sharing the same identity as the main chat; no separate setup needed here</string>
     <string name="qk_03734" formatted="false">Scroll the scrollable container (list/page) on the current screen.</string>
     <string name="qk_03735" formatted="false">アイデンティティとモデル</string>
     <string name="qk_03736" formatted="false">Multi-format document creation (md/txt/csv/json/html, 17 types)</string>
@@ -3762,7 +3762,7 @@ Create a file or folder at top right</string>
     <string name="qk_03781" formatted="false">詳細設定：カスタムキーを設定済み</string>
     <string name="qk_03782" formatted="false">詳細設定：カスタム接続先とキーを設定済み</string>
     <string name="qk_03783" formatted="false">（ペットをなでた）</string>
-    <string name="qk_03784" formatted="false">ZorvAI に従う</string>
+    <string name="qk_03784" formatted="false">Echo AI に従う</string>
     <string name="qk_03785" formatted="false">思考パネル</string>
     <string name="qk_03786" formatted="false">推論プロセスを表示</string>
     <string name="qk_03787" formatted="false">設定センター</string>
@@ -3783,7 +3783,7 @@ Create a file or folder at top right</string>
     <string name="qk_03802" formatted="false">音楽を一曲おすすめして</string>
     <string name="qk_03803" formatted="false">今日の運勢</string>
     <string name="qk_03804" formatted="false">おやすみを言う</string>
-    <string name="qk_03805">ペルソナ：%1$s · モデル：%2$s（ZorvAI 本体の設定で一元管理）</string>
+    <string name="qk_03805">ペルソナ：%1$s · モデル：%2$s（Echo AI 本体の設定で一元管理）</string>
     <string name="qk_03806">画面記録 %1$s 件 · タップで再生とやり取りを表示</string>
     <string name="qk_03807" formatted="false">JSON の解析に失敗：項目が不完全です</string>
     <string name="qk_03808" formatted="false">ファイルを読み込めません</string>
@@ -3807,7 +3807,7 @@ Create a file or folder at top right</string>
     <string name="qk_03826">⚠️ 音声ボールでエラー：%1$s</string>
     <string name="qk_03827">ペルソナ孵化に失敗：%1$s</string>
     <string name="qk_03828">ペルソナの自動孵化に失敗：%1$s</string>
-    <string name="qk_03829" formatted="false">こんにちは、Zorv AI です。準備完了、チャットもツールも使えます。左上のメニューで履歴、＋ で新しい会話を開始できます。</string>
+    <string name="qk_03829" formatted="false">こんにちは、Echo AI です。準備完了、チャットもツールも使えます。左上のメニューで履歴、＋ で新しい会話を開始できます。</string>
     <string name="qk_03830" formatted="false">情報</string>
     <string name="qk_03831" formatted="false">機能</string>
     <string name="qk_03832" formatted="false">データ</string>
@@ -3871,7 +3871,7 @@ Create a file or folder at top right</string>
     <string name="qk_03890" formatted="false">インカメラに切り替えました</string>
     <string name="qk_03891" formatted="false">アウトカメラに切り替えました</string>
     <string name="qk_03892" formatted="false">カメラ権限がないため音声のみで動作します</string>
-    <string name="qk_03893" formatted="false">ZorvAI ビデオ通話</string>
+    <string name="qk_03893" formatted="false">Echo AI ビデオ通話</string>
     <string name="qk_03894" formatted="false">通話の切り替え</string>
     <string name="qk_03895" formatted="false">チャット</string>
     <string name="qk_03896" formatted="false">マイク</string>

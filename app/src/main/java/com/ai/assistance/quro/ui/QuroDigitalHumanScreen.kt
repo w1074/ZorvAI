@@ -634,9 +634,9 @@ private fun GLBAvatarView(modelFile: File?, mouthOpen: Float, phase: String) {
                 "error" -> "angry"
                 else -> "neutral"
             }
-            webView.evaluateJavascript("window.Zorv3D.setEmotion('$emo')", null)
+            webView.evaluateJavascript("window.Echo3D.setEmotion('$emo')", null)
             val mouth = if (phase == "speaking") mouthOpen.coerceIn(0f, 1f) else 0f
-            webView.evaluateJavascript("window.Zorv3D.setMouth($mouth)", null)
+            webView.evaluateJavascript("window.Echo3D.setMouth($mouth)", null)
         }
         AndroidView(
             // 填满外层头像框（自定义 GLB 用 300dp），不再锁死 220dp 也不做圆角裁剪，避免头部被固定小框裁掉。
@@ -831,7 +831,7 @@ function boot(){
 if(document.readyState==='complete'||document.readyState==='interactive'){setTimeout(boot,0);}else{window.addEventListener('DOMContentLoaded',boot);}
 
 // 情绪驱动接口
-window.Zorv3D = {
+window.Echo3D = {
   setEmotion: function(emotion) {
     if (!model) return;
     model.traverse(function(o) {

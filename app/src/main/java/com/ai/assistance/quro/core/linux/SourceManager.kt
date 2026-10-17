@@ -7,7 +7,7 @@ import org.json.JSONObject
 
 /**
  * 镜像源管理器
- * 为 ZorvAI 提供镜像源管理功能，支持 APT、Pip、NPM、Rust 包管理器
+ * 为 Echo AI 提供镜像源管理功能，支持 APT、Pip、NPM、Rust 包管理器
  */
 class SourceManager(context: Context) {
 
@@ -183,7 +183,7 @@ class SourceManager(context: Context) {
         return """
         change_ubuntu_source(){
           cat <<'EOF' > ${'$'}UBUNTU_PATH/etc/apt/sources.list
-# From ZorvAI Settings - ${source.name}
+# From Echo AI Settings - ${source.name}
 deb ${sourceUrl} noble main restricted universe multiverse
 deb ${sourceUrl} noble-updates main restricted universe multiverse
 deb ${sourceUrl} noble-backports main restricted universe multiverse

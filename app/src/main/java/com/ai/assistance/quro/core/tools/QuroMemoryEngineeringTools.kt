@@ -10,7 +10,7 @@ import java.util.UUID
 
 /**
  * 记忆系统工程化工具集（对应「其他 AI」记忆系统的分层架构）。
- * 补齐 ZorvAI 仅有 memory_* + RAG、缺乏的「多空间 + 重建 + 自动保存候选 + 窗口规划 + 导入导出」体系。
+ * 补齐 Echo AI 仅有 memory_* + RAG、缺乏的「多空间 + 重建 + 自动保存候选 + 窗口规划 + 导入导出」体系。
  * 全部基于现有 QuroMemoryRepository（filesDir/quro_memory.json），无第三方依赖。
  *
  * - memory_space      多空间（MemorySpace）：default + 自定义命名空间，各自独立 JSON 文件。

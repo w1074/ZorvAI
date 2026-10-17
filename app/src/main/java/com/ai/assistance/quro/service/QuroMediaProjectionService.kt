@@ -102,7 +102,7 @@ class QuroMediaProjectionService : Service() {
     private fun buildNotification(): Notification {
         val nm = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         val chan = NotificationChannel(
-            CHANNEL_ID, "ZorvAI 屏幕捕获", NotificationManager.IMPORTANCE_LOW,
+            CHANNEL_ID, "Echo AI 屏幕捕获", NotificationManager.IMPORTANCE_LOW,
         )
         nm.createNotificationChannel(chan)
         val contentIntent = Intent(this, QuroMainActivity::class.java)
@@ -111,7 +111,7 @@ class QuroMediaProjectionService : Service() {
             PendingIntent.FLAG_IMMUTABLE,
         )
         return NotificationCompat.Builder(this, CHANNEL_ID)
-            .setContentTitle("Zorv AI")
+            .setContentTitle("Echo AI")
             .setContentText("屏幕捕获进行中")
             .setSmallIcon(android.R.drawable.ic_menu_camera)
             .setContentIntent(pi)

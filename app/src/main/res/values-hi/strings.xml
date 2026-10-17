@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Zorv AI</string>
-    <string name="quro_accessibility_desc">Zorv AI एक्सेसिबिलिटी सेवा: UI ऑटोमेशन और स्क्रीन सामग्री पढ़ने जैसी उन्नत क्षमताओं के लिए उपयोग। यह संस्करण केवल अनुमति घोषणा करता है, कोई निजी डेटा एकत्र नहीं करता।</string>
-    <string name="quro_device_admin_label">Zorv AI डिवाइस व्यवस्थापक</string>
+    <string name="app_name">Echo AI</string>
+    <string name="quro_accessibility_desc">Echo AI एक्सेसिबिलिटी सेवा: UI ऑटोमेशन और स्क्रीन सामग्री पढ़ने जैसी उन्नत क्षमताओं के लिए उपयोग। यह संस्करण केवल अनुमति घोषणा करता है, कोई निजी डेटा एकत्र नहीं करता।</string>
+    <string name="quro_device_admin_label">Echo AI डिवाइस व्यवस्थापक</string>
     <string name="quro_device_admin_desc">केवल दो कार्यों के लिए: स्क्रीन लॉक, कैमरा अक्षम या पुनर्स्थापित करें। डेटा हटाता नहीं, लॉक स्क्रीन पासवर्ड नहीं बदलता।</string>
-    <string name="ime_label">Zorv AI कीबोर्ड</string>
+    <string name="ime_label">Echo AI कीबोर्ड</string>
     <string name="sc_voice_short">वॉयस बॉल</string>
     <string name="sc_voice_long">फ़्लोटिंग वॉयस बॉल खोलें</string>
     <string name="sc_voice_disabled">वॉयस बॉल अक्षम</string>
@@ -12,7 +12,7 @@
     <string name="sc_chat_long">सीधे चैट खोलें</string>
     <string name="sc_chat_disabled">चैट अक्षम</string>
     <string name="sc_browser_short">ब्राउज़र कंसोल</string>
-    <string name="sc_browser_long">ZorvAI ब्राउज़र कंसोल</string>
+    <string name="sc_browser_long">Echo AI ब्राउज़र कंसोल</string>
     <string name="sc_browser_disabled">ब्राउज़र कंसोल अक्षम</string>
     <string name="settings_appearance">दिखावट और बातचीत</string>
     <string name="appearance_group_appearance">दिखावट</string>

@@ -46,7 +46,7 @@ class FluidCloudTool(private val appContext: Context) : QuroTool {
         return try {
             val args = JSONObject(arguments)
             val action = args.optString("action", "")
-            val title = args.optString("title", "ZorvAI 任务")
+            val title = args.optString("title", "Echo AI 任务")
             val step = args.optString("step", qstr(R.string.qk_00954))
             val progress = args.optInt("progress", 0)
 

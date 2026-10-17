@@ -75,7 +75,7 @@ object QuroHuggingFace {
         conn.requestMethod = "GET"
         conn.connectTimeout = 4000
         conn.readTimeout = 4000
-        conn.setRequestProperty("User-Agent", "ZorvAI")
+        conn.setRequestProperty("User-Agent", "Echo AI")
         conn.instanceFollowRedirects = true
         val code = conn.responseCode
         conn.disconnect()
@@ -125,7 +125,7 @@ object QuroHuggingFace {
             val conn = (URL(url).openConnection() as HttpURLConnection)
             conn.requestMethod = "GET"
             conn.setRequestProperty("Accept", accept)
-            conn.setRequestProperty("User-Agent", "ZorvAI")
+            conn.setRequestProperty("User-Agent", "Echo AI")
             conn.connectTimeout = 15000
             conn.readTimeout = 25000
             val code = conn.responseCode
@@ -272,7 +272,7 @@ object QuroHuggingFace {
             val conn = (URL(url).openConnection() as HttpURLConnection)
             conn.requestMethod = "GET"
             conn.setRequestProperty("Accept", "application/json")
-            conn.setRequestProperty("User-Agent", "ZorvAI")
+            conn.setRequestProperty("User-Agent", "Echo AI")
             conn.connectTimeout = 15000
             conn.readTimeout = 25000
             val code = conn.responseCode
@@ -292,7 +292,7 @@ object QuroHuggingFace {
             conn.requestMethod = "PUT"
             conn.setRequestProperty("Accept", "application/json")
             conn.setRequestProperty("Content-Type", "application/json")
-            conn.setRequestProperty("User-Agent", "ZorvAI")
+            conn.setRequestProperty("User-Agent", "Echo AI")
             conn.connectTimeout = 15000
             conn.readTimeout = 25000
             conn.doOutput = true
@@ -382,7 +382,7 @@ object QuroHuggingFace {
             val url = MS_RESOLVE_TMPL.replace("{id}", repoId) + rel
             val target = File(destDir, rel)
             target.parentFile?.mkdirs()
-            val r = QuroDownloadUtil.downloadToFile(url, target, "ZorvAI/1.0") { _, _ -> }
+            val r = QuroDownloadUtil.downloadToFile(url, target, "Echo AI/1.0") { _, _ -> }
             if (!r.startsWith("OK")) return@withContext "下载失败：$rel -> $r"
             done++
             onProgress(done.toFloat() / total)
@@ -416,7 +416,7 @@ object QuroHuggingFace {
         var lastErr = "下载失败：$fileName"
         for (mirror in fileMirrorOrder()) {
             val url = mirror + path
-            val r = QuroDownloadUtil.downloadToFile(url, target, "ZorvAI/1.0") { d, t ->
+            val r = QuroDownloadUtil.downloadToFile(url, target, "Echo AI/1.0") { d, t ->
                 onProgress(if (t > 0) (d.toFloat() / t).coerceIn(0f, 1f) else 0f)
             }
             if (r.startsWith("OK")) return@withContext r

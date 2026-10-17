@@ -528,7 +528,7 @@ private fun ToolboxHome(
         ToolItem(Icons.Filled.MusicNote, stringResource(R.string.qk_02262), stringResource(R.string.qk_02718), onOpenMusic),
         ToolItem(Icons.Filled.Movie, stringResource(R.string.qk_02719), stringResource(R.string.qk_02720), { onOpenVideo("", "") }),
         ToolItem(Icons.Filled.Keyboard, stringResource(R.string.qk_02721), stringResource(R.string.qk_02722), onClick = {
-            // 打开系统输入法设置页，引导用户启用 Zorv AI 键盘
+            // 打开系统输入法设置页，引导用户启用 Echo AI 键盘
             try {
                 ctx.startActivity(android.content.Intent("android.settings.INPUT_METHOD_SETTINGS"))
             } catch (_: Exception) {

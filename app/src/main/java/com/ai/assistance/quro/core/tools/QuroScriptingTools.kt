@@ -238,7 +238,7 @@ class ProjectCreateTool : QuroTool {
 
         // README 追加运行说明
         val readme = File(dst, "README.md")
-        val runHint = "\n\n---\n> 由 ZorvAI 项目模板创建（模板：$template）。JS/TS 文件可用 code_runner 运行（带 Tools.* 宿主 API）。\n"
+        val runHint = "\n\n---\n> 由 Echo AI 项目模板创建（模板：$template）。JS/TS 文件可用 code_runner 运行（带 Tools.* 宿主 API）。\n"
         runCatching { readme.appendText(runHint) }
 
         return buildString {

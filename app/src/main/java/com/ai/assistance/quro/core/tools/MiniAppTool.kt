@@ -592,7 +592,7 @@ Page({
 <style>body{font-family:system-ui,sans-serif;padding:24px}</style></head>
 <body>
 <h2>关于</h2>
-<p>ZorvAI Web 应用 · 完整移植自 MiniAppFramework。</p>
+<p>Echo AI Web 应用 · 完整移植自 MiniAppFramework。</p>
 <button onclick="native.router.navigateBack()">返回</button>
 </body>
 </html>""",

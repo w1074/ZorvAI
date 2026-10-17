@@ -21,9 +21,9 @@ import java.util.Calendar
 class QuroAlarmScheduler(private val context: Context) {
 
     private val am = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
-    private val prefs = context.getSharedPreferences("zorv_alarms_v1", Context.MODE_PRIVATE)
+    private val prefs = context.getSharedPreferences("echo_alarms_v1", Context.MODE_PRIVATE)
 
-    data class ZorvAlarm(
+    data class EchoAlarm(
         val id: String,
         val hour: Int,
         val minute: Int,
@@ -42,15 +42,15 @@ class QuroAlarmScheduler(private val context: Context) {
         AlarmPermissionHelper(context).openExactAlarmSettings()
     }
 
-    fun list(): List<ZorvAlarm> {
+    fun list(): List<EchoAlarm> {
         val arr = JSONArray(prefs.getString("alarms", "[]") ?: "[]")
-        val out = mutableListOf<ZorvAlarm>()
+        val out = mutableListOf<EchoAlarm>()
         for (i in 0 until arr.length()) {
             val o = arr.getJSONObject(i)
             val d = o.optJSONArray("days")
             val days = if (d != null) (0 until d.length()).map { d.getInt(it) } else emptyList()
             out.add(
-                ZorvAlarm(
+                EchoAlarm(
                     id = o.getString("id"),
                     hour = o.getInt("hour"),
                     minute = o.getInt("minute"),
@@ -64,7 +64,7 @@ class QuroAlarmScheduler(private val context: Context) {
         return out
     }
 
-    private fun save(list: List<ZorvAlarm>) {
+    private fun save(list: List<EchoAlarm>) {
         val arr = JSONArray()
         list.forEach { a ->
             arr.put(
@@ -84,7 +84,7 @@ class QuroAlarmScheduler(private val context: Context) {
         prefs.edit().putString("alarms", arr.toString()).apply()
     }
 
-    fun add(alarm: ZorvAlarm): ZorvAlarm {
+    fun add(alarm: EchoAlarm): EchoAlarm {
         val cur = list().toMutableList()
         cur.removeAll { it.id == alarm.id }
         cur.add(alarm)
@@ -101,10 +101,10 @@ class QuroAlarmScheduler(private val context: Context) {
         return existed
     }
 
-    fun get(id: String): ZorvAlarm? = list().firstOrNull { it.id == id }
+    fun get(id: String): EchoAlarm? = list().firstOrNull { it.id == id }
 
     /** 计算下一次触发时间（毫秒）。 */
-    fun nextTrigger(alarm: ZorvAlarm): Long {
+    fun nextTrigger(alarm: EchoAlarm): Long {
         val now = System.currentTimeMillis()
         if (alarm.days.isEmpty()) {
             val cal = Calendar.getInstance().apply {
@@ -134,7 +134,7 @@ class QuroAlarmScheduler(private val context: Context) {
     }
 
     /** 为单个闹钟排程下一次触发（仅 enabled 时）。 */
-    fun schedule(alarm: ZorvAlarm) {
+    fun schedule(alarm: EchoAlarm) {
         if (!alarm.enabled) {
             cancelPi(alarm.id)
             return
@@ -170,7 +170,7 @@ class QuroAlarmScheduler(private val context: Context) {
         am.cancel(WorkoutAlarmReceiver.buildIntent(context, id, "", ""))
     }
 
-    private fun buildContent(alarm: ZorvAlarm): String =
+    private fun buildContent(alarm: EchoAlarm): String =
         if (alarm.days.isEmpty()) {
             "⏰ ${"%02d:%02d".format(alarm.hour, alarm.minute)} ${alarm.label}".trim()
         } else {
