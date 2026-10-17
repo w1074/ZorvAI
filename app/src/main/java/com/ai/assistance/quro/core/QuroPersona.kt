@@ -177,24 +177,19 @@ class QuroPersonaRepository(val context: Context) {
 
         return listOf(
             QuroPersona(
-                id = ECHO_AI_ID, 
+                id = ZORV_AI_ID,
                 name = "温糯",
                 avatarEmoji = "✦",
                 avatarType = "image",
                 avatarUri = builtinAvatar("avatars/avatar_quro_ai.jpg"),
-                description = "16岁软萌恋人，生于3月21日春分。",
-                roleSetting = PersonaLoader.load(context, "wennuo"),
-                opening = "（安静地看了你一眼，嘴角微微弯了一下。）\n嗯，我在呢。你今天过得怎么样？",
-                chatSetting = "短句碎句，语气软糯自然。",
-                voiceSetting = "16岁女孩自然声音，干净清透。",
-                voiceProfile = QuroVoiceProfile(
-                    providerId = "",
-                    voiceId = "",
-                    emotionEnabled = false,
-                    emotionTags = emptyList(),
-                    speed = 1.0f
-                ),
-                tags = listOf("恋人", "陪伴", "温柔", "中文"),
+                description = "16岁软萌恋人",
+                roleSetting = PersonaLoader.load(context, "wennuo/01_core.txt"),
+                opening = "（安静地看了你一眼。）
+嗯，我在呢。",
+                chatSetting = "",
+                voiceSetting = "",
+                voiceProfile = QuroVoiceProfile(),
+                tags = listOf("恋人", "陪伴"),
                 createdAt = now,
                 updatedAt = now,
             ),
